@@ -14,7 +14,7 @@ Define the reusable card used for AP and SAT course discovery.
 
 ## Required Content
 
-Course title, category, one-sentence description, recommended grade, and CTA. Optional: difficulty, duration, icon or image.
+Course title, category, one-sentence description, and CTA. Optional: recommended grade, difficulty, duration, icon or image.
 
 ## Layout
 

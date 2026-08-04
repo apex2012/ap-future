@@ -1,6 +1,6 @@
 import { type ReactNode, useState, useId } from 'react';
 import { ChevronDown } from 'lucide-react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
 
 export interface FAQItem {
   question: string;
@@ -14,6 +14,7 @@ export interface FAQAccordionProps {
 
 export function FAQAccordion({ items, allowMultiple = false }: FAQAccordionProps) {
   const [openIndices, setOpenIndices] = useState<number[]>([]);
+  const prefersReducedMotion = useReducedMotion();
 
   const toggle = (index: number) => {
     setOpenIndices((prev) => {
@@ -62,10 +63,10 @@ export function FAQAccordion({ items, allowMultiple = false }: FAQAccordionProps
                   id={panelId}
                   role="region"
                   aria-labelledby={buttonId}
-                  initial={{ height: 0, opacity: 0 }}
+                  initial={prefersReducedMotion ? false : { height: 0, opacity: 0 }}
                   animate={{ height: 'auto', opacity: 1 }}
-                  exit={{ height: 0, opacity: 0 }}
-                  transition={{ duration: 0.2, ease: 'easeOut' }}
+                  exit={prefersReducedMotion ? undefined : { height: 0, opacity: 0 }}
+                  transition={{ duration: prefersReducedMotion ? 0 : 0.2, ease: 'easeOut' }}
                   className="overflow-hidden"
                 >
                   <div className="px-6 pb-5 text-sm leading-relaxed text-neutral-600">

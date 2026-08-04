@@ -14,6 +14,8 @@ export interface HeroImage {
   alt: string;
   width: number;
   height: number;
+  srcSet?: string;
+  sizes?: string;
 }
 
 export interface HeroProps {
@@ -58,6 +60,8 @@ function HeroImageBlock({ image }: { image: HeroImage }) {
         width={image.width}
         height={image.height}
         loading="eager"
+        srcSet={image.srcSet}
+        sizes={image.sizes ?? '(min-width: 1024px) 45vw, 100vw'}
         className="h-full w-full object-cover"
       />
     </div>
@@ -98,7 +102,7 @@ export function Hero({
               </motion.p>
             )}
             <motion.h1
-              className="text-4xl font-bold leading-tight tracking-tight text-neutral-900 sm:text-5xl lg:text-6xl"
+              className="text-[40px] font-bold leading-tight tracking-tight text-neutral-900 sm:text-5xl lg:text-6xl"
               variants={fadeUp}
             >
               {title}
@@ -142,7 +146,7 @@ export function Hero({
               </motion.p>
             )}
             <motion.h1
-              className="text-3xl font-bold leading-tight tracking-tight text-neutral-900 sm:text-4xl lg:text-5xl"
+              className="text-[40px] font-bold leading-tight tracking-tight text-neutral-900 sm:text-[44px] lg:text-5xl"
               variants={fadeUp}
             >
               {title}
@@ -183,7 +187,7 @@ export function Hero({
             </motion.p>
           )}
           <motion.h1
-            className="text-4xl font-bold leading-tight tracking-tight text-neutral-900 sm:text-5xl lg:text-6xl"
+            className="text-[40px] font-bold leading-tight tracking-tight text-neutral-900 sm:text-5xl lg:text-6xl"
             variants={fadeUp}
           >
             {title}
