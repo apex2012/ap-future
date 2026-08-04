@@ -1,4 +1,4 @@
-import { BookOpen, Calculator, Atom, Landmark, Brain, Globe as Globe2, Cpu, Briefcase, Users, HeartPulse, ChartBar, ClipboardList } from 'lucide-react';
+import { Calculator, Atom, Landmark, Brain, Globe as Globe2, Cpu, Briefcase, Users, ChartBar } from 'lucide-react';
 import { Hero } from '@/components/ui/Hero';
 import { CourseCard } from '@/components/ui/CourseCard';
 import { FeatureGrid } from '@/components/ui/FeatureGrid';
@@ -43,13 +43,6 @@ const pathways = [
   { title: 'Computer Science', description: 'Calculus AB, Statistics, and Physics C develop the analytical thinking needed for CS programs.', icon: <Cpu size={22} />, href: '/ap' },
   { title: 'Business', description: 'Microeconomics, Macroeconomics, Statistics, and Calculus AB build a competitive business profile.', icon: <Briefcase size={22} />, href: '/ap' },
   { title: 'Social Sciences', description: 'Psychology, Human Geography, Comparative Government, and Macroeconomics prepare future social scientists.', icon: <Users size={22} />, href: '/ap' },
-];
-
-const learningOutcomes = [
-  { title: 'Conceptual Mastery', description: 'Build deep understanding before memorization so knowledge transfers to new problems.', icon: <BookOpen size={22} /> },
-  { title: 'Analytical Thinking', description: 'Develop the reasoning skills needed to break down complex, multi-step problems.', icon: <Brain size={22} /> },
-  { title: 'Exam Readiness', description: 'Practice with real AP-style questions and timed mock exams throughout the year.', icon: <ClipboardList size={20} /> },
-  { title: 'Academic Confidence', description: 'Grow into an independent learner prepared for the demands of university coursework.', icon: <HeartPulse size={22} /> },
 ];
 
 const faqItems = [
@@ -118,9 +111,9 @@ export function APPage() {
       <div className="-mt-6 lg:-mt-10">
         <Hero
           variant="split"
-          eyebrow="AP Courses"
-          title="Master AP Subjects with Expert Guidance."
-          description="College-level instruction across Mathematics, Physics, and Social Sciences, designed to build deep understanding and competitive university applications."
+          eyebrow="Advanced Placement"
+          title="Choose the Right AP Courses for Your Goals."
+          description="Thirteen college-level AP courses across Mathematics, Physics, and Social Sciences, with guided pathways to help students build a competitive university application."
           actions={[
             { label: 'Book a Consultation', href: '/book-a-consultation', variant: 'primary' },
             { label: 'Explore Pathways', href: '#pathways', variant: 'secondary' },
@@ -180,24 +173,6 @@ export function APPage() {
             </p>
           </div>
           <FeatureGrid items={pathways} columns={4} />
-        </PageContainer>
-      </section>
-
-      <section className="py-16 sm:py-20" aria-labelledby="outcomes-heading">
-        <PageContainer>
-          <div className="mb-10 max-w-2xl">
-            <p className="mb-3 text-sm font-semibold uppercase tracking-wider text-primary-600">
-              Learning Outcomes
-            </p>
-            <h2 id="outcomes-heading" className="text-2xl font-semibold leading-tight text-neutral-900 sm:text-3xl">
-              What students gain from AP Future
-            </h2>
-            <p className="mt-4 text-base leading-relaxed text-neutral-600">
-              Beyond exam scores, our courses develop the skills and habits that prepare students for university
-              and beyond.
-            </p>
-          </div>
-          <FeatureGrid items={learningOutcomes} columns={4} />
         </PageContainer>
       </section>
 
