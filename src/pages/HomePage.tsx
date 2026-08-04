@@ -81,6 +81,7 @@ const whyItems = [
 export function HomePage() {
   return (
     <>
+      <div className="-mt-6 lg:-mt-10">
       <Hero
         variant="split"
         eyebrow="University Admissions"
@@ -92,6 +93,7 @@ export function HomePage() {
         ]}
         image={heroImage}
       />
+      </div>
 
       <section className="py-16 sm:py-20" aria-labelledby="programs-heading">
         <PageContainer>
