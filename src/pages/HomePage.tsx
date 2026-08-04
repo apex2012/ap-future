@@ -1,7 +1,17 @@
-import { BookOpen, ClipboardList, GraduationCap, Library, Users, ShieldCheck, Globe as Globe2, Sparkles } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
+import {
+  BookOpen,
+  ClipboardList,
+  GraduationCap,
+  Library,
+  ArrowRight,
+  ShieldCheck,
+  Users,
+  Globe as Globe2,
+  Sparkles,
+} from 'lucide-react';
 import { Hero } from '@/components/ui/Hero';
-import { CourseCard } from '@/components/ui/CourseCard';
-import { FeatureGrid } from '@/components/ui/FeatureGrid';
 import { CTA } from '@/components/ui/CTA';
 import { PageContainer } from '@/components/ui/PageContainer';
 
@@ -15,121 +25,209 @@ const heroImage = {
   sizes: '(min-width: 1024px) 45vw, 100vw',
 };
 
-const programs = [
+const services = [
   {
     title: 'AP Courses',
-    category: 'Advanced Placement',
-    description: 'Expert-led instruction across AP subjects, built for deep mastery and exam success.',
+    description:
+      'Thirteen college-level courses across Mathematics, Physics, and Social Sciences, with guided pathways for each university major.',
     href: '/ap',
-    icon: <BookOpen size={20} />,
-    recommendedGrade: 'Grades 9–12',
-    difficulty: 'Advanced',
-    duration: 'Full year',
+    icon: <BookOpen size={24} />,
   },
   {
     title: 'Digital SAT Preparation',
-    category: 'Test Preparation',
-    description: 'Structured Digital SAT prep with adaptive practice and proven score-raising strategies.',
+    description:
+      'Structured preparation for the Digital SAT with adaptive practice, proven strategies, and timed mock exams.',
     href: '/sat',
-    icon: <ClipboardList size={20} />,
-    recommendedGrade: 'Grades 10–12',
-    difficulty: 'Intermediate',
-    duration: '12–16 weeks',
+    icon: <ClipboardList size={24} />,
   },
   {
     title: 'University Planning',
-    category: 'Admissions',
-    description: 'Strategic university planning from school selection to application and essay support.',
+    description:
+      'Strategic planning from school selection through application and essay support, tailored to each student\u2019s goals.',
     href: '/university-planning',
-    icon: <GraduationCap size={20} />,
-    recommendedGrade: 'Grades 9–12',
-    difficulty: 'All levels',
-    duration: 'Ongoing',
+    icon: <GraduationCap size={24} />,
   },
   {
     title: 'Resources',
-    category: 'Learning Library',
-    description: 'Guides, templates, and research materials to support every stage of your academic journey.',
+    description:
+      'Guides, templates, and research materials to support every stage of the academic journey.',
     href: '/resources',
-    icon: <Library size={20} />,
+    icon: <Library size={24} />,
   },
 ];
 
-const whyItems = [
+const trustPillars = [
   {
     title: 'Expert Instructors',
-    description: 'Learn from experienced educators who understand international curricula and university expectations.',
+    description:
+      'Experienced educators who understand international curricula and university expectations.',
     icon: <Users size={22} />,
   },
   {
-    title: 'Proven Results',
-    description: 'Structured programs designed for measurable progress, from AP scores to SAT improvements.',
+    title: 'Proven Approach',
+    description:
+      'Structured programs designed for measurable progress, from AP scores to SAT improvements.',
     icon: <ShieldCheck size={22} />,
   },
   {
     title: 'Global Perspective',
-    description: 'Curriculum and guidance built for students applying to universities worldwide.',
+    description:
+      'Curriculum and guidance built for students applying to universities worldwide.',
     icon: <Globe2 size={22} />,
   },
   {
     title: 'Personalized Guidance',
-    description: 'Every student receives a plan tailored to their goals, timeline, and target universities.',
+    description:
+      'Every student receives a plan tailored to their goals, timeline, and target universities.',
     icon: <Sparkles size={22} />,
   },
 ];
+
+const fadeUp = {
+  initial: { opacity: 0, y: 16 },
+  animate: { opacity: 1, y: 0 },
+  transition: { duration: 0.4, ease: 'easeOut' as const },
+};
 
 export function HomePage() {
   return (
     <>
       <div className="-mt-6 lg:-mt-10">
-      <Hero
-        variant="split"
-        eyebrow="University Admissions"
-        title="Prepare for University with Confidence."
-        description="Expert AP instruction, structured Digital SAT preparation, strategic university planning, and educational resources designed for long-term student success."
-        actions={[
-          { label: 'Book a Consultation', href: '/book-a-consultation', variant: 'primary' },
-          { label: 'Explore Programs', href: '/ap', variant: 'secondary' },
-        ]}
-        image={heroImage}
-      />
+        <Hero
+          variant="split"
+          eyebrow="University Admissions"
+          title="Prepare for University with Confidence."
+          description="Expert AP instruction, structured Digital SAT preparation, strategic university planning, and educational resources designed for long-term student success."
+          actions={[
+            { label: 'Book a Consultation', href: '/book-a-consultation', variant: 'primary' },
+            { label: 'Explore Programs', href: '/ap', variant: 'secondary' },
+          ]}
+          image={heroImage}
+        />
       </div>
 
-      <section className="py-16 sm:py-20" aria-labelledby="programs-heading">
-        <PageContainer>
-          <div className="mb-10 max-w-2xl">
-            <p className="mb-3 text-sm font-semibold uppercase tracking-wider text-primary-600">
-              Programs
-            </p>
-            <h2 id="programs-heading" className="text-2xl font-semibold leading-tight text-neutral-900 sm:text-3xl">
-              Four pathways to university success
-            </h2>
-            <p className="mt-4 text-base leading-relaxed text-neutral-600">
-              Each program is designed to build mastery, confidence, and a competitive edge for university applications.
-            </p>
+      {/* Who We Are — narrative intro, not a card grid */}
+      <section className="py-16 sm:py-20" aria-labelledby="intro-heading">
+        <PageContainer width="wide">
+          <div className="mx-auto max-w-3xl text-center">
+            <motion.p
+              className="mb-4 text-sm font-semibold uppercase tracking-wider text-primary-600"
+              {...fadeUp}
+            >
+              Who We Are
+            </motion.p>
+            <motion.h2
+              id="intro-heading"
+              className="text-2xl font-semibold leading-tight text-neutral-900 sm:text-3xl"
+              {...fadeUp}
+            >
+              An education company built for international university admissions.
+            </motion.h2>
+            <motion.p
+              className="mt-6 text-lg leading-relaxed text-neutral-600"
+              {...fadeUp}
+            >
+              AP Future integrates AP instruction, SAT preparation, university planning, and learning resources
+              into a single platform. We help students build academic knowledge, learning skills, and the
+              confidence needed for university success and lifelong learning.
+            </motion.p>
+            <motion.div className="mt-8" {...fadeUp}>
+              <Link
+                to="/about"
+                className="inline-flex items-center gap-1.5 text-sm font-medium text-primary-600 hover:text-primary-700"
+              >
+                Learn more about our story
+                <ArrowRight size={14} className="transition-transform duration-200 group-hover:translate-x-0.5" />
+              </Link>
+            </motion.div>
           </div>
-          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {programs.map((program) => (
-              <CourseCard key={program.title} {...program} />
+        </PageContainer>
+      </section>
+
+      {/* Services — alternating rows, not a uniform card grid */}
+      <section className="bg-neutral-50 py-16 sm:py-20" aria-labelledby="services-heading">
+        <PageContainer width="wide">
+          <div className="mb-12 max-w-2xl">
+            <p className="mb-3 text-sm font-semibold uppercase tracking-wider text-primary-600">
+              What We Do
+            </p>
+            <h2 id="services-heading" className="text-2xl font-semibold leading-tight text-neutral-900 sm:text-3xl">
+              Four programs, one connected path to university
+            </h2>
+          </div>
+
+          <div className="space-y-0 divide-y divide-neutral-200">
+            {services.map((service) => (
+              <motion.div
+                key={service.title}
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: '-80px' }}
+                transition={{ duration: 0.4, ease: 'easeOut' }}
+                className="group flex flex-col gap-6 py-8 sm:flex-row sm:items-center sm:gap-10"
+              >
+                <div className="flex flex-shrink-0 items-center gap-4 sm:w-72">
+                  <span className="flex h-14 w-14 items-center justify-center rounded-xl bg-white text-primary-600 shadow-sm transition-colors duration-200 group-hover:bg-primary-50">
+                    {service.icon}
+                  </span>
+                  <h3 className="text-xl font-semibold leading-snug text-neutral-900">
+                    {service.title}
+                  </h3>
+                </div>
+                <p className="flex-1 text-base leading-relaxed text-neutral-600">
+                  {service.description}
+                </p>
+                <Link
+                  to={service.href}
+                  className="inline-flex flex-shrink-0 items-center gap-1.5 self-start rounded-lg border border-neutral-300 px-5 py-2.5 text-sm font-medium text-neutral-700 transition-colors duration-200 hover:border-primary-300 hover:text-primary-600 sm:self-center"
+                >
+                  Explore
+                  <ArrowRight size={14} className="transition-transform duration-200 group-hover:translate-x-0.5" />
+                </Link>
+              </motion.div>
             ))}
           </div>
         </PageContainer>
       </section>
 
-      <section className="bg-neutral-50 py-16 sm:py-20" aria-labelledby="why-heading">
-        <PageContainer>
-          <div className="mb-10 max-w-2xl">
+      {/* Why Trust Us — stat-free, principle-led */}
+      <section className="py-16 sm:py-20" aria-labelledby="trust-heading">
+        <PageContainer width="wide">
+          <div className="mx-auto max-w-3xl text-center">
             <p className="mb-3 text-sm font-semibold uppercase tracking-wider text-primary-600">
-              Why AP Future
+              Why Families Trust AP Future
             </p>
-            <h2 id="why-heading" className="text-2xl font-semibold leading-tight text-neutral-900 sm:text-3xl">
-              Built for long-term student success
+            <h2 id="trust-heading" className="text-2xl font-semibold leading-tight text-neutral-900 sm:text-3xl">
+              Education first, trust first
             </h2>
-            <p className="mt-4 text-base leading-relaxed text-neutral-600">
-              We combine expert instruction, structured planning, and personalized guidance to help students reach their full potential.
+            <p className="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-neutral-600">
+              We are not a traditional tutoring site or a sales-driven admissions agency. Every decision we make
+              starts with what helps students learn, grow, and make better educational choices.
             </p>
           </div>
-          <FeatureGrid items={whyItems} columns={4} />
+
+          <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            {trustPillars.map((pillar, index) => (
+              <motion.div
+                key={pillar.title}
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: '-80px' }}
+                transition={{ duration: 0.4, ease: 'easeOut', delay: index * 0.08 }}
+                className="rounded-2xl border border-neutral-200 bg-white p-6"
+              >
+                <span className="mb-4 flex h-11 w-11 items-center justify-center rounded-lg bg-primary-50 text-primary-600">
+                  {pillar.icon}
+                </span>
+                <h3 className="text-base font-semibold leading-snug text-neutral-900">
+                  {pillar.title}
+                </h3>
+                <p className="mt-2 text-sm leading-relaxed text-neutral-600">
+                  {pillar.description}
+                </p>
+              </motion.div>
+            ))}
+          </div>
         </PageContainer>
       </section>
 
