@@ -29,18 +29,18 @@ export interface HeroProps {
 
 const actionClass = (v: 'primary' | 'secondary'): string =>
   v === 'primary'
-    ? 'bg-neutral-900 text-white hover:bg-neutral-800 shadow-sm'
-    : 'bg-white border border-neutral-200 text-neutral-800 hover:border-neutral-300 hover:bg-neutral-50 shadow-sm';
+    ? 'bg-neutral-900 text-white hover:bg-neutral-800 shadow-md hover:shadow-lg'
+    : 'bg-white border border-neutral-200 text-neutral-700 hover:border-neutral-400 hover:bg-neutral-50 shadow-sm';
 
 function HeroActions({ actions }: { actions: HeroAction[] }) {
   if (!actions || actions.length === 0) return null;
   return (
-    <div className="flex flex-wrap items-center gap-3">
+    <div className="flex flex-wrap items-center gap-5">
       {actions.slice(0, 2).map((action) => (
         <Link
           key={action.href}
           to={action.href}
-          className={`inline-flex items-center justify-center rounded-full px-7 py-3.5 text-lg font-semibold tracking-tight transition-all duration-200 focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-600 ${actionClass(action.variant)}`}
+          className={`inline-flex h-[52px] items-center justify-center rounded-full px-8 text-[17px] font-semibold tracking-tight transition-all duration-200 focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-600 ${actionClass(action.variant)}`}
         >
           {action.label}
         </Link>
@@ -51,7 +51,7 @@ function HeroActions({ actions }: { actions: HeroAction[] }) {
 
 function HeroImageBlock({ image }: { image: HeroImage }) {
   return (
-    <div className="relative overflow-hidden rounded-3xl shadow-xl">
+    <div className="relative overflow-hidden rounded-2xl shadow-lg ring-1 ring-neutral-900/5">
       <img
         src={image.src}
         alt={image.alt}
@@ -60,7 +60,7 @@ function HeroImageBlock({ image }: { image: HeroImage }) {
         loading="eager"
         srcSet={image.srcSet}
         sizes={image.sizes ?? '(min-width: 1024px) 45vw, 100vw'}
-        className="h-full w-full object-cover transition-transform duration-700 hover:scale-[1.02]"
+        className="aspect-[4/3] h-full w-full object-cover object-center transition-transform duration-700 hover:scale-[1.02]"
       />
     </div>
   );
@@ -167,9 +167,9 @@ export function Hero({
 
   return (
     <section className={`relative overflow-hidden ${isCourse ? 'bg-neutral-50' : 'bg-white'}`}>
-      <div className="container-wide grid min-h-[440px] grid-cols-1 items-center gap-12 pt-20 pb-16 lg:grid-cols-[55%_45%] lg:min-h-[600px] lg:pt-24 lg:pb-20">
+      <div className="container-wide grid grid-cols-1 items-center gap-10 pt-12 pb-14 lg:grid-cols-[52%_48%] lg:gap-16 lg:pt-16 lg:pb-20">
         <motion.div
-          className="max-w-xl"
+          className="max-w-[560px]"
           initial="initial"
           animate="animate"
           variants={fadeUp}
@@ -177,28 +177,28 @@ export function Hero({
         >
           {eyebrow && (
             <motion.p
-              className="mb-5 text-xl font-semibold uppercase tracking-wider text-primary-600"
+              className="mb-4 text-sm font-semibold uppercase tracking-[0.18em] text-primary-600"
               variants={fadeUp}
             >
               {eyebrow}
             </motion.p>
           )}
           <motion.h1
-            className="text-5xl font-bold leading-[1.1] tracking-tight text-neutral-900 sm:text-6xl lg:text-[64px]"
+            className="text-[42px] font-bold leading-[1.08] tracking-tight text-neutral-900 sm:text-5xl lg:text-[58px]"
             variants={fadeUp}
           >
             {title}
           </motion.h1>
           {description && (
             <motion.p
-              className="mt-6 text-xl leading-relaxed text-neutral-500"
+              className="mt-6 max-w-[560px] text-[18px] leading-[1.7] text-neutral-500"
               variants={fadeUp}
             >
               {description}
             </motion.p>
           )}
           {actions && (
-            <motion.div className="mt-10" variants={fadeUp}>
+            <motion.div className="mt-9" variants={fadeUp}>
               <HeroActions actions={actions} />
             </motion.div>
           )}
@@ -206,7 +206,7 @@ export function Hero({
 
         {image && (
           <motion.div
-            className="relative"
+            className="relative lg:pl-4"
             initial={{ opacity: 0, scale: 0.97, y: 12 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
