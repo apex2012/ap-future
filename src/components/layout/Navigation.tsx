@@ -58,7 +58,7 @@ export function Navigation() {
         <div className="hidden lg:block">
           <Link
             to="/book-a-consultation"
-            className="inline-flex items-center rounded-full bg-neutral-900 px-6 py-3 text-sm font-semibold text-white transition-all duration-200 hover:bg-neutral-700 hover:shadow-lg focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-900"
+            className="inline-flex items-center rounded-full bg-neutral-900 px-6 py-3 text-[18px] font-semibold text-white transition-all duration-200 hover:bg-neutral-700 hover:shadow-lg focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-900"
           >
             Book a Consultation
           </Link>
@@ -100,7 +100,7 @@ export function Navigation() {
             <li className="mt-4 px-4">
               <Link
                 to="/book-a-consultation"
-                className="block rounded-full bg-neutral-900 px-5 py-3 text-center text-sm font-semibold text-white transition-colors hover:bg-neutral-700"
+                className="block rounded-full bg-neutral-900 px-5 py-3 text-center text-[18px] font-semibold text-white transition-colors hover:bg-neutral-700"
                 onClick={() => setIsOpen(false)}
               >
                 Book a Consultation

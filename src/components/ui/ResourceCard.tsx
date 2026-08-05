@@ -63,7 +63,7 @@ export function ResourceCard({
               {typeLabel[resourceType]}
             </span>
           )}
-          <span className="text-xs font-semibold uppercase tracking-wider text-neutral-500">
+          <span className="text-[18px] font-semibold uppercase tracking-wider text-neutral-500">
             {category}
           </span>
         </div>

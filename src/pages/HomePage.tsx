@@ -115,7 +115,7 @@ export function HomePage() {
         <PageContainer width="wide">
           <div className="mx-auto max-w-3xl text-center">
             <motion.p
-              className="mb-4 text-xs font-semibold uppercase tracking-widest text-primary-600"
+              className="mb-4 text-[18px] font-semibold uppercase tracking-widest text-primary-600"
               {...fadeUp}
             >
               Who We Are
@@ -167,7 +167,7 @@ export function HomePage() {
           <motion.div className="mt-8 text-center" {...fadeUp}>
             <Link
               to="/about"
-              className="group inline-flex items-center gap-1.5 text-sm font-semibold text-primary-600 hover:text-primary-700"
+              className="group inline-flex items-center gap-1.5 text-[18px] font-semibold text-primary-600 hover:text-primary-700"
             >
               Learn more about our story
               <ArrowRight size={14} className="transition-transform duration-200 group-hover:translate-x-0.5" />
@@ -179,7 +179,7 @@ export function HomePage() {
       <section className="py-14 sm:py-16" aria-labelledby="services-heading">
         <PageContainer width="wide">
           <div className="mb-10 max-w-2xl">
-            <p className="mb-3 text-xs font-semibold uppercase tracking-widest text-primary-600">
+            <p className="mb-3 text-[18px] font-semibold uppercase tracking-widest text-primary-600">
               What We Do
             </p>
             <h2 id="services-heading" className="text-3xl font-bold leading-tight tracking-tight text-neutral-900 sm:text-4xl">
@@ -210,7 +210,7 @@ export function HomePage() {
                 </p>
                 <Link
                   to={service.href}
-                  className="inline-flex flex-shrink-0 items-center gap-1.5 self-start rounded-full border border-neutral-200 px-5 py-2.5 text-sm font-semibold text-neutral-700 transition-all duration-200 hover:border-neutral-300 hover:bg-neutral-50 hover:text-primary-600 sm:self-center"
+                  className="inline-flex flex-shrink-0 items-center gap-1.5 self-start rounded-full border border-neutral-200 px-5 py-2.5 text-[18px] font-semibold text-neutral-700 transition-all duration-200 hover:border-neutral-300 hover:bg-neutral-50 hover:text-primary-600 sm:self-center"
                 >
                   Explore
                   <ArrowRight size={14} className="transition-transform duration-200 group-hover:translate-x-0.5" />
@@ -224,7 +224,7 @@ export function HomePage() {
       <section className="bg-[#EEF4FF] py-14 sm:py-16" aria-labelledby="trust-heading">
         <PageContainer width="wide">
           <div className="mx-auto max-w-3xl text-center">
-            <p className="mb-3 text-xs font-semibold uppercase tracking-widest text-primary-600">
+            <p className="mb-3 text-[18px] font-semibold uppercase tracking-widest text-primary-600">
               Why Families Trust AP Future
             </p>
             <h2 id="trust-heading" className="text-3xl font-bold leading-tight tracking-tight text-neutral-900 sm:text-4xl">
