@@ -168,50 +168,45 @@ export function HomePage() {
         </PageContainer>
       </section>
 
-      <section className="py-16 sm:py-20" aria-labelledby="services-heading">
+      <section className="py-20 sm:py-28" aria-labelledby="services-heading">
         <PageContainer width="wide">
-          <div className="mb-12 max-w-xl">
-            <p className="mb-2.5 text-xs font-semibold uppercase tracking-[0.22em] text-primary-600">
+          <div className="mb-14 max-w-xl">
+            <p className="mb-3 text-xs font-semibold uppercase tracking-[0.22em] text-primary-600">
               What We Do
             </p>
-            <h2 id="services-heading" className="text-[28px] font-bold leading-[1.15] tracking-tight text-neutral-900 sm:text-[36px]">
+            <h2 id="services-heading" className="text-[28px] font-bold leading-[1.15] tracking-tight text-neutral-900 sm:text-[34px]">
               Four programs, one connected path to university
             </h2>
           </div>
 
-          <div>
+          <div className="max-w-4xl">
             {services.map((service, index) => (
               <motion.div
                 key={service.title}
                 initial={{ opacity: 0, y: 10 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: '-60px' }}
-                transition={{ duration: 0.35, ease: 'easeOut', delay: index * 0.05 }}
-                className={`group relative flex items-baseline justify-between gap-8 py-7 sm:gap-16 ${
-                  index === 0 ? 'border-t border-neutral-200/70' : ''
-                } border-b border-neutral-200/70`}
+                transition={{ duration: 0.35, ease: 'easeOut', delay: index * 0.06 }}
+                className={`group flex items-center justify-between gap-10 py-9 ${
+                  index === 0 ? 'border-t border-neutral-100' : ''
+                } border-b border-neutral-100`}
               >
-                <div className="flex min-w-0 flex-1 items-baseline gap-5">
-                  <span className="hidden flex-shrink-0 text-neutral-300 transition-colors duration-200 group-hover:text-primary-400 sm:block">
-                    {service.icon && (
-                      <span className="[&>svg]:h-4 [&>svg]:w-4">
-                        {service.icon}
-                      </span>
-                    )}
+                <div className="flex min-w-0 flex-1 items-start gap-6">
+                  <span className="mt-0.5 flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-lg bg-neutral-50 text-neutral-400 transition-colors duration-200 group-hover:bg-primary-50 group-hover:text-primary-500 [&>svg]:h-[17px] [&>svg]:w-[17px]">
+                    {service.icon}
                   </span>
                   <div className="min-w-0">
-                    <h3 className="inline text-[15px] font-semibold text-neutral-900">
+                    <h3 className="mb-1.5 text-[16px] font-semibold leading-snug tracking-tight text-neutral-900">
                       {service.title}
-                      <span className="mx-2 text-neutral-300">—</span>
                     </h3>
-                    <p className="inline text-[15px] leading-relaxed text-neutral-500">
+                    <p className="max-w-[480px] text-[15px] leading-[1.7] text-neutral-500">
                       {service.description}
                     </p>
                   </div>
                 </div>
                 <Link
                   to={service.href}
-                  className="inline-flex flex-shrink-0 items-center gap-1 text-[13px] font-medium text-neutral-400 transition-colors duration-200 hover:text-primary-600"
+                  className="inline-flex flex-shrink-0 items-center gap-1.5 text-[13px] font-medium text-neutral-400 transition-colors duration-200 hover:text-primary-600"
                 >
                   Explore
                   <ArrowRight size={13} className="transition-transform duration-200 group-hover:translate-x-0.5" />
