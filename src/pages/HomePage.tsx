@@ -138,7 +138,7 @@ export function HomePage() {
           </div>
 
           <motion.dl
-            className="mx-auto mt-10 grid max-w-5xl grid-cols-2 gap-y-10 sm:grid-cols-4 sm:gap-y-0"
+            className="mx-auto mt-6 grid max-w-5xl grid-cols-2 gap-y-10 sm:grid-cols-4 sm:gap-y-0"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-80px' }}
@@ -148,7 +148,7 @@ export function HomePage() {
               <div
                 key={signal.label}
                 className={`flex flex-col items-center sm:px-8 ${
-                  index !== 0 ? 'sm:border-l sm:border-neutral-200/60' : ''
+                  index !== 0 ? 'sm:border-l sm:border-neutral-200/35' : ''
                 }`}
               >
                 <dt className="sr-only">{signal.label}</dt>
@@ -164,17 +164,7 @@ export function HomePage() {
             ))}
           </motion.dl>
 
-          <motion.div className="mt-14" {...fadeUp}>
-            <Link
-              to="/about"
-              className="group inline-flex items-center gap-2 text-[15px] font-medium text-neutral-700 transition-colors duration-200 hover:text-neutral-900"
-            >
-              <span className="border-b border-neutral-300 pb-0.5 transition-colors duration-200 group-hover:border-neutral-900">
-                Learn more about our story
-              </span>
-              <ArrowRight size={16} className="transition-transform duration-200 group-hover:translate-x-1" />
-            </Link>
-          </motion.div>
+
         </PageContainer>
       </section>
 
