@@ -49,7 +49,7 @@ const whyAPFuture = [
     icon: <Clock size={22} />,
     title: 'Structured multi-year planning',
     description:
-      'We help families plan a 2\u20133 year AP sequence that balances workload, builds progressively, and aligns with university application timelines.',
+      'We help families plan a 2–3 year AP sequence that balances workload, builds progressively, and aligns with university application timelines.',
   },
   {
     icon: <Heart size={22} />,
@@ -101,10 +101,10 @@ const disciplineGroups = [
     description: 'Build quantitative reasoning from Precalculus through advanced Calculus and Statistics.',
     courseCount: 4,
     courses: [
-      { title: 'Precalculus', category: 'Mathematics', description: 'Build the foundational skills in functions, algebra, and trigonometry needed for calculus.', recommendedGrade: 'Grades 9\u201311', difficulty: 'Intermediate', duration: 'Full year', href: '/ap', icon: <Calculator size={20} /> },
-      { title: 'Calculus AB', category: 'Mathematics', description: 'Master limits, derivatives, and integrals in this introductory college-level calculus course.', recommendedGrade: 'Grades 10\u201312', difficulty: 'Advanced', duration: 'Full year', href: '/ap', icon: <Calculator size={20} /> },
-      { title: 'Calculus BC', category: 'Mathematics', description: 'Extend Calculus AB with series, parametric equations, and polar functions for greater depth.', recommendedGrade: 'Grades 11\u201312', difficulty: 'Advanced', duration: 'Full year', href: '/ap', icon: <Calculator size={20} /> },
-      { title: 'Statistics', category: 'Mathematics', description: 'Learn data analysis, probability, and statistical inference through real-world applications.', recommendedGrade: 'Grades 10\u201312', difficulty: 'Intermediate', duration: 'Full year', href: '/ap', icon: <ChartBar size={20} /> },
+      { title: 'Precalculus', category: 'Mathematics', description: 'Build the foundational skills in functions, algebra, and trigonometry needed for calculus.', recommendedGrade: 'Grades 9–11', difficulty: 'Intermediate', duration: 'Full year', href: '/ap', icon: <Calculator size={20} /> },
+      { title: 'Calculus AB', category: 'Mathematics', description: 'Master limits, derivatives, and integrals in this introductory college-level calculus course.', recommendedGrade: 'Grades 10–12', difficulty: 'Advanced', duration: 'Full year', href: '/ap', icon: <Calculator size={20} /> },
+      { title: 'Calculus BC', category: 'Mathematics', description: 'Extend Calculus AB with series, parametric equations, and polar functions for greater depth.', recommendedGrade: 'Grades 11–12', difficulty: 'Advanced', duration: 'Full year', href: '/ap', icon: <Calculator size={20} /> },
+      { title: 'Statistics', category: 'Mathematics', description: 'Learn data analysis, probability, and statistical inference through real-world applications.', recommendedGrade: 'Grades 10–12', difficulty: 'Intermediate', duration: 'Full year', href: '/ap', icon: <ChartBar size={20} /> },
     ],
   },
   {
@@ -113,9 +113,9 @@ const disciplineGroups = [
     description: 'Develop scientific inquiry skills from introductory mechanics through calculus-based Physics C.',
     courseCount: 4,
     courses: [
-      { title: 'Physics 1', category: 'Physics', description: 'Study Newtonian mechanics, waves, and electricity through inquiry-based learning.', recommendedGrade: 'Grades 10\u201312', difficulty: 'Intermediate', duration: 'Full year', href: '/ap', icon: <Atom size={20} /> },
-      { title: 'Physics 2', category: 'Physics', description: 'Explore fluid mechanics, thermodynamics, electromagnetism, and optics at college level.', recommendedGrade: 'Grades 11\u201312', difficulty: 'Advanced', duration: 'Full year', href: '/ap', icon: <Atom size={20} /> },
-      { title: 'Physics C: Mechanics', category: 'Physics', description: 'Calculus-based mechanics covering kinematics, dynamics, and rotational motion in depth.', recommendedGrade: 'Grades 11\u201312', difficulty: 'Advanced', duration: 'Full year', href: '/ap', icon: <Atom size={20} /> },
+      { title: 'Physics 1', category: 'Physics', description: 'Study Newtonian mechanics, waves, and electricity through inquiry-based learning.', recommendedGrade: 'Grades 10–12', difficulty: 'Intermediate', duration: 'Full year', href: '/ap', icon: <Atom size={20} /> },
+      { title: 'Physics 2', category: 'Physics', description: 'Explore fluid mechanics, thermodynamics, electromagnetism, and optics at college level.', recommendedGrade: 'Grades 11–12', difficulty: 'Advanced', duration: 'Full year', href: '/ap', icon: <Atom size={20} /> },
+      { title: 'Physics C: Mechanics', category: 'Physics', description: 'Calculus-based mechanics covering kinematics, dynamics, and rotational motion in depth.', recommendedGrade: 'Grades 11–12', difficulty: 'Advanced', duration: 'Full year', href: '/ap', icon: <Atom size={20} /> },
       { title: 'Physics C: Electricity & Magnetism', category: 'Physics', description: 'Calculus-based study of electrostatics, circuits, magnetic fields, and electromagnetism.', recommendedGrade: 'Grade 12', difficulty: 'Advanced', duration: 'Full year', href: '/ap', icon: <Atom size={20} /> },
     ],
   },
@@ -125,11 +125,11 @@ const disciplineGroups = [
     description: 'Understand human behavior, economic systems, and political structures through a global lens.',
     courseCount: 5,
     courses: [
-      { title: 'Microeconomics', category: 'Social Sciences', description: 'Understand consumer behavior, firm decisions, and market structures at college level.', recommendedGrade: 'Grades 10\u201312', difficulty: 'Intermediate', duration: 'One semester', href: '/ap', icon: <Landmark size={20} /> },
-      { title: 'Macroeconomics', category: 'Social Sciences', description: 'Study national income, price levels, fiscal policy, and international economics.', recommendedGrade: 'Grades 10\u201312', difficulty: 'Intermediate', duration: 'One semester', href: '/ap', icon: <Landmark size={20} /> },
-      { title: 'Human Geography', category: 'Social Sciences', description: 'Explore population, migration, culture, and urbanization through spatial analysis.', recommendedGrade: 'Grades 9\u201312', difficulty: 'Introductory', duration: 'Full year', href: '/ap', icon: <Globe2 size={20} /> },
-      { title: 'Psychology', category: 'Social Sciences', description: 'Investigate the scientific study of behavior, cognition, and mental processes.', recommendedGrade: 'Grades 10\u201312', difficulty: 'Intermediate', duration: 'Full year', href: '/ap', icon: <Brain size={20} /> },
-      { title: 'Comparative Government', category: 'Social Sciences', description: 'Compare political systems, institutions, and policies across major countries.', recommendedGrade: 'Grades 11\u201312', difficulty: 'Advanced', duration: 'Full year', href: '/ap', icon: <Landmark size={20} /> },
+      { title: 'Microeconomics', category: 'Social Sciences', description: 'Understand consumer behavior, firm decisions, and market structures at college level.', recommendedGrade: 'Grades 10–12', difficulty: 'Intermediate', duration: 'One semester', href: '/ap', icon: <Landmark size={20} /> },
+      { title: 'Macroeconomics', category: 'Social Sciences', description: 'Study national income, price levels, fiscal policy, and international economics.', recommendedGrade: 'Grades 10–12', difficulty: 'Intermediate', duration: 'One semester', href: '/ap', icon: <Landmark size={20} /> },
+      { title: 'Human Geography', category: 'Social Sciences', description: 'Explore population, migration, culture, and urbanization through spatial analysis.', recommendedGrade: 'Grades 9–12', difficulty: 'Introductory', duration: 'Full year', href: '/ap', icon: <Globe2 size={20} /> },
+      { title: 'Psychology', category: 'Social Sciences', description: 'Investigate the scientific study of behavior, cognition, and mental processes.', recommendedGrade: 'Grades 10–12', difficulty: 'Intermediate', duration: 'Full year', href: '/ap', icon: <Brain size={20} /> },
+      { title: 'Comparative Government', category: 'Social Sciences', description: 'Compare political systems, institutions, and policies across major countries.', recommendedGrade: 'Grades 11–12', difficulty: 'Advanced', duration: 'Full year', href: '/ap', icon: <Landmark size={20} /> },
     ],
   },
 ];
@@ -138,12 +138,12 @@ const faqItems = [
   {
     question: 'How many AP courses should a student take?',
     answer:
-      'There is no universal number. We recommend 3\u20135 AP courses across subjects aligned with the student\u2019s intended university major, balanced against their overall workload and extracurricular commitments.',
+      'There is no universal number. We recommend 3–5 AP courses across subjects aligned with the student’s intended university major, balanced against their overall workload and extracurricular commitments.',
   },
   {
     question: 'When should my child start AP courses?',
     answer:
-      'Most students begin in Grade 10, though strong students may start in Grade 9 with Human Geography or Precalculus. We help families plan a multi-year AP sequence that fits each student\u2019s readiness.',
+      'Most students begin in Grade 10, though strong students may start in Grade 9 with Human Geography or Precalculus. We help families plan a multi-year AP sequence that fits each student’s readiness.',
   },
   {
     question: 'Are AP courses only for students applying to US universities?',
@@ -163,7 +163,7 @@ const faqItems = [
   {
     question: 'Do you offer AP exam registration?',
     answer:
-      'We guide families through the College Board exam registration process, but registration itself is handled through the student\u2019s school or an authorized AP test center.',
+      'We guide families through the College Board exam registration process, but registration itself is handled through the student’s school or an authorized AP test center.',
   },
 ];
 
@@ -293,7 +293,7 @@ export function APPage() {
             </h2>
             <p className="mx-auto mt-4 max-w-2xl text-lg leading-relaxed text-neutral-500">
               Recommended course combinations aligned with common university majors. Pathways are flexible
-              and can be adjusted to fit each student\u2019s goals and timeline.
+              and can be adjusted to fit each student’s goals and timeline.
             </p>
           </div>
 

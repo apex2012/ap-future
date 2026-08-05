@@ -26,10 +26,10 @@ const heroImage = {
 };
 
 const trustSignals = [
-  { value: '[Verified]', label: 'Years of experience' },
-  { value: '[Verified]', label: 'Students taught' },
   { value: '13', label: 'AP subjects offered' },
-  { value: '[Verified]', label: 'Outcome metric' },
+  { value: '4', label: 'Connected programs' },
+  { value: '3', label: 'Core disciplines' },
+  { value: '60+', label: 'Countries recognize AP' },
 ];
 
 const services = [
@@ -50,7 +50,7 @@ const services = [
   {
     title: 'University Planning',
     description:
-      'Strategic planning from school selection through application and essay support, tailored to each student\u2019s goals.',
+      'Strategic planning from school selection through application and essay support, tailored to each student’s goals.',
     href: '/university-planning',
     icon: <GraduationCap size={24} />,
   },
@@ -111,7 +111,7 @@ export function HomePage() {
         image={heroImage}
       />
 
-      <section className="bg-[#F7F8FA] py-14 sm:py-16" aria-labelledby="intro-heading">
+      <section className="bg-[#F7F8FA] py-12 sm:py-14" aria-labelledby="intro-heading">
         <PageContainer width="wide">
           <div className="mx-auto max-w-3xl text-center">
             <motion.p

@@ -167,7 +167,7 @@ export function Hero({
 
   return (
     <section className={`relative overflow-hidden ${isCourse ? 'bg-neutral-50' : 'bg-white'}`}>
-      <div className="container-wide grid min-h-[440px] grid-cols-1 items-center gap-12 py-16 lg:grid-cols-[55%_45%] lg:min-h-[600px] lg:py-20">
+      <div className="container-wide grid min-h-[440px] grid-cols-1 items-center gap-12 pt-20 pb-16 lg:grid-cols-[55%_45%] lg:min-h-[600px] lg:pt-24 lg:pb-20">
         <motion.div
           className="max-w-xl"
           initial="initial"
