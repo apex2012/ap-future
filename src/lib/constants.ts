@@ -26,6 +26,13 @@ export const FOOTER_NAV_SECTIONS = [
   },
 ] as const;
 
+export const FOOTER_CONTACT = {
+  location: 'Vancouver, BC, Canada',
+  email: 'hello@apfuture.ca',
+  phone: '+1 (604) XXX-XXXX',
+  wechatLabel: 'WeChat',
+} as const;
+
 export const SITE_NAME = 'AP Future';
 export const SITE_TAGLINE = 'Prepare for University with Confidence';
 export const SITE_DESCRIPTION =
