@@ -187,7 +187,7 @@ export function HomePage() {
             </h2>
           </div>
 
-          <div className="space-y-0 divide-y divide-neutral-200">
+          <div className="divide-y divide-neutral-200">
             {services.map((service) => (
               <motion.div
                 key={service.title}
@@ -195,9 +195,9 @@ export function HomePage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: '-80px' }}
                 transition={{ duration: 0.4, ease: 'easeOut' }}
-                className="group flex flex-col gap-6 py-7 sm:flex-row sm:items-center sm:gap-10"
+                className="group flex flex-col gap-6 py-10 sm:flex-row sm:items-center sm:gap-12"
               >
-                <div className="flex flex-shrink-0 items-center gap-4 sm:w-72">
+                <div className="flex flex-shrink-0 items-center gap-4 sm:w-64">
                   <span className="flex h-14 w-14 items-center justify-center rounded-xl bg-neutral-50 text-primary-600 transition-all duration-300 group-hover:bg-primary-50 group-hover:shadow-md">
                     {service.icon}
                   </span>
@@ -205,12 +205,14 @@ export function HomePage() {
                     {service.title}
                   </h3>
                 </div>
-                <p className="flex-1 text-base leading-relaxed text-neutral-500">
-                  {service.description}
-                </p>
+                <div className="flex-1">
+                  <p className="max-w-prose text-lg leading-relaxed text-neutral-500">
+                    {service.description}
+                  </p>
+                </div>
                 <Link
                   to={service.href}
-                  className="inline-flex flex-shrink-0 items-center gap-1.5 self-start rounded-full border border-neutral-200 px-5 py-2.5 text-[18px] font-semibold text-neutral-700 transition-all duration-200 hover:border-neutral-300 hover:bg-neutral-50 hover:text-primary-600 sm:self-center"
+                  className="inline-flex flex-shrink-0 items-center gap-1.5 self-start rounded-full border border-neutral-200 px-6 py-3 text-lg font-semibold text-neutral-700 transition-all duration-200 hover:border-neutral-300 hover:bg-neutral-50 hover:text-primary-600 sm:self-center sm:mr-2"
                 >
                   Explore
                   <ArrowRight size={18} className="transition-transform duration-200 group-hover:translate-x-0.5" />
