@@ -168,18 +168,18 @@ export function HomePage() {
         </PageContainer>
       </section>
 
-      <section className="py-20 sm:py-24" aria-labelledby="services-heading">
+      <section className="py-14 sm:py-16" aria-labelledby="services-heading">
         <PageContainer width="wide">
-          <div className="mb-16 max-w-2xl">
-            <p className="mb-4 text-xs font-semibold uppercase tracking-[0.22em] text-primary-600">
+          <div className="mb-10 max-w-2xl">
+            <p className="mb-3 text-xl font-semibold uppercase tracking-wider text-primary-600">
               What We Do
             </p>
-            <h2 id="services-heading" className="text-[34px] font-bold leading-[1.12] tracking-tight text-neutral-900 sm:text-[44px]">
+            <h2 id="services-heading" className="text-3xl font-bold leading-tight tracking-tight text-neutral-900 sm:text-4xl">
               Four programs, one connected path to university
             </h2>
           </div>
 
-          <div className="divide-y divide-neutral-100">
+          <div className="divide-y divide-neutral-200">
             {services.map((service) => (
               <motion.div
                 key={service.title}
@@ -187,29 +187,27 @@ export function HomePage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: '-80px' }}
                 transition={{ duration: 0.4, ease: 'easeOut' }}
-                className="group -mx-4 flex flex-col gap-8 rounded-xl px-4 py-12 transition-colors duration-300 hover:bg-neutral-50/70 sm:flex-row sm:items-center sm:gap-0 sm:py-14"
+                className="group flex flex-col gap-6 py-10 sm:flex-row sm:items-center sm:gap-12"
               >
-                <div className="flex flex-shrink-0 items-center gap-5 sm:w-72">
-                  <span className="flex h-16 w-16 flex-shrink-0 items-center justify-center rounded-2xl bg-neutral-100/80 text-primary-600 transition-all duration-300 group-hover:-translate-y-0.5 group-hover:bg-primary-50">
+                <div className="flex flex-shrink-0 items-center gap-4 sm:w-64">
+                  <span className="flex h-14 w-14 items-center justify-center rounded-xl bg-neutral-50 text-primary-600 transition-all duration-300 group-hover:bg-primary-50 group-hover:shadow-md">
                     {service.icon}
                   </span>
-                  <h3 className="text-[19px] font-semibold leading-snug tracking-tight text-neutral-900">
+                  <h3 className="text-xl font-semibold leading-snug text-neutral-900">
                     {service.title}
                   </h3>
                 </div>
-                <div className="flex-1 sm:px-10">
-                  <p className="max-w-[480px] text-[17px] leading-[1.8] text-neutral-400">
+                <div className="flex-1">
+                  <p className="max-w-prose text-lg leading-relaxed text-neutral-500">
                     {service.description}
                   </p>
                 </div>
                 <Link
                   to={service.href}
-                  className="group/btn inline-flex flex-shrink-0 items-center gap-2 self-start text-[14px] font-medium text-neutral-500 transition-colors duration-200 hover:text-neutral-900 sm:self-center sm:pr-2"
+                  className="inline-flex flex-shrink-0 items-center gap-1.5 self-start rounded-full border border-neutral-200 px-6 py-3 text-lg font-semibold text-neutral-700 transition-all duration-200 hover:border-neutral-300 hover:bg-neutral-50 hover:text-primary-600 sm:self-center sm:mr-2"
                 >
-                  <span className="border-b border-neutral-200 pb-px transition-colors duration-200 group-hover/btn:border-neutral-800 group-hover/btn:text-neutral-900">
-                    Explore
-                  </span>
-                  <ArrowRight size={14} className="transition-transform duration-200 group-hover/btn:translate-x-1" />
+                  Explore
+                  <ArrowRight size={18} className="transition-transform duration-200 group-hover:translate-x-0.5" />
                 </Link>
               </motion.div>
             ))}
