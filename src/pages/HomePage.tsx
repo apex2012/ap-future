@@ -111,24 +111,24 @@ export function HomePage() {
         image={heroImage}
       />
 
-      <section className="bg-[#F7F8FA] py-12 sm:py-14" aria-labelledby="intro-heading">
+      <section className="bg-[#F7F8FA] py-20 sm:py-24" aria-labelledby="intro-heading">
         <PageContainer width="wide">
-          <div className="mx-auto max-w-3xl text-center">
+          <div className="mx-auto max-w-2xl">
             <motion.p
-              className="mb-4 text-xl font-semibold uppercase tracking-wider text-primary-600"
+              className="mb-5 text-xs font-semibold uppercase tracking-[0.22em] text-primary-600"
               {...fadeUp}
             >
               Who We Are
             </motion.p>
             <motion.h2
               id="intro-heading"
-              className="text-3xl font-bold leading-tight tracking-tight text-neutral-900 sm:text-4xl"
+              className="text-[34px] font-bold leading-[1.12] tracking-tight text-neutral-900 sm:text-[44px]"
               {...fadeUp}
             >
               An education company built for international university admissions.
             </motion.h2>
             <motion.p
-              className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-neutral-500"
+              className="mt-8 max-w-[520px] text-[18px] leading-[1.75] text-neutral-500"
               {...fadeUp}
             >
               AP Future integrates AP instruction, SAT preparation, university planning, and learning resources
@@ -138,25 +138,25 @@ export function HomePage() {
           </div>
 
           <motion.dl
-            className="mx-auto mt-12 grid max-w-4xl grid-cols-1 gap-y-8 sm:grid-cols-4 sm:gap-y-0"
-            initial={{ opacity: 0, y: 16 }}
+            className="mx-auto mt-20 grid max-w-5xl grid-cols-2 gap-y-12 sm:grid-cols-4 sm:gap-y-0"
+            initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-80px' }}
-            transition={{ duration: 0.4, ease: 'easeOut' }}
+            transition={{ duration: 0.5, ease: 'easeOut' }}
           >
             {trustSignals.map((signal, index) => (
               <div
                 key={signal.label}
-                className={`flex flex-col items-center px-4 sm:px-2 ${
-                  index !== 0 ? 'sm:border-l sm:border-neutral-300' : ''
+                className={`flex flex-col items-center sm:px-6 ${
+                  index !== 0 ? 'sm:border-l sm:border-neutral-300/70' : ''
                 }`}
               >
                 <dt className="sr-only">{signal.label}</dt>
                 <dd className="text-center">
-                  <span className="block text-3xl font-bold tracking-tight text-neutral-900 sm:text-4xl">
+                  <span className="block text-[44px] font-bold leading-none tracking-tight text-neutral-900 sm:text-[52px]">
                     {signal.value}
                   </span>
-                  <span className="mt-2 block text-sm font-medium text-neutral-400">
+                  <span className="mt-3 block text-[13px] font-medium tracking-wide text-neutral-400">
                     {signal.label}
                   </span>
                 </dd>
@@ -164,13 +164,15 @@ export function HomePage() {
             ))}
           </motion.dl>
 
-          <motion.div className="mt-8 text-center" {...fadeUp}>
+          <motion.div className="mt-16" {...fadeUp}>
             <Link
               to="/about"
-              className="group inline-flex items-center gap-1.5 text-lg font-semibold text-primary-600 hover:text-primary-700"
+              className="group inline-flex items-center gap-2 text-[15px] font-medium text-neutral-700 transition-colors duration-200 hover:text-neutral-900"
             >
-              Learn more about our story
-              <ArrowRight size={18} className="transition-transform duration-200 group-hover:translate-x-0.5" />
+              <span className="border-b border-neutral-300 pb-0.5 transition-colors duration-200 group-hover:border-neutral-900">
+                Learn more about our story
+              </span>
+              <ArrowRight size={16} className="transition-transform duration-200 group-hover:translate-x-1" />
             </Link>
           </motion.div>
         </PageContainer>
