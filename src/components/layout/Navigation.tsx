@@ -19,7 +19,7 @@ export function Navigation() {
   }, [isOpen]);
 
   const linkClass = ({ isActive }: { isActive: boolean }) =>
-    `relative text-base font-medium transition-colors duration-300 ease-out ${
+    `relative text-[18px] font-medium transition-colors duration-300 ease-out ${
       isActive
         ? 'text-neutral-900'
         : 'text-neutral-500 hover:text-neutral-900'
