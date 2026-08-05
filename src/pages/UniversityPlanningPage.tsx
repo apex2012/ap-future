@@ -167,7 +167,7 @@ export function UniversityPlanningPage() {
 
       <section id="timeline" className="bg-[#FAFAF9] py-16 sm:py-20" aria-labelledby="timeline-heading">
         <PageContainer>
-          <div className="mx-auto mb-14 max-w-3xl text-center">
+          <div className="mx-auto mb-12 max-w-3xl text-center">
             <p className="mb-3 text-lg font-semibold uppercase tracking-wider text-accent-600">
               The Journey
             </p>
@@ -181,54 +181,46 @@ export function UniversityPlanningPage() {
           </div>
 
           <div className="relative mx-auto max-w-3xl">
-            <div className="absolute left-[27px] top-2 bottom-2 w-px bg-neutral-200 sm:left-[31px]" aria-hidden="true" />
+            <div
+              className="absolute left-[30px] top-6 bottom-6 w-1 rounded-full bg-gradient-to-b from-accent-200 via-accent-300 to-accent-200 sm:left-[38px]"
+              aria-hidden="true"
+            />
 
             {timeline.map((item, index) => (
               <motion.div
                 key={item.grade}
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 16 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: '-60px' }}
-                transition={{ duration: 0.45, ease: 'easeOut', delay: index * 0.05 }}
-                className="relative mb-12 last:mb-0"
+                transition={{ duration: 0.4, ease: 'easeOut', delay: index * 0.05 }}
+                className="relative mb-8 last:mb-0"
               >
-                <div className="flex gap-5 sm:gap-6">
-                  <div className="relative z-10 flex flex-shrink-0 flex-col items-center">
-                    <span className="flex h-14 w-14 items-center justify-center rounded-full border-2 border-accent-300 bg-white text-sm font-bold text-accent-700 shadow-sm sm:h-16 sm:w-16 sm:text-base">
+                <div className="flex gap-5 sm:gap-7">
+                  <div className="relative z-10 flex-shrink-0">
+                    <span className="flex h-16 w-16 items-center justify-center rounded-full bg-accent-500 text-lg font-bold text-white shadow-md ring-4 ring-[#FAFAF9] sm:h-20 sm:w-20 sm:text-xl">
                       {item.grade.replace('Grade ', 'G')}
                     </span>
                   </div>
 
-                  <div className="flex-1 pt-1">
-                    <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
-                      <h3 className="text-xl font-bold tracking-tight text-neutral-900 sm:text-2xl">
-                        {item.grade}
-                      </h3>
-                      <span className="text-sm font-semibold uppercase tracking-wider text-accent-600">
-                        {item.phase}
-                      </span>
-                    </div>
-                    <p className="mt-2 text-base leading-relaxed text-neutral-500">
+                  <div className="flex-1 pt-2 sm:pt-3">
+                    <span className="text-xs font-semibold uppercase tracking-widest text-accent-500">
+                      {item.phase}
+                    </span>
+                    <h3 className="mt-0.5 text-2xl font-bold tracking-tight text-neutral-900 sm:text-3xl">
+                      {item.grade}
+                    </h3>
+                    <p className="mt-1.5 text-sm leading-relaxed text-neutral-500 sm:text-base">
                       {item.summary}
                     </p>
 
-                    <div className="mt-5 space-y-3">
+                    <div className="mt-3 space-y-1.5">
                       {item.areas.map((area) => (
-                        <div
-                          key={area.title}
-                          className="flex gap-3 rounded-xl border border-neutral-100 bg-white p-4 shadow-sm"
-                        >
-                          <span className="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-lg bg-accent-50 text-accent-600">
-                            {area.icon}
+                        <div key={area.title} className="flex items-start gap-2 text-xs leading-relaxed text-neutral-500 sm:text-sm">
+                          <span className="mt-0.5 flex-shrink-0 text-accent-500">{area.icon}</span>
+                          <span>
+                            <span className="font-semibold text-neutral-700">{area.title}</span>
+                            <span className="text-neutral-400"> — {area.detail}</span>
                           </span>
-                          <div>
-                            <h4 className="text-sm font-semibold text-neutral-900">
-                              {area.title}
-                            </h4>
-                            <p className="mt-0.5 text-sm leading-relaxed text-neutral-500">
-                              {area.detail}
-                            </p>
-                          </div>
                         </div>
                       ))}
                     </div>
