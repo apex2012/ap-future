@@ -41,8 +41,8 @@ export function Footer() {
 
         {/* Bottom tier: contact info (left, ~60%) + WeChat QR (right, ~40%) in one unified row */}
         <div className="mt-14 border-t border-neutral-200 pt-10">
-          <div className="flex flex-col gap-8 sm:flex-row sm:items-start sm:gap-8">
-            <div className="sm:flex-1">
+          <div className="inline-flex flex-col gap-8 sm:flex-row sm:items-start sm:gap-10">
+            <div className="flex-shrink-0">
               <h2 className="text-xs font-semibold uppercase tracking-widest text-neutral-400">
                 Contact
               </h2>
@@ -62,7 +62,7 @@ export function Footer() {
               </ul>
             </div>
 
-            <div className="sm:flex-shrink-0">
+            <div className="flex-shrink-0">
               <div className="flex flex-col items-start">
                 <div className="flex aspect-square w-32 items-center justify-center rounded-lg border border-dashed border-neutral-300 bg-white text-[11px] text-neutral-400">
                   QR Code
