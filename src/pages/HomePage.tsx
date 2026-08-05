@@ -138,7 +138,7 @@ export function HomePage() {
           </div>
 
           <motion.dl
-            className="mx-auto mt-12 flex max-w-4xl flex-wrap justify-center gap-x-2 gap-y-8 sm:gap-x-0"
+            className="mx-auto mt-12 grid max-w-4xl grid-cols-1 gap-y-8 sm:grid-cols-4 sm:gap-y-0"
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-80px' }}
@@ -147,12 +147,12 @@ export function HomePage() {
             {trustSignals.map((signal, index) => (
               <div
                 key={signal.label}
-                className={`flex flex-col items-center px-6 sm:px-10 ${
+                className={`flex flex-col items-center px-4 sm:px-2 ${
                   index !== 0 ? 'sm:border-l sm:border-neutral-300' : ''
                 }`}
               >
                 <dt className="sr-only">{signal.label}</dt>
-                <dd>
+                <dd className="text-center">
                   <span className="block text-3xl font-bold tracking-tight text-neutral-900 sm:text-4xl">
                     {signal.value}
                   </span>
