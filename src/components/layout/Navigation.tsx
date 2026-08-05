@@ -19,12 +19,12 @@ export function Navigation() {
   }, [isOpen]);
 
   const linkClass = ({ isActive }: { isActive: boolean }) =>
-    `relative text-[16px] font-medium transition-colors duration-200 ease-out ${
+    `relative text-[18px] font-semibold transition-colors duration-200 ease-out ${
       isActive
         ? 'text-neutral-900'
         : 'text-neutral-500 hover:text-neutral-800'
     } after:absolute after:-bottom-[22px] after:left-0 after:right-0 after:mx-auto after:h-[2px] after:rounded-full after:bg-neutral-900 after:transition-all after:duration-200 after:ease-out ${
-      isActive ? 'after:w-5' : 'after:w-0 hover:after:w-5'
+      isActive ? 'after:w-4' : 'after:w-0 hover:after:w-4'
     }`;
 
   return (
@@ -39,13 +39,13 @@ export function Navigation() {
       >
         <Link
           to="/"
-          className="text-[26px] font-extrabold tracking-tight text-neutral-900 transition-opacity duration-200 hover:opacity-80"
+          className="-ml-4 text-[26px] font-extrabold tracking-tight text-neutral-900 transition-opacity duration-200 hover:opacity-80 lg:-ml-2"
           onClick={() => setIsOpen(false)}
         >
           {SITE_NAME}
         </Link>
 
-        <ul className="hidden items-center lg:flex" style={{ gap: '2.5rem' }}>
+        <ul className="hidden items-center lg:flex" style={{ gap: '2.75rem' }}>
           {NAV_ITEMS.map((item) => (
             <li key={item.href}>
               <NavLink to={item.href} className={linkClass} end={item.href === '/'}>
@@ -55,10 +55,10 @@ export function Navigation() {
           ))}
         </ul>
 
-        <div className="hidden lg:block">
+        <div className="mr-10 hidden lg:block">
           <Link
             to="/book-a-consultation"
-            className="inline-flex items-center rounded-xl bg-neutral-900 px-7 py-2.5 text-[15px] font-semibold text-white transition-all duration-200 hover:bg-neutral-700 hover:shadow-md focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-900"
+            className="inline-flex items-center rounded-xl bg-neutral-900 px-8 py-2.5 text-[15px] font-semibold text-white transition-all duration-200 hover:bg-neutral-700 hover:shadow-md focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-900"
           >
             Book a Consultation
           </Link>
