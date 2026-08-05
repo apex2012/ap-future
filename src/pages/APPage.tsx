@@ -177,12 +177,12 @@ function DisciplineGroup({
   const [open, setOpen] = useState(defaultOpen);
 
   return (
-    <div className="overflow-hidden rounded-2xl border border-neutral-100 bg-white shadow-sm">
+    <div className="overflow-hidden rounded-2xl border border-primary-100 bg-white shadow-sm">
       <button
         type="button"
         onClick={() => setOpen((v) => !v)}
         aria-expanded={open}
-        className="flex w-full items-center justify-between gap-4 px-7 py-6 text-left transition-colors hover:bg-neutral-50 focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-0 focus-visible:outline-primary-600"
+        className="flex w-full items-center justify-between gap-4 px-7 py-6 text-left transition-colors hover:bg-primary-50/50 focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-0 focus-visible:outline-primary-600"
       >
         <div className="flex items-center gap-4">
           <span className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-lg bg-primary-50 text-primary-600">
@@ -214,7 +214,7 @@ function DisciplineGroup({
           transition={{ duration: 0.3, ease: 'easeOut' }}
           className="overflow-hidden"
         >
-          <div className="grid grid-cols-1 gap-4 border-t border-neutral-100 p-7 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="grid grid-cols-1 gap-4 border-t border-primary-100 p-7 sm:grid-cols-2 lg:grid-cols-3">
             {group.courses.map((course) => (
               <CourseCard key={course.title} {...course} />
             ))}
@@ -240,7 +240,7 @@ export function APPage() {
         image={heroImage}
       />
 
-      <section className="bg-neutral-50 py-20 sm:py-24" aria-labelledby="why-future-heading">
+      <section className="bg-[#F7F8FA] py-14 sm:py-16" aria-labelledby="why-future-heading">
         <PageContainer width="wide">
           <div className="mx-auto max-w-3xl text-center">
             <p className="mb-3 text-xs font-semibold uppercase tracking-widest text-primary-600">
@@ -255,7 +255,7 @@ export function APPage() {
             </p>
           </div>
 
-          <div className="mt-14 grid grid-cols-1 gap-6 sm:grid-cols-2">
+          <div className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2">
             {whyAPFuture.map((item, index) => (
               <motion.div
                 key={item.title}
@@ -282,7 +282,7 @@ export function APPage() {
         </PageContainer>
       </section>
 
-      <section id="pathways" className="py-20 sm:py-24" aria-labelledby="pathways-heading">
+      <section id="pathways" className="py-14 sm:py-16" aria-labelledby="pathways-heading">
         <PageContainer width="wide">
           <div className="mx-auto max-w-3xl text-center">
             <p className="mb-3 text-xs font-semibold uppercase tracking-widest text-primary-600">
@@ -297,7 +297,7 @@ export function APPage() {
             </p>
           </div>
 
-          <div className="mt-14 space-y-5">
+          <div className="mt-10 space-y-5">
             {pathways.map((pathway, index) => (
               <motion.div
                 key={pathway.title}
@@ -341,9 +341,9 @@ export function APPage() {
         </PageContainer>
       </section>
 
-      <section className="bg-neutral-50 py-20 sm:py-24" aria-labelledby="catalog-heading">
+      <section className="bg-[#EEF4FF] py-14 sm:py-16" aria-labelledby="catalog-heading">
         <PageContainer width="wide">
-          <div className="mb-12 max-w-2xl">
+          <div className="mb-10 max-w-2xl">
             <p className="mb-3 text-xs font-semibold uppercase tracking-widest text-primary-600">
               Course Catalog
             </p>
@@ -364,9 +364,9 @@ export function APPage() {
         </PageContainer>
       </section>
 
-      <section className="py-20 sm:py-24" aria-labelledby="faq-heading">
+      <section className="py-14 sm:py-16" aria-labelledby="faq-heading">
         <PageContainer>
-          <div className="mb-10 max-w-2xl">
+          <div className="mb-8 max-w-2xl">
             <p className="mb-3 text-xs font-semibold uppercase tracking-widest text-primary-600">
               FAQ
             </p>

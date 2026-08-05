@@ -51,7 +51,7 @@ export function CTA({
 
   if (variant === 'split') {
     return (
-      <section className="py-20 sm:py-24">
+      <section className="py-14 sm:py-16">
         <div className="container-wide">
           <div className="grid grid-cols-1 items-center gap-10 overflow-hidden rounded-3xl bg-neutral-950 px-10 py-14 sm:px-14 sm:py-16 lg:grid-cols-2">
             <div>
@@ -85,13 +85,13 @@ export function CTA({
   }
 
   return (
-    <section className="py-20 sm:py-24">
+    <section className="bg-[#111827] py-16 sm:py-20">
       <div className="container-page text-center">
-        <h2 className="text-3xl font-bold leading-tight tracking-tight text-neutral-900 sm:text-4xl">
+        <h2 className="text-3xl font-bold leading-tight tracking-tight text-white sm:text-4xl">
           {title}
         </h2>
         {description && (
-          <p className="mx-auto mt-5 max-w-xl text-lg leading-relaxed text-neutral-500">
+          <p className="mx-auto mt-5 max-w-xl text-lg leading-relaxed text-neutral-300">
             {description}
           </p>
         )}
@@ -99,14 +99,14 @@ export function CTA({
           {secondaryAction && (
             <Link
               to={secondaryAction.href}
-              className="inline-flex items-center justify-center rounded-full border border-neutral-200 px-7 py-3 text-sm font-semibold text-neutral-700 transition-colors hover:border-neutral-300 hover:bg-neutral-50 focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-900"
+              className="inline-flex items-center justify-center rounded-full border border-neutral-600 px-7 py-3 text-sm font-semibold text-white transition-colors hover:border-neutral-400 hover:bg-neutral-800 focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
             >
               {secondaryAction.label}
             </Link>
           )}
           <Link
             to={primaryAction.href}
-            className="inline-flex items-center justify-center rounded-full bg-neutral-900 px-7 py-3 text-sm font-semibold text-white transition-colors hover:bg-neutral-700 focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-900"
+            className="inline-flex items-center justify-center rounded-full bg-white px-7 py-3 text-sm font-semibold text-neutral-900 transition-all duration-200 hover:bg-neutral-100 hover:shadow-lg focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
           >
             {primaryAction.label}
           </Link>

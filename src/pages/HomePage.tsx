@@ -26,10 +26,10 @@ const heroImage = {
 };
 
 const trustSignals = [
-  { value: '10+', label: 'Years of experience' },
-  { value: '2,000+', label: 'Students taught' },
+  { value: '[Verified]', label: 'Years of experience' },
+  { value: '[Verified]', label: 'Students taught' },
   { value: '13', label: 'AP subjects offered' },
-  { value: '95%', label: 'University admission rate' },
+  { value: '[Verified]', label: 'Outcome metric' },
 ];
 
 const services = [
@@ -68,25 +68,25 @@ const trustPillars = [
     title: 'Expert Instructors',
     description:
       'Experienced educators who understand international curricula and university expectations.',
-    icon: <Users size={22} />,
+    icon: <Users size={26} />,
   },
   {
     title: 'Proven Approach',
     description:
       'Structured programs designed for measurable progress, from AP scores to SAT improvements.',
-    icon: <ShieldCheck size={22} />,
+    icon: <ShieldCheck size={26} />,
   },
   {
     title: 'Global Perspective',
     description:
       'Curriculum and guidance built for students applying to universities worldwide.',
-    icon: <Globe2 size={22} />,
+    icon: <Globe2 size={26} />,
   },
   {
     title: 'Personalized Guidance',
     description:
       'Every student receives a plan tailored to their goals, timeline, and target universities.',
-    icon: <Sparkles size={22} />,
+    icon: <Sparkles size={26} />,
   },
 ];
 
@@ -111,7 +111,7 @@ export function HomePage() {
         image={heroImage}
       />
 
-      <section className="py-20 sm:py-24" aria-labelledby="intro-heading">
+      <section className="bg-[#F7F8FA] py-14 sm:py-16" aria-labelledby="intro-heading">
         <PageContainer width="wide">
           <div className="mx-auto max-w-3xl text-center">
             <motion.p
@@ -138,7 +138,7 @@ export function HomePage() {
           </div>
 
           <motion.dl
-            className="mx-auto mt-14 flex max-w-4xl flex-wrap justify-center gap-x-2 gap-y-8 sm:gap-x-0"
+            className="mx-auto mt-12 flex max-w-4xl flex-wrap justify-center gap-x-2 gap-y-8 sm:gap-x-0"
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-80px' }}
@@ -148,12 +148,12 @@ export function HomePage() {
               <div
                 key={signal.label}
                 className={`flex flex-col items-center px-6 sm:px-10 ${
-                  index !== 0 ? 'sm:border-l sm:border-neutral-200' : ''
+                  index !== 0 ? 'sm:border-l sm:border-neutral-300' : ''
                 }`}
               >
                 <dt className="sr-only">{signal.label}</dt>
                 <dd>
-                  <span className="block text-4xl font-bold tracking-tight text-neutral-900 sm:text-5xl">
+                  <span className="block text-3xl font-bold tracking-tight text-neutral-900 sm:text-4xl">
                     {signal.value}
                   </span>
                   <span className="mt-2 block text-sm font-medium text-neutral-400">
@@ -164,7 +164,7 @@ export function HomePage() {
             ))}
           </motion.dl>
 
-          <motion.div className="mt-10 text-center" {...fadeUp}>
+          <motion.div className="mt-8 text-center" {...fadeUp}>
             <Link
               to="/about"
               className="group inline-flex items-center gap-1.5 text-sm font-semibold text-primary-600 hover:text-primary-700"
@@ -176,9 +176,9 @@ export function HomePage() {
         </PageContainer>
       </section>
 
-      <section className="bg-neutral-50 py-20 sm:py-24" aria-labelledby="services-heading">
+      <section className="py-14 sm:py-16" aria-labelledby="services-heading">
         <PageContainer width="wide">
-          <div className="mb-14 max-w-2xl">
+          <div className="mb-10 max-w-2xl">
             <p className="mb-3 text-xs font-semibold uppercase tracking-widest text-primary-600">
               What We Do
             </p>
@@ -195,10 +195,10 @@ export function HomePage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: '-80px' }}
                 transition={{ duration: 0.4, ease: 'easeOut' }}
-                className="group flex flex-col gap-6 py-8 sm:flex-row sm:items-center sm:gap-10"
+                className="group flex flex-col gap-6 py-7 sm:flex-row sm:items-center sm:gap-10"
               >
                 <div className="flex flex-shrink-0 items-center gap-4 sm:w-72">
-                  <span className="flex h-14 w-14 items-center justify-center rounded-xl bg-white text-primary-600 shadow-sm transition-all duration-300 group-hover:bg-primary-50 group-hover:shadow-md">
+                  <span className="flex h-14 w-14 items-center justify-center rounded-xl bg-neutral-50 text-primary-600 transition-all duration-300 group-hover:bg-primary-50 group-hover:shadow-md">
                     {service.icon}
                   </span>
                   <h3 className="text-xl font-semibold leading-snug text-neutral-900">
@@ -210,7 +210,7 @@ export function HomePage() {
                 </p>
                 <Link
                   to={service.href}
-                  className="inline-flex flex-shrink-0 items-center gap-1.5 self-start rounded-full border border-neutral-200 px-5 py-2.5 text-sm font-semibold text-neutral-700 transition-all duration-200 hover:border-neutral-300 hover:bg-white hover:text-primary-600 sm:self-center"
+                  className="inline-flex flex-shrink-0 items-center gap-1.5 self-start rounded-full border border-neutral-200 px-5 py-2.5 text-sm font-semibold text-neutral-700 transition-all duration-200 hover:border-neutral-300 hover:bg-neutral-50 hover:text-primary-600 sm:self-center"
                 >
                   Explore
                   <ArrowRight size={14} className="transition-transform duration-200 group-hover:translate-x-0.5" />
@@ -221,7 +221,7 @@ export function HomePage() {
         </PageContainer>
       </section>
 
-      <section className="bg-primary-50 py-20 sm:py-24" aria-labelledby="trust-heading">
+      <section className="bg-[#EEF4FF] py-14 sm:py-16" aria-labelledby="trust-heading">
         <PageContainer width="wide">
           <div className="mx-auto max-w-3xl text-center">
             <p className="mb-3 text-xs font-semibold uppercase tracking-widest text-primary-600">
@@ -236,7 +236,7 @@ export function HomePage() {
             </p>
           </div>
 
-          <div className="mt-14 grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-12 grid grid-cols-1 gap-12 sm:grid-cols-2 lg:grid-cols-4 lg:gap-10">
             {trustPillars.map((pillar, index) => (
               <motion.div
                 key={pillar.title}
@@ -246,13 +246,13 @@ export function HomePage() {
                 transition={{ duration: 0.4, ease: 'easeOut', delay: index * 0.08 }}
                 className="flex flex-col"
               >
-                <span className="mb-5 flex h-10 w-10 items-center justify-center rounded-lg bg-white text-primary-600 shadow-sm">
+                <span className="mb-5 flex h-12 w-12 items-center justify-center rounded-xl bg-white text-primary-600 shadow-sm">
                   {pillar.icon}
                 </span>
-                <h3 className="text-base font-semibold leading-snug text-neutral-900">
+                <h3 className="text-lg font-semibold leading-snug text-neutral-900">
                   {pillar.title}
                 </h3>
-                <p className="mt-2 text-sm leading-relaxed text-neutral-500">
+                <p className="mt-2 max-w-xs text-sm leading-relaxed text-neutral-500">
                   {pillar.description}
                 </p>
               </motion.div>

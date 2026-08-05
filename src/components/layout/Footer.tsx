@@ -3,8 +3,8 @@ import { FOOTER_NAV_SECTIONS, SITE_NAME, COPYRIGHT_YEAR } from '@/lib/constants'
 
 export function Footer() {
   return (
-    <footer className="border-t border-neutral-100 bg-white">
-      <div className="container-wide py-16 sm:py-20">
+    <footer className="border-t border-neutral-200 bg-[#F7F8FA]">
+      <div className="container-wide py-14 sm:py-16">
         <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-4">
           <div className="lg:col-span-2">
             <Link to="/" className="text-[17px] font-bold tracking-tight text-neutral-900">
@@ -37,7 +37,7 @@ export function Footer() {
           ))}
         </div>
 
-        <div className="mt-16 border-t border-neutral-100 pt-8">
+        <div className="mt-12 border-t border-neutral-200 pt-8">
           <p className="text-sm text-neutral-400">
             &copy; {COPYRIGHT_YEAR} {SITE_NAME}. All rights reserved.
           </p>

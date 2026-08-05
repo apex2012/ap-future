@@ -82,7 +82,7 @@ export function Hero({
 }: HeroProps) {
   if (variant === 'centered') {
     return (
-      <section className="relative overflow-hidden bg-white py-24 sm:py-32">
+      <section className="relative overflow-hidden bg-white py-16 sm:py-20">
         <div className="container-wide">
           <motion.div
             className="mx-auto max-w-3xl text-center"
@@ -167,7 +167,7 @@ export function Hero({
 
   return (
     <section className={`relative overflow-hidden ${isCourse ? 'bg-neutral-50' : 'bg-white'}`}>
-      <div className="container-wide grid min-h-[480px] grid-cols-1 items-center gap-12 py-20 lg:grid-cols-[55%_45%] lg:min-h-[680px] lg:py-28">
+      <div className="container-wide grid min-h-[440px] grid-cols-1 items-center gap-12 py-16 lg:grid-cols-[55%_45%] lg:min-h-[600px] lg:py-20">
         <motion.div
           className="max-w-xl"
           initial="initial"
