@@ -198,7 +198,7 @@ function DisciplineGroup({
           </div>
         </div>
         <div className="flex flex-shrink-0 items-center gap-3">
-          <span className="hidden text-[18px] font-semibold text-primary-600 sm:block">
+          <span className="hidden text-lg font-semibold text-primary-600 sm:block">
             {open ? 'Hide courses' : 'View courses'}
           </span>
           <ChevronDown
@@ -243,7 +243,7 @@ export function APPage() {
       <section className="bg-[#F7F8FA] py-14 sm:py-16" aria-labelledby="why-future-heading">
         <PageContainer width="wide">
           <div className="mx-auto max-w-3xl text-center">
-            <p className="mb-3 text-[18px] font-semibold uppercase tracking-widest text-primary-600">
+            <p className="mb-3 text-xl font-semibold uppercase tracking-wider text-primary-600">
               Why AP Future
             </p>
             <h2 id="why-future-heading" className="text-3xl font-bold leading-tight tracking-tight text-neutral-900 sm:text-4xl">
@@ -285,7 +285,7 @@ export function APPage() {
       <section id="pathways" className="py-14 sm:py-16" aria-labelledby="pathways-heading">
         <PageContainer width="wide">
           <div className="mx-auto max-w-3xl text-center">
-            <p className="mb-3 text-[18px] font-semibold uppercase tracking-widest text-primary-600">
+            <p className="mb-3 text-xl font-semibold uppercase tracking-wider text-primary-600">
               How to Choose
             </p>
             <h2 id="pathways-heading" className="text-3xl font-bold leading-tight tracking-tight text-neutral-900 sm:text-4xl">
@@ -344,7 +344,7 @@ export function APPage() {
       <section className="bg-[#EEF4FF] py-14 sm:py-16" aria-labelledby="catalog-heading">
         <PageContainer width="wide">
           <div className="mb-10 max-w-2xl">
-            <p className="mb-3 text-[18px] font-semibold uppercase tracking-widest text-primary-600">
+            <p className="mb-3 text-xl font-semibold uppercase tracking-wider text-primary-600">
               Course Catalog
             </p>
             <h2 id="catalog-heading" className="text-3xl font-bold leading-tight tracking-tight text-neutral-900 sm:text-4xl">
@@ -367,7 +367,7 @@ export function APPage() {
       <section className="py-14 sm:py-16" aria-labelledby="faq-heading">
         <PageContainer>
           <div className="mb-8 max-w-2xl">
-            <p className="mb-3 text-[18px] font-semibold uppercase tracking-widest text-primary-600">
+            <p className="mb-3 text-xl font-semibold uppercase tracking-wider text-primary-600">
               FAQ
             </p>
             <h2 id="faq-heading" className="text-3xl font-bold leading-tight tracking-tight text-neutral-900 sm:text-4xl">

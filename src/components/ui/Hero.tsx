@@ -40,7 +40,7 @@ function HeroActions({ actions }: { actions: HeroAction[] }) {
         <Link
           key={action.href}
           to={action.href}
-          className={`inline-flex items-center justify-center rounded-full px-7 py-3.5 text-[18px] font-semibold tracking-tight transition-all duration-200 focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-600 ${actionClass(action.variant)}`}
+          className={`inline-flex items-center justify-center rounded-full px-7 py-3.5 text-lg font-semibold tracking-tight transition-all duration-200 focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-600 ${actionClass(action.variant)}`}
         >
           {action.label}
         </Link>
@@ -93,7 +93,7 @@ export function Hero({
           >
             {eyebrow && (
               <motion.p
-                className="mb-5 text-[18px] font-semibold uppercase tracking-widest text-primary-600"
+                className="mb-5 text-xl font-semibold uppercase tracking-wider text-primary-600"
                 variants={fadeUp}
               >
                 {eyebrow}
@@ -137,7 +137,7 @@ export function Hero({
           >
             {eyebrow && (
               <motion.p
-                className="mb-4 text-[18px] font-semibold uppercase tracking-widest text-primary-600"
+                className="mb-4 text-xl font-semibold uppercase tracking-wider text-primary-600"
                 variants={fadeUp}
               >
                 {eyebrow}
@@ -177,7 +177,7 @@ export function Hero({
         >
           {eyebrow && (
             <motion.p
-              className="mb-5 text-[18px] font-semibold uppercase tracking-widest text-primary-600"
+              className="mb-5 text-xl font-semibold uppercase tracking-wider text-primary-600"
               variants={fadeUp}
             >
               {eyebrow}
