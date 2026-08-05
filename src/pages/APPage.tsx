@@ -177,12 +177,12 @@ function DisciplineGroup({
   const [open, setOpen] = useState(defaultOpen);
 
   return (
-    <div className="overflow-hidden rounded-2xl border border-neutral-200 bg-white">
+    <div className="overflow-hidden rounded-2xl border border-neutral-100 bg-white shadow-sm">
       <button
         type="button"
         onClick={() => setOpen((v) => !v)}
         aria-expanded={open}
-        className="flex w-full items-center justify-between gap-4 px-6 py-5 text-left transition-colors hover:bg-neutral-50 focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-0 focus-visible:outline-primary-600"
+        className="flex w-full items-center justify-between gap-4 px-7 py-6 text-left transition-colors hover:bg-neutral-50 focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-0 focus-visible:outline-primary-600"
       >
         <div className="flex items-center gap-4">
           <span className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-lg bg-primary-50 text-primary-600">
@@ -192,13 +192,13 @@ function DisciplineGroup({
             <h3 className="text-lg font-semibold leading-snug text-neutral-900">
               {group.title}
             </h3>
-            <p className="mt-0.5 text-sm text-neutral-500">
-              {group.courseCount} courses \u00b7 {group.description}
+            <p className="mt-0.5 text-sm text-neutral-400">
+              {group.courseCount} courses &middot; {group.description}
             </p>
           </div>
         </div>
         <div className="flex flex-shrink-0 items-center gap-3">
-          <span className="hidden text-sm font-medium text-primary-600 sm:block">
+          <span className="hidden text-sm font-semibold text-primary-600 sm:block">
             {open ? 'Hide courses' : 'View courses'}
           </span>
           <ChevronDown
@@ -214,7 +214,7 @@ function DisciplineGroup({
           transition={{ duration: 0.3, ease: 'easeOut' }}
           className="overflow-hidden"
         >
-          <div className="grid grid-cols-1 gap-4 border-t border-neutral-200 p-6 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="grid grid-cols-1 gap-4 border-t border-neutral-100 p-7 sm:grid-cols-2 lg:grid-cols-3">
             {group.courses.map((course) => (
               <CourseCard key={course.title} {...course} />
             ))}
@@ -228,36 +228,34 @@ function DisciplineGroup({
 export function APPage() {
   return (
     <>
-      <div className="-mt-6 lg:-mt-10">
-        <Hero
-          variant="split"
-          eyebrow="Advanced Placement"
-          title="Choose the Right AP Courses for Your Goals."
-          description="Thirteen college-level AP courses across Mathematics, Physics, and Social Sciences, with guided pathways to help students build a competitive university application."
-          actions={[
-            { label: 'Book a Consultation', href: '/book-a-consultation', variant: 'primary' },
-            { label: 'How to Choose', href: '#pathways', variant: 'secondary' },
-          ]}
-          image={heroImage}
-        />
-      </div>
+      <Hero
+        variant="split"
+        eyebrow="Advanced Placement"
+        title="Choose the Right AP Courses for Your Goals."
+        description="Thirteen college-level AP courses across Mathematics, Physics, and Social Sciences, with guided pathways to help students build a competitive university application."
+        actions={[
+          { label: 'Book a Consultation', href: '/book-a-consultation', variant: 'primary' },
+          { label: 'How to Choose', href: '#pathways', variant: 'secondary' },
+        ]}
+        image={heroImage}
+      />
 
-      <section className="py-16 sm:py-20" aria-labelledby="why-future-heading">
+      <section className="bg-neutral-50 py-20 sm:py-24" aria-labelledby="why-future-heading">
         <PageContainer width="wide">
           <div className="mx-auto max-w-3xl text-center">
-            <p className="mb-3 text-sm font-semibold uppercase tracking-wider text-primary-600">
+            <p className="mb-3 text-xs font-semibold uppercase tracking-widest text-primary-600">
               Why AP Future
             </p>
-            <h2 id="why-future-heading" className="text-2xl font-semibold leading-tight text-neutral-900 sm:text-3xl">
+            <h2 id="why-future-heading" className="text-3xl font-bold leading-tight tracking-tight text-neutral-900 sm:text-4xl">
               AP instruction designed for university admissions
             </h2>
-            <p className="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-neutral-600">
+            <p className="mx-auto mt-4 max-w-2xl text-lg leading-relaxed text-neutral-500">
               Self-study and school-only AP courses leave students unprepared for the exam format and the
               multi-year planning that competitive universities expect. We close that gap.
             </p>
           </div>
 
-          <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2">
+          <div className="mt-14 grid grid-cols-1 gap-6 sm:grid-cols-2">
             {whyAPFuture.map((item, index) => (
               <motion.div
                 key={item.title}
@@ -265,7 +263,7 @@ export function APPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: '-80px' }}
                 transition={{ duration: 0.4, ease: 'easeOut', delay: index * 0.08 }}
-                className="flex gap-5 rounded-2xl border border-neutral-200 bg-white p-6"
+                className="flex gap-5 rounded-2xl border border-neutral-100 bg-white p-7 shadow-sm transition-shadow duration-300 hover:shadow-md"
               >
                 <span className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-xl bg-primary-50 text-primary-600">
                   {item.icon}
@@ -274,7 +272,7 @@ export function APPage() {
                   <h3 className="text-base font-semibold leading-snug text-neutral-900">
                     {item.title}
                   </h3>
-                  <p className="mt-2 text-sm leading-relaxed text-neutral-600">
+                  <p className="mt-2 text-sm leading-relaxed text-neutral-500">
                     {item.description}
                   </p>
                 </div>
@@ -284,22 +282,22 @@ export function APPage() {
         </PageContainer>
       </section>
 
-      <section id="pathways" className="bg-neutral-50 py-16 sm:py-20" aria-labelledby="pathways-heading">
+      <section id="pathways" className="py-20 sm:py-24" aria-labelledby="pathways-heading">
         <PageContainer width="wide">
           <div className="mx-auto max-w-3xl text-center">
-            <p className="mb-3 text-sm font-semibold uppercase tracking-wider text-primary-600">
+            <p className="mb-3 text-xs font-semibold uppercase tracking-widest text-primary-600">
               How to Choose
             </p>
-            <h2 id="pathways-heading" className="text-2xl font-semibold leading-tight text-neutral-900 sm:text-3xl">
+            <h2 id="pathways-heading" className="text-3xl font-bold leading-tight tracking-tight text-neutral-900 sm:text-4xl">
               Four pathways to guide your course selection
             </h2>
-            <p className="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-neutral-600">
+            <p className="mx-auto mt-4 max-w-2xl text-lg leading-relaxed text-neutral-500">
               Recommended course combinations aligned with common university majors. Pathways are flexible
               and can be adjusted to fit each student\u2019s goals and timeline.
             </p>
           </div>
 
-          <div className="mt-12 space-y-6">
+          <div className="mt-14 space-y-5">
             {pathways.map((pathway, index) => (
               <motion.div
                 key={pathway.title}
@@ -307,7 +305,7 @@ export function APPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: '-80px' }}
                 transition={{ duration: 0.4, ease: 'easeOut', delay: index * 0.08 }}
-                className="grid grid-cols-1 gap-6 rounded-2xl border border-neutral-200 bg-white p-6 sm:grid-cols-[auto_1fr_auto] sm:items-center lg:p-8"
+                className="grid grid-cols-1 gap-6 rounded-2xl border border-neutral-100 bg-white p-7 shadow-sm transition-shadow duration-300 hover:shadow-md sm:grid-cols-[auto_1fr_auto] sm:items-center lg:p-8"
               >
                 <div className="flex items-center gap-4">
                   <span className="text-3xl font-bold tracking-tight text-primary-200">
@@ -322,15 +320,15 @@ export function APPage() {
                   <h3 className="text-lg font-semibold leading-snug text-neutral-900">
                     {pathway.title}
                   </h3>
-                  <p className="mt-1 text-sm text-neutral-500">{pathway.target}</p>
-                  <p className="mt-3 text-sm leading-relaxed text-neutral-600">
+                  <p className="mt-1 text-sm text-neutral-400">{pathway.target}</p>
+                  <p className="mt-3 text-sm leading-relaxed text-neutral-500">
                     {pathway.rationale}
                   </p>
                   <div className="mt-4 flex flex-wrap gap-2">
                     {pathway.courses.map((course) => (
                       <span
                         key={course}
-                        className="inline-flex items-center rounded-full bg-primary-50 px-3 py-1 text-xs font-medium text-primary-700"
+                        className="inline-flex items-center rounded-full bg-primary-50 px-3 py-1 text-xs font-semibold text-primary-700"
                       >
                         {course}
                       </span>
@@ -343,16 +341,16 @@ export function APPage() {
         </PageContainer>
       </section>
 
-      <section className="py-16 sm:py-20" aria-labelledby="catalog-heading">
+      <section className="bg-neutral-50 py-20 sm:py-24" aria-labelledby="catalog-heading">
         <PageContainer width="wide">
-          <div className="mb-10 max-w-2xl">
-            <p className="mb-3 text-sm font-semibold uppercase tracking-wider text-primary-600">
+          <div className="mb-12 max-w-2xl">
+            <p className="mb-3 text-xs font-semibold uppercase tracking-widest text-primary-600">
               Course Catalog
             </p>
-            <h2 id="catalog-heading" className="text-2xl font-semibold leading-tight text-neutral-900 sm:text-3xl">
+            <h2 id="catalog-heading" className="text-3xl font-bold leading-tight tracking-tight text-neutral-900 sm:text-4xl">
               Thirteen AP courses across three disciplines
             </h2>
-            <p className="mt-4 text-base leading-relaxed text-neutral-600">
+            <p className="mt-4 text-lg leading-relaxed text-neutral-500">
               Each course follows the College Board curriculum and is taught by experienced educators who
               prioritize understanding over memorization. Expand a discipline to see the courses within.
             </p>
@@ -366,13 +364,13 @@ export function APPage() {
         </PageContainer>
       </section>
 
-      <section className="bg-neutral-50 py-16 sm:py-20" aria-labelledby="faq-heading">
+      <section className="py-20 sm:py-24" aria-labelledby="faq-heading">
         <PageContainer>
           <div className="mb-10 max-w-2xl">
-            <p className="mb-3 text-sm font-semibold uppercase tracking-wider text-primary-600">
+            <p className="mb-3 text-xs font-semibold uppercase tracking-widest text-primary-600">
               FAQ
             </p>
-            <h2 id="faq-heading" className="text-2xl font-semibold leading-tight text-neutral-900 sm:text-3xl">
+            <h2 id="faq-heading" className="text-3xl font-bold leading-tight tracking-tight text-neutral-900 sm:text-4xl">
               Frequently asked questions
             </h2>
           </div>

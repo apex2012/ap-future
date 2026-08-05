@@ -99,38 +99,36 @@ const fadeUp = {
 export function HomePage() {
   return (
     <>
-      <div className="-mt-6 lg:-mt-10">
-        <Hero
-          variant="split"
-          eyebrow="University Admissions"
-          title="Prepare for University with Confidence."
-          description="Expert AP instruction, structured Digital SAT preparation, strategic university planning, and educational resources designed for long-term student success."
-          actions={[
-            { label: 'Book a Consultation', href: '/book-a-consultation', variant: 'primary' },
-            { label: 'Explore Programs', href: '/ap', variant: 'secondary' },
-          ]}
-          image={heroImage}
-        />
-      </div>
+      <Hero
+        variant="split"
+        eyebrow="University Admissions"
+        title="Prepare for University with Confidence."
+        description="Expert AP instruction, structured Digital SAT preparation, strategic university planning, and educational resources designed for long-term student success."
+        actions={[
+          { label: 'Book a Consultation', href: '/book-a-consultation', variant: 'primary' },
+          { label: 'Explore Programs', href: '/ap', variant: 'secondary' },
+        ]}
+        image={heroImage}
+      />
 
-      <section className="py-16 sm:py-20" aria-labelledby="intro-heading">
+      <section className="py-20 sm:py-24" aria-labelledby="intro-heading">
         <PageContainer width="wide">
           <div className="mx-auto max-w-3xl text-center">
             <motion.p
-              className="mb-4 text-sm font-semibold uppercase tracking-wider text-primary-600"
+              className="mb-4 text-xs font-semibold uppercase tracking-widest text-primary-600"
               {...fadeUp}
             >
               Who We Are
             </motion.p>
             <motion.h2
               id="intro-heading"
-              className="text-2xl font-semibold leading-tight text-neutral-900 sm:text-3xl"
+              className="text-3xl font-bold leading-tight tracking-tight text-neutral-900 sm:text-4xl"
               {...fadeUp}
             >
               An education company built for international university admissions.
             </motion.h2>
             <motion.p
-              className="mt-6 text-lg leading-relaxed text-neutral-600"
+              className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-neutral-500"
               {...fadeUp}
             >
               AP Future integrates AP instruction, SAT preparation, university planning, and learning resources
@@ -140,20 +138,25 @@ export function HomePage() {
           </div>
 
           <motion.dl
-            className="mx-auto mt-12 grid max-w-4xl grid-cols-2 gap-px overflow-hidden rounded-2xl border border-neutral-200 bg-neutral-200 lg:grid-cols-4"
+            className="mx-auto mt-14 flex max-w-4xl flex-wrap justify-center gap-x-2 gap-y-8 sm:gap-x-0"
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-80px' }}
             transition={{ duration: 0.4, ease: 'easeOut' }}
           >
-            {trustSignals.map((signal) => (
-              <div key={signal.label} className="bg-white px-6 py-8 text-center">
+            {trustSignals.map((signal, index) => (
+              <div
+                key={signal.label}
+                className={`flex flex-col items-center px-6 sm:px-10 ${
+                  index !== 0 ? 'sm:border-l sm:border-neutral-200' : ''
+                }`}
+              >
                 <dt className="sr-only">{signal.label}</dt>
                 <dd>
-                  <span className="block text-3xl font-bold tracking-tight text-primary-600 sm:text-4xl">
+                  <span className="block text-4xl font-bold tracking-tight text-neutral-900 sm:text-5xl">
                     {signal.value}
                   </span>
-                  <span className="mt-2 block text-sm font-medium text-neutral-500">
+                  <span className="mt-2 block text-sm font-medium text-neutral-400">
                     {signal.label}
                   </span>
                 </dd>
@@ -161,10 +164,10 @@ export function HomePage() {
             ))}
           </motion.dl>
 
-          <motion.div className="mt-8 text-center" {...fadeUp}>
+          <motion.div className="mt-10 text-center" {...fadeUp}>
             <Link
               to="/about"
-              className="group inline-flex items-center gap-1.5 text-sm font-medium text-primary-600 hover:text-primary-700"
+              className="group inline-flex items-center gap-1.5 text-sm font-semibold text-primary-600 hover:text-primary-700"
             >
               Learn more about our story
               <ArrowRight size={14} className="transition-transform duration-200 group-hover:translate-x-0.5" />
@@ -173,13 +176,13 @@ export function HomePage() {
         </PageContainer>
       </section>
 
-      <section className="bg-neutral-50 py-16 sm:py-20" aria-labelledby="services-heading">
+      <section className="bg-neutral-50 py-20 sm:py-24" aria-labelledby="services-heading">
         <PageContainer width="wide">
-          <div className="mb-12 max-w-2xl">
-            <p className="mb-3 text-sm font-semibold uppercase tracking-wider text-primary-600">
+          <div className="mb-14 max-w-2xl">
+            <p className="mb-3 text-xs font-semibold uppercase tracking-widest text-primary-600">
               What We Do
             </p>
-            <h2 id="services-heading" className="text-2xl font-semibold leading-tight text-neutral-900 sm:text-3xl">
+            <h2 id="services-heading" className="text-3xl font-bold leading-tight tracking-tight text-neutral-900 sm:text-4xl">
               Four programs, one connected path to university
             </h2>
           </div>
@@ -195,19 +198,19 @@ export function HomePage() {
                 className="group flex flex-col gap-6 py-8 sm:flex-row sm:items-center sm:gap-10"
               >
                 <div className="flex flex-shrink-0 items-center gap-4 sm:w-72">
-                  <span className="flex h-14 w-14 items-center justify-center rounded-xl bg-white text-primary-600 shadow-sm transition-colors duration-200 group-hover:bg-primary-50">
+                  <span className="flex h-14 w-14 items-center justify-center rounded-xl bg-white text-primary-600 shadow-sm transition-all duration-300 group-hover:bg-primary-50 group-hover:shadow-md">
                     {service.icon}
                   </span>
                   <h3 className="text-xl font-semibold leading-snug text-neutral-900">
                     {service.title}
                   </h3>
                 </div>
-                <p className="flex-1 text-base leading-relaxed text-neutral-600">
+                <p className="flex-1 text-base leading-relaxed text-neutral-500">
                   {service.description}
                 </p>
                 <Link
                   to={service.href}
-                  className="inline-flex flex-shrink-0 items-center gap-1.5 self-start rounded-lg border border-neutral-300 px-5 py-2.5 text-sm font-medium text-neutral-700 transition-colors duration-200 hover:border-primary-300 hover:text-primary-600 sm:self-center"
+                  className="inline-flex flex-shrink-0 items-center gap-1.5 self-start rounded-full border border-neutral-200 px-5 py-2.5 text-sm font-semibold text-neutral-700 transition-all duration-200 hover:border-neutral-300 hover:bg-white hover:text-primary-600 sm:self-center"
                 >
                   Explore
                   <ArrowRight size={14} className="transition-transform duration-200 group-hover:translate-x-0.5" />
@@ -218,22 +221,22 @@ export function HomePage() {
         </PageContainer>
       </section>
 
-      <section className="py-16 sm:py-20" aria-labelledby="trust-heading">
+      <section className="bg-primary-50 py-20 sm:py-24" aria-labelledby="trust-heading">
         <PageContainer width="wide">
           <div className="mx-auto max-w-3xl text-center">
-            <p className="mb-3 text-sm font-semibold uppercase tracking-wider text-primary-600">
+            <p className="mb-3 text-xs font-semibold uppercase tracking-widest text-primary-600">
               Why Families Trust AP Future
             </p>
-            <h2 id="trust-heading" className="text-2xl font-semibold leading-tight text-neutral-900 sm:text-3xl">
+            <h2 id="trust-heading" className="text-3xl font-bold leading-tight tracking-tight text-neutral-900 sm:text-4xl">
               Education first, trust first
             </h2>
-            <p className="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-neutral-600">
+            <p className="mx-auto mt-4 max-w-2xl text-lg leading-relaxed text-neutral-500">
               We are not a traditional tutoring site or a sales-driven admissions agency. Every decision we make
               starts with what helps students learn, grow, and make better educational choices.
             </p>
           </div>
 
-          <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-14 grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-4">
             {trustPillars.map((pillar, index) => (
               <motion.div
                 key={pillar.title}
@@ -241,15 +244,15 @@ export function HomePage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: '-80px' }}
                 transition={{ duration: 0.4, ease: 'easeOut', delay: index * 0.08 }}
-                className="rounded-2xl border border-neutral-200 bg-white p-6"
+                className="flex flex-col"
               >
-                <span className="mb-4 flex h-11 w-11 items-center justify-center rounded-lg bg-primary-50 text-primary-600">
+                <span className="mb-5 flex h-10 w-10 items-center justify-center rounded-lg bg-white text-primary-600 shadow-sm">
                   {pillar.icon}
                 </span>
                 <h3 className="text-base font-semibold leading-snug text-neutral-900">
                   {pillar.title}
                 </h3>
-                <p className="mt-2 text-sm leading-relaxed text-neutral-600">
+                <p className="mt-2 text-sm leading-relaxed text-neutral-500">
                   {pillar.description}
                 </p>
               </motion.div>
