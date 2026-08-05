@@ -168,46 +168,53 @@ export function HomePage() {
         </PageContainer>
       </section>
 
-      <section className="py-14 sm:py-16" aria-labelledby="services-heading">
+      <section className="py-16 sm:py-20" aria-labelledby="services-heading">
         <PageContainer width="wide">
-          <div className="mb-10 max-w-2xl">
-            <p className="mb-3 text-xl font-semibold uppercase tracking-wider text-primary-600">
+          <div className="mb-12 max-w-xl">
+            <p className="mb-2.5 text-xs font-semibold uppercase tracking-[0.22em] text-primary-600">
               What We Do
             </p>
-            <h2 id="services-heading" className="text-3xl font-bold leading-tight tracking-tight text-neutral-900 sm:text-4xl">
+            <h2 id="services-heading" className="text-[28px] font-bold leading-[1.15] tracking-tight text-neutral-900 sm:text-[36px]">
               Four programs, one connected path to university
             </h2>
           </div>
 
-          <div className="divide-y divide-neutral-200">
-            {services.map((service) => (
+          <div>
+            {services.map((service, index) => (
               <motion.div
                 key={service.title}
-                initial={{ opacity: 0, y: 16 }}
+                initial={{ opacity: 0, y: 10 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: '-80px' }}
-                transition={{ duration: 0.4, ease: 'easeOut' }}
-                className="group flex flex-col gap-6 py-10 sm:flex-row sm:items-center sm:gap-12"
+                viewport={{ once: true, margin: '-60px' }}
+                transition={{ duration: 0.35, ease: 'easeOut', delay: index * 0.05 }}
+                className={`group relative flex items-baseline justify-between gap-8 py-7 sm:gap-16 ${
+                  index === 0 ? 'border-t border-neutral-200/70' : ''
+                } border-b border-neutral-200/70`}
               >
-                <div className="flex flex-shrink-0 items-center gap-4 sm:w-64">
-                  <span className="flex h-14 w-14 items-center justify-center rounded-xl bg-neutral-50 text-primary-600 transition-all duration-300 group-hover:bg-primary-50 group-hover:shadow-md">
-                    {service.icon}
+                <div className="flex min-w-0 flex-1 items-baseline gap-5">
+                  <span className="hidden flex-shrink-0 text-neutral-300 transition-colors duration-200 group-hover:text-primary-400 sm:block">
+                    {service.icon && (
+                      <span className="[&>svg]:h-4 [&>svg]:w-4">
+                        {service.icon}
+                      </span>
+                    )}
                   </span>
-                  <h3 className="text-xl font-semibold leading-snug text-neutral-900">
-                    {service.title}
-                  </h3>
-                </div>
-                <div className="flex-1">
-                  <p className="max-w-prose text-lg leading-relaxed text-neutral-500">
-                    {service.description}
-                  </p>
+                  <div className="min-w-0">
+                    <h3 className="inline text-[15px] font-semibold text-neutral-900">
+                      {service.title}
+                      <span className="mx-2 text-neutral-300">—</span>
+                    </h3>
+                    <p className="inline text-[15px] leading-relaxed text-neutral-500">
+                      {service.description}
+                    </p>
+                  </div>
                 </div>
                 <Link
                   to={service.href}
-                  className="inline-flex flex-shrink-0 items-center gap-1.5 self-start rounded-full border border-neutral-200 px-6 py-3 text-lg font-semibold text-neutral-700 transition-all duration-200 hover:border-neutral-300 hover:bg-neutral-50 hover:text-primary-600 sm:self-center sm:mr-2"
+                  className="inline-flex flex-shrink-0 items-center gap-1 text-[13px] font-medium text-neutral-400 transition-colors duration-200 hover:text-primary-600"
                 >
                   Explore
-                  <ArrowRight size={18} className="transition-transform duration-200 group-hover:translate-x-0.5" />
+                  <ArrowRight size={13} className="transition-transform duration-200 group-hover:translate-x-0.5" />
                 </Link>
               </motion.div>
             ))}
