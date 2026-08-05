@@ -41,25 +41,28 @@ export function Footer() {
             <h2 className="text-xs font-semibold uppercase tracking-widest text-neutral-400">
               Contact
             </h2>
-            <ul className="mt-5 space-y-3.5">
-              <li className="flex items-center gap-2.5 text-sm text-neutral-600">
+            <ul className="mt-5 space-y-4">
+              <li className="flex items-center gap-3 text-sm text-neutral-600">
                 <MapPin size={16} className="flex-shrink-0 text-neutral-400" />
                 {FOOTER_CONTACT.location}
               </li>
-              <li className="flex items-center gap-2.5 text-sm text-neutral-600">
+              <li className="flex items-center gap-3 text-sm text-neutral-600">
                 <Mail size={16} className="flex-shrink-0 text-neutral-400" />
                 {FOOTER_CONTACT.email}
               </li>
-              <li className="flex items-center gap-2.5 text-sm text-neutral-600">
+              <li className="flex items-center gap-3 pb-2 text-sm text-neutral-600">
                 <Phone size={16} className="flex-shrink-0 text-neutral-400" />
                 {FOOTER_CONTACT.phone}
               </li>
             </ul>
-            <div className="mt-5">
+            <div className="mt-6">
               <span className="text-sm text-neutral-600">{FOOTER_CONTACT.wechatLabel}</span>
-              <div className="mt-2 flex aspect-square w-28 items-center justify-center rounded-lg border border-dashed border-neutral-300 bg-white text-xs text-neutral-400">
-                QR Code Placeholder
+              <div className="mt-2 flex aspect-square w-32 items-center justify-center rounded-lg border border-dashed border-neutral-300 bg-white text-[11px] text-neutral-400">
+                QR Code
               </div>
+              <p className="mt-2 text-xs text-neutral-400">
+                Scan to connect with our advisors.
+              </p>
             </div>
           </div>
         </div>
