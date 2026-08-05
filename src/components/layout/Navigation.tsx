@@ -45,7 +45,7 @@ export function Navigation() {
           {SITE_NAME}
         </Link>
 
-        <ul className="hidden items-center gap-9 lg:flex">
+        <ul className="hidden items-center lg:flex" style={{ gap: '2.25rem' }}>
           {NAV_ITEMS.map((item) => (
             <li key={item.href}>
               <NavLink to={item.href} className={linkClass} end={item.href === '/'}>
