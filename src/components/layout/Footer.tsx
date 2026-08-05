@@ -39,10 +39,10 @@ export function Footer() {
           ))}
         </div>
 
-        {/* Bottom tier: contact info (left) + WeChat QR (right) */}
+        {/* Bottom tier: contact info (left, ~60%) + WeChat QR (right, ~40%) in one unified row */}
         <div className="mt-14 border-t border-neutral-200 pt-10">
-          <div className="flex flex-col gap-10 sm:flex-row sm:items-start sm:justify-between">
-            <div>
+          <div className="flex flex-col gap-8 sm:flex-row sm:items-start sm:gap-10">
+            <div className="sm:w-3/5">
               <h2 className="text-xs font-semibold uppercase tracking-widest text-neutral-400">
                 Contact
               </h2>
@@ -62,14 +62,16 @@ export function Footer() {
               </ul>
             </div>
 
-            <div className="text-left">
-              <span className="text-sm text-neutral-600">{FOOTER_CONTACT.wechatLabel}</span>
-              <div className="mt-2 flex aspect-square w-32 items-center justify-center rounded-lg border border-dashed border-neutral-300 bg-white text-[11px] text-neutral-400">
-                QR Code
+            <div className="sm:w-2/5">
+              <div className="flex flex-col items-start">
+                <div className="flex aspect-square w-32 items-center justify-center rounded-lg border border-dashed border-neutral-300 bg-white text-[11px] text-neutral-400">
+                  QR Code
+                </div>
+                <span className="mt-3 text-sm text-neutral-600">{FOOTER_CONTACT.wechatLabel}</span>
+                <p className="mt-1 text-xs text-neutral-400">
+                  Scan to connect with our advisors.
+                </p>
               </div>
-              <p className="mt-2 text-xs text-neutral-400">
-                Scan to connect with our advisors.
-              </p>
             </div>
           </div>
         </div>
