@@ -1,9 +1,25 @@
-import { Calculator, Atom, Landmark, Brain, Globe as Globe2, Cpu, Briefcase, Users, ChartBar } from 'lucide-react';
+import { useState } from 'react';
+import { motion } from 'framer-motion';
+import {
+  Calculator,
+  Atom,
+  Landmark,
+  Brain,
+  Globe as Globe2,
+  Cpu,
+  Briefcase,
+  Users,
+  ChartBar,
+  ChevronDown,
+  BookOpen,
+  Target,
+  Clock,
+  Heart,
+} from 'lucide-react';
 import { Hero } from '@/components/ui/Hero';
 import { CourseCard } from '@/components/ui/CourseCard';
-import { FeatureGrid } from '@/components/ui/FeatureGrid';
-import { CTA } from '@/components/ui/CTA';
 import { FAQAccordion } from '@/components/ui/FAQAccordion';
+import { CTA } from '@/components/ui/CTA';
 import { PageContainer } from '@/components/ui/PageContainer';
 
 const heroImage = {
@@ -16,91 +32,195 @@ const heroImage = {
   sizes: '(min-width: 1024px) 45vw, 100vw',
 };
 
-const mathCourses = [
-  { title: 'Precalculus', category: 'Mathematics', description: 'Build the foundational skills in functions, algebra, and trigonometry needed for calculus.', recommendedGrade: 'Grades 9–11', difficulty: 'Intermediate', duration: 'Full year', href: '/ap', icon: <Calculator size={20} /> },
-  { title: 'Calculus AB', category: 'Mathematics', description: 'Master limits, derivatives, and integrals in this introductory college-level calculus course.', recommendedGrade: 'Grades 10–12', difficulty: 'Advanced', duration: 'Full year', href: '/ap', icon: <Calculator size={20} /> },
-  { title: 'Calculus BC', category: 'Mathematics', description: 'Extend Calculus AB with series, parametric equations, and polar functions for greater depth.', recommendedGrade: 'Grades 11–12', difficulty: 'Advanced', duration: 'Full year', href: '/ap', icon: <Calculator size={20} /> },
-  { title: 'Statistics', category: 'Mathematics', description: 'Learn data analysis, probability, and statistical inference through real-world applications.', recommendedGrade: 'Grades 10–12', difficulty: 'Intermediate', duration: 'Full year', href: '/ap', icon: <ChartBar size={20} /> },
-];
-
-const physicsCourses = [
-  { title: 'Physics 1', category: 'Physics', description: 'Study Newtonian mechanics, waves, and electricity through inquiry-based learning.', recommendedGrade: 'Grades 10–12', difficulty: 'Intermediate', duration: 'Full year', href: '/ap', icon: <Atom size={20} /> },
-  { title: 'Physics 2', category: 'Physics', description: 'Explore fluid mechanics, thermodynamics, electromagnetism, and optics at college level.', recommendedGrade: 'Grades 11–12', difficulty: 'Advanced', duration: 'Full year', href: '/ap', icon: <Atom size={20} /> },
-  { title: 'Physics C: Mechanics', category: 'Physics', description: 'Calculus-based mechanics covering kinematics, dynamics, and rotational motion in depth.', recommendedGrade: 'Grades 11–12', difficulty: 'Advanced', duration: 'Full year', href: '/ap', icon: <Atom size={20} /> },
-  { title: 'Physics C: Electricity & Magnetism', category: 'Physics', description: 'Calculus-based study of electrostatics, circuits, magnetic fields, and electromagnetism.', recommendedGrade: 'Grade 12', difficulty: 'Advanced', duration: 'Full year', href: '/ap', icon: <Atom size={20} /> },
-];
-
-const socialScienceCourses = [
-  { title: 'Microeconomics', category: 'Social Sciences', description: 'Understand consumer behavior, firm decisions, and market structures at college level.', recommendedGrade: 'Grades 10–12', difficulty: 'Intermediate', duration: 'One semester', href: '/ap', icon: <Landmark size={20} /> },
-  { title: 'Macroeconomics', category: 'Social Sciences', description: 'Study national income, price levels, fiscal policy, and international economics.', recommendedGrade: 'Grades 10–12', difficulty: 'Intermediate', duration: 'One semester', href: '/ap', icon: <Landmark size={20} /> },
-  { title: 'Human Geography', category: 'Social Sciences', description: 'Explore population, migration, culture, and urbanization through spatial analysis.', recommendedGrade: 'Grades 9–12', difficulty: 'Introductory', duration: 'Full year', href: '/ap', icon: <Globe2 size={20} /> },
-  { title: 'Psychology', category: 'Social Sciences', description: 'Investigate the scientific study of behavior, cognition, and mental processes.', recommendedGrade: 'Grades 10–12', difficulty: 'Intermediate', duration: 'Full year', href: '/ap', icon: <Brain size={20} /> },
-  { title: 'Comparative Government', category: 'Social Sciences', description: 'Compare political systems, institutions, and policies across major countries.', recommendedGrade: 'Grades 11–12', difficulty: 'Advanced', duration: 'Full year', href: '/ap', icon: <Landmark size={20} /> },
+const whyAPFuture = [
+  {
+    icon: <BookOpen size={22} />,
+    title: 'College Board-aligned curriculum',
+    description:
+      'Every course follows the official College Board framework. Students learn the exact skills and content the AP exam tests, not a simplified approximation.',
+  },
+  {
+    icon: <Target size={22} />,
+    title: 'Exam preparation, not just content',
+    description:
+      'We teach test strategy, time management, and free-response writing alongside subject material. Students walk into May exams knowing what to expect.',
+  },
+  {
+    icon: <Clock size={22} />,
+    title: 'Structured multi-year planning',
+    description:
+      'We help families plan a 2\u20133 year AP sequence that balances workload, builds progressively, and aligns with university application timelines.',
+  },
+  {
+    icon: <Heart size={22} />,
+    title: 'Personalized support when it matters',
+    description:
+      'Small classes, instructor access outside of class hours, and early intervention when a student falls behind. No one slips through quietly.',
+  },
 ];
 
 const pathways = [
-  { title: 'Engineering', description: 'Calculus BC, Physics C, and Chemistry form a strong quantitative foundation for engineering programs.', icon: <Cpu size={22} />, href: '/ap' },
-  { title: 'Computer Science', description: 'Calculus AB, Statistics, and Physics C develop the analytical thinking needed for CS programs.', icon: <Cpu size={22} />, href: '/ap' },
-  { title: 'Business', description: 'Microeconomics, Macroeconomics, Statistics, and Calculus AB build a competitive business profile.', icon: <Briefcase size={22} />, href: '/ap' },
-  { title: 'Social Sciences', description: 'Psychology, Human Geography, Comparative Government, and Macroeconomics prepare future social scientists.', icon: <Users size={22} />, href: '/ap' },
+  {
+    number: '01',
+    icon: <Cpu size={22} />,
+    title: 'Engineering',
+    target: 'For students aiming at mechanical, electrical, or civil engineering programs.',
+    courses: ['Calculus BC', 'Physics C: Mechanics', 'Physics C: Electricity & Magnetism'],
+    rationale: 'Calculus-based physics and advanced calculus demonstrate the quantitative depth engineering programs expect.',
+  },
+  {
+    number: '02',
+    icon: <Cpu size={22} />,
+    title: 'Computer Science',
+    target: 'For students targeting CS, data science, or software engineering degrees.',
+    courses: ['Calculus AB', 'Statistics', 'Physics C: Mechanics'],
+    rationale: 'Strong analytical foundations in calculus and statistics, plus a quantitative science, match CS admissions expectations.',
+  },
+  {
+    number: '03',
+    icon: <Briefcase size={22} />,
+    title: 'Business & Economics',
+    target: 'For students planning to study business, finance, or economics.',
+    courses: ['Microeconomics', 'Macroeconomics', 'Statistics', 'Calculus AB'],
+    rationale: 'A combination of economic theory and quantitative skills signals readiness for business school coursework.',
+  },
+  {
+    number: '04',
+    icon: <Users size={22} />,
+    title: 'Social Sciences & Humanities',
+    target: 'For students interested in psychology, political science, geography, or law.',
+    courses: ['Psychology', 'Human Geography', 'Comparative Government', 'Macroeconomics'],
+    rationale: 'A broad social science profile shows intellectual curiosity and writing ability valued by liberal arts programs.',
+  },
+];
+
+const disciplineGroups = [
+  {
+    id: 'math-courses',
+    title: 'Mathematics',
+    description: 'Build quantitative reasoning from Precalculus through advanced Calculus and Statistics.',
+    courseCount: 4,
+    courses: [
+      { title: 'Precalculus', category: 'Mathematics', description: 'Build the foundational skills in functions, algebra, and trigonometry needed for calculus.', recommendedGrade: 'Grades 9\u201311', difficulty: 'Intermediate', duration: 'Full year', href: '/ap', icon: <Calculator size={20} /> },
+      { title: 'Calculus AB', category: 'Mathematics', description: 'Master limits, derivatives, and integrals in this introductory college-level calculus course.', recommendedGrade: 'Grades 10\u201312', difficulty: 'Advanced', duration: 'Full year', href: '/ap', icon: <Calculator size={20} /> },
+      { title: 'Calculus BC', category: 'Mathematics', description: 'Extend Calculus AB with series, parametric equations, and polar functions for greater depth.', recommendedGrade: 'Grades 11\u201312', difficulty: 'Advanced', duration: 'Full year', href: '/ap', icon: <Calculator size={20} /> },
+      { title: 'Statistics', category: 'Mathematics', description: 'Learn data analysis, probability, and statistical inference through real-world applications.', recommendedGrade: 'Grades 10\u201312', difficulty: 'Intermediate', duration: 'Full year', href: '/ap', icon: <ChartBar size={20} /> },
+    ],
+  },
+  {
+    id: 'physics-courses',
+    title: 'Physics',
+    description: 'Develop scientific inquiry skills from introductory mechanics through calculus-based Physics C.',
+    courseCount: 4,
+    courses: [
+      { title: 'Physics 1', category: 'Physics', description: 'Study Newtonian mechanics, waves, and electricity through inquiry-based learning.', recommendedGrade: 'Grades 10\u201312', difficulty: 'Intermediate', duration: 'Full year', href: '/ap', icon: <Atom size={20} /> },
+      { title: 'Physics 2', category: 'Physics', description: 'Explore fluid mechanics, thermodynamics, electromagnetism, and optics at college level.', recommendedGrade: 'Grades 11\u201312', difficulty: 'Advanced', duration: 'Full year', href: '/ap', icon: <Atom size={20} /> },
+      { title: 'Physics C: Mechanics', category: 'Physics', description: 'Calculus-based mechanics covering kinematics, dynamics, and rotational motion in depth.', recommendedGrade: 'Grades 11\u201312', difficulty: 'Advanced', duration: 'Full year', href: '/ap', icon: <Atom size={20} /> },
+      { title: 'Physics C: Electricity & Magnetism', category: 'Physics', description: 'Calculus-based study of electrostatics, circuits, magnetic fields, and electromagnetism.', recommendedGrade: 'Grade 12', difficulty: 'Advanced', duration: 'Full year', href: '/ap', icon: <Atom size={20} /> },
+    ],
+  },
+  {
+    id: 'social-science-courses',
+    title: 'Social Sciences',
+    description: 'Understand human behavior, economic systems, and political structures through a global lens.',
+    courseCount: 5,
+    courses: [
+      { title: 'Microeconomics', category: 'Social Sciences', description: 'Understand consumer behavior, firm decisions, and market structures at college level.', recommendedGrade: 'Grades 10\u201312', difficulty: 'Intermediate', duration: 'One semester', href: '/ap', icon: <Landmark size={20} /> },
+      { title: 'Macroeconomics', category: 'Social Sciences', description: 'Study national income, price levels, fiscal policy, and international economics.', recommendedGrade: 'Grades 10\u201312', difficulty: 'Intermediate', duration: 'One semester', href: '/ap', icon: <Landmark size={20} /> },
+      { title: 'Human Geography', category: 'Social Sciences', description: 'Explore population, migration, culture, and urbanization through spatial analysis.', recommendedGrade: 'Grades 9\u201312', difficulty: 'Introductory', duration: 'Full year', href: '/ap', icon: <Globe2 size={20} /> },
+      { title: 'Psychology', category: 'Social Sciences', description: 'Investigate the scientific study of behavior, cognition, and mental processes.', recommendedGrade: 'Grades 10\u201312', difficulty: 'Intermediate', duration: 'Full year', href: '/ap', icon: <Brain size={20} /> },
+      { title: 'Comparative Government', category: 'Social Sciences', description: 'Compare political systems, institutions, and policies across major countries.', recommendedGrade: 'Grades 11\u201312', difficulty: 'Advanced', duration: 'Full year', href: '/ap', icon: <Landmark size={20} /> },
+    ],
+  },
 ];
 
 const faqItems = [
   {
     question: 'How many AP courses should a student take?',
-    answer: 'There is no universal number. We recommend 3–5 AP courses across subjects aligned with the student\u2019s intended university major, balanced against their overall workload and extracurricular commitments.',
+    answer:
+      'There is no universal number. We recommend 3\u20135 AP courses across subjects aligned with the student\u2019s intended university major, balanced against their overall workload and extracurricular commitments.',
   },
   {
     question: 'When should my child start AP courses?',
-    answer: 'Most students begin in Grade 10, though strong students may start in Grade 9 with Human Geography or Precalculus. We help families plan a multi-year AP sequence that fits each student\u2019s readiness.',
+    answer:
+      'Most students begin in Grade 10, though strong students may start in Grade 9 with Human Geography or Precalculus. We help families plan a multi-year AP sequence that fits each student\u2019s readiness.',
   },
   {
     question: 'Are AP courses only for students applying to US universities?',
-    answer: 'No. AP scores are recognized by universities in over 60 countries, including the UK, Canada, Australia, and many European institutions. They strengthen applications worldwide.',
+    answer:
+      'No. AP scores are recognized by universities in over 60 countries, including the UK, Canada, Australia, and many European institutions. They strengthen applications worldwide.',
   },
   {
     question: 'How are AP courses different from regular high school courses?',
-    answer: 'AP courses follow a college-level curriculum set by the College Board and conclude with a standardized exam in May. They cover material in greater depth and require stronger analytical and writing skills.',
+    answer:
+      'AP courses follow a college-level curriculum set by the College Board and conclude with a standardized exam in May. They cover material in greater depth and require stronger analytical and writing skills.',
   },
   {
     question: 'What if my child is struggling in an AP course?',
-    answer: 'Our instructors provide personalized support and identify gaps early. If needed, we can adjust the study plan or recommend additional tutoring sessions to help the student get back on track.',
+    answer:
+      'Our instructors provide personalized support and identify gaps early. If needed, we can adjust the study plan or recommend additional tutoring sessions to help the student get back on track.',
   },
   {
     question: 'Do you offer AP exam registration?',
-    answer: 'We guide families through the College Board exam registration process, but registration itself is handled through the student\u2019s school or an authorized AP test center.',
+    answer:
+      'We guide families through the College Board exam registration process, but registration itself is handled through the student\u2019s school or an authorized AP test center.',
   },
 ];
 
-function CourseSection({
-  id,
-  title,
-  description,
-  courses,
+function DisciplineGroup({
+  group,
+  defaultOpen = false,
 }: {
-  id: string;
-  title: string;
-  description: string;
-  courses: typeof mathCourses;
+  group: (typeof disciplineGroups)[number];
+  defaultOpen?: boolean;
 }) {
+  const [open, setOpen] = useState(defaultOpen);
+
   return (
-    <div className="mt-12 first:mt-0">
-      <div className="mb-6 flex items-center gap-3">
-        <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-primary-50 text-primary-600">
-          {courses[0].icon}
-        </span>
-        <div>
-          <h3 id={id} className="text-xl font-semibold leading-snug text-neutral-900">
-            {title}
-          </h3>
-          <p className="text-sm leading-relaxed text-neutral-500">{description}</p>
+    <div className="overflow-hidden rounded-2xl border border-neutral-200 bg-white">
+      <button
+        type="button"
+        onClick={() => setOpen((v) => !v)}
+        aria-expanded={open}
+        className="flex w-full items-center justify-between gap-4 px-6 py-5 text-left transition-colors hover:bg-neutral-50 focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-0 focus-visible:outline-primary-600"
+      >
+        <div className="flex items-center gap-4">
+          <span className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-lg bg-primary-50 text-primary-600">
+            {group.courses[0].icon}
+          </span>
+          <div>
+            <h3 className="text-lg font-semibold leading-snug text-neutral-900">
+              {group.title}
+            </h3>
+            <p className="mt-0.5 text-sm text-neutral-500">
+              {group.courseCount} courses \u00b7 {group.description}
+            </p>
+          </div>
         </div>
-      </div>
-      <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
-        {courses.map((course) => (
-          <CourseCard key={course.title} {...course} />
-        ))}
-      </div>
+        <div className="flex flex-shrink-0 items-center gap-3">
+          <span className="hidden text-sm font-medium text-primary-600 sm:block">
+            {open ? 'Hide courses' : 'View courses'}
+          </span>
+          <ChevronDown
+            size={20}
+            className={`flex-shrink-0 text-neutral-400 transition-transform duration-200 ${open ? 'rotate-180' : ''}`}
+          />
+        </div>
+      </button>
+      {open && (
+        <motion.div
+          initial={{ opacity: 0, height: 0 }}
+          animate={{ opacity: 1, height: 'auto' }}
+          transition={{ duration: 0.3, ease: 'easeOut' }}
+          className="overflow-hidden"
+        >
+          <div className="grid grid-cols-1 gap-4 border-t border-neutral-200 p-6 sm:grid-cols-2 lg:grid-cols-3">
+            {group.courses.map((course) => (
+              <CourseCard key={course.title} {...course} />
+            ))}
+          </div>
+        </motion.div>
+      )}
     </div>
   );
 }
@@ -116,63 +236,133 @@ export function APPage() {
           description="Thirteen college-level AP courses across Mathematics, Physics, and Social Sciences, with guided pathways to help students build a competitive university application."
           actions={[
             { label: 'Book a Consultation', href: '/book-a-consultation', variant: 'primary' },
-            { label: 'Explore Pathways', href: '#pathways', variant: 'secondary' },
+            { label: 'How to Choose', href: '#pathways', variant: 'secondary' },
           ]}
           image={heroImage}
         />
       </div>
 
-      <section className="py-16 sm:py-20" aria-labelledby="courses-heading">
-        <PageContainer>
-          <div className="mb-6 max-w-2xl">
+      <section className="py-16 sm:py-20" aria-labelledby="why-future-heading">
+        <PageContainer width="wide">
+          <div className="mx-auto max-w-3xl text-center">
             <p className="mb-3 text-sm font-semibold uppercase tracking-wider text-primary-600">
-              Course Catalog
+              Why AP Future
             </p>
-            <h2 id="courses-heading" className="text-2xl font-semibold leading-tight text-neutral-900 sm:text-3xl">
-              Thirteen AP courses across three disciplines
+            <h2 id="why-future-heading" className="text-2xl font-semibold leading-tight text-neutral-900 sm:text-3xl">
+              AP instruction designed for university admissions
             </h2>
-            <p className="mt-4 text-base leading-relaxed text-neutral-600">
-              Each course follows the College Board curriculum and is taught by experienced educators who
-              prioritize understanding over memorization.
+            <p className="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-neutral-600">
+              Self-study and school-only AP courses leave students unprepared for the exam format and the
+              multi-year planning that competitive universities expect. We close that gap.
             </p>
           </div>
 
-          <CourseSection
-            id="math-courses"
-            title="Mathematics"
-            description="Build quantitative reasoning from Precalculus through advanced Calculus and Statistics."
-            courses={mathCourses}
-          />
-          <CourseSection
-            id="physics-courses"
-            title="Physics"
-            description="Develop scientific inquiry skills from introductory mechanics through calculus-based Physics C."
-            courses={physicsCourses}
-          />
-          <CourseSection
-            id="social-science-courses"
-            title="Social Sciences"
-            description="Understand human behavior, economic systems, and political structures through a global lens."
-            courses={socialScienceCourses}
-          />
+          <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2">
+            {whyAPFuture.map((item, index) => (
+              <motion.div
+                key={item.title}
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: '-80px' }}
+                transition={{ duration: 0.4, ease: 'easeOut', delay: index * 0.08 }}
+                className="flex gap-5 rounded-2xl border border-neutral-200 bg-white p-6"
+              >
+                <span className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-xl bg-primary-50 text-primary-600">
+                  {item.icon}
+                </span>
+                <div>
+                  <h3 className="text-base font-semibold leading-snug text-neutral-900">
+                    {item.title}
+                  </h3>
+                  <p className="mt-2 text-sm leading-relaxed text-neutral-600">
+                    {item.description}
+                  </p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
         </PageContainer>
       </section>
 
       <section id="pathways" className="bg-neutral-50 py-16 sm:py-20" aria-labelledby="pathways-heading">
-        <PageContainer>
-          <div className="mb-10 max-w-2xl">
+        <PageContainer width="wide">
+          <div className="mx-auto max-w-3xl text-center">
             <p className="mb-3 text-sm font-semibold uppercase tracking-wider text-primary-600">
-              Pathways
+              How to Choose
             </p>
             <h2 id="pathways-heading" className="text-2xl font-semibold leading-tight text-neutral-900 sm:text-3xl">
               Four pathways to guide your course selection
             </h2>
-            <p className="mt-4 text-base leading-relaxed text-neutral-600">
-              Recommended course combinations aligned with common university majors. Pathways are flexible and
-              can be adjusted to fit each student\u2019s goals.
+            <p className="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-neutral-600">
+              Recommended course combinations aligned with common university majors. Pathways are flexible
+              and can be adjusted to fit each student\u2019s goals and timeline.
             </p>
           </div>
-          <FeatureGrid items={pathways} columns={4} />
+
+          <div className="mt-12 space-y-6">
+            {pathways.map((pathway, index) => (
+              <motion.div
+                key={pathway.title}
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: '-80px' }}
+                transition={{ duration: 0.4, ease: 'easeOut', delay: index * 0.08 }}
+                className="grid grid-cols-1 gap-6 rounded-2xl border border-neutral-200 bg-white p-6 sm:grid-cols-[auto_1fr_auto] sm:items-center lg:p-8"
+              >
+                <div className="flex items-center gap-4">
+                  <span className="text-3xl font-bold tracking-tight text-primary-200">
+                    {pathway.number}
+                  </span>
+                  <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary-50 text-primary-600">
+                    {pathway.icon}
+                  </span>
+                </div>
+
+                <div>
+                  <h3 className="text-lg font-semibold leading-snug text-neutral-900">
+                    {pathway.title}
+                  </h3>
+                  <p className="mt-1 text-sm text-neutral-500">{pathway.target}</p>
+                  <p className="mt-3 text-sm leading-relaxed text-neutral-600">
+                    {pathway.rationale}
+                  </p>
+                  <div className="mt-4 flex flex-wrap gap-2">
+                    {pathway.courses.map((course) => (
+                      <span
+                        key={course}
+                        className="inline-flex items-center rounded-full bg-primary-50 px-3 py-1 text-xs font-medium text-primary-700"
+                      >
+                        {course}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </PageContainer>
+      </section>
+
+      <section className="py-16 sm:py-20" aria-labelledby="catalog-heading">
+        <PageContainer width="wide">
+          <div className="mb-10 max-w-2xl">
+            <p className="mb-3 text-sm font-semibold uppercase tracking-wider text-primary-600">
+              Course Catalog
+            </p>
+            <h2 id="catalog-heading" className="text-2xl font-semibold leading-tight text-neutral-900 sm:text-3xl">
+              Thirteen AP courses across three disciplines
+            </h2>
+            <p className="mt-4 text-base leading-relaxed text-neutral-600">
+              Each course follows the College Board curriculum and is taught by experienced educators who
+              prioritize understanding over memorization. Expand a discipline to see the courses within.
+            </p>
+          </div>
+
+          <div className="space-y-4">
+            {disciplineGroups.map((group) => (
+              <DisciplineGroup key={group.id} group={group} />
+            ))}
+          </div>
         </PageContainer>
       </section>
 
@@ -186,7 +376,7 @@ export function APPage() {
               Frequently asked questions
             </h2>
           </div>
-          <FAQAccordion items={faqItems} />
+          <FAQAccordion items={faqItems} allowMultiple />
         </PageContainer>
       </section>
 
@@ -194,7 +384,7 @@ export function APPage() {
         title="Ready to Start Your AP Journey?"
         description="Book a consultation to discuss your academic goals and build a personalized AP course plan."
         primaryAction={{ label: 'Book a Consultation', href: '/book-a-consultation' }}
-        secondaryAction={{ label: 'Explore Programs', href: '/sat' }}
+        secondaryAction={{ label: 'Explore SAT', href: '/sat' }}
         variant="centered"
       />
     </>

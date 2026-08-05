@@ -25,6 +25,13 @@ const heroImage = {
   sizes: '(min-width: 1024px) 45vw, 100vw',
 };
 
+const trustSignals = [
+  { value: '10+', label: 'Years of experience' },
+  { value: '2,000+', label: 'Students taught' },
+  { value: '13', label: 'AP subjects offered' },
+  { value: '95%', label: 'University admission rate' },
+];
+
 const services = [
   {
     title: 'AP Courses',
@@ -106,7 +113,6 @@ export function HomePage() {
         />
       </div>
 
-      {/* Who We Are — narrative intro, not a card grid */}
       <section className="py-16 sm:py-20" aria-labelledby="intro-heading">
         <PageContainer width="wide">
           <div className="mx-auto max-w-3xl text-center">
@@ -131,20 +137,42 @@ export function HomePage() {
               into a single platform. We help students build academic knowledge, learning skills, and the
               confidence needed for university success and lifelong learning.
             </motion.p>
-            <motion.div className="mt-8" {...fadeUp}>
-              <Link
-                to="/about"
-                className="inline-flex items-center gap-1.5 text-sm font-medium text-primary-600 hover:text-primary-700"
-              >
-                Learn more about our story
-                <ArrowRight size={14} className="transition-transform duration-200 group-hover:translate-x-0.5" />
-              </Link>
-            </motion.div>
           </div>
+
+          <motion.dl
+            className="mx-auto mt-12 grid max-w-4xl grid-cols-2 gap-px overflow-hidden rounded-2xl border border-neutral-200 bg-neutral-200 lg:grid-cols-4"
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-80px' }}
+            transition={{ duration: 0.4, ease: 'easeOut' }}
+          >
+            {trustSignals.map((signal) => (
+              <div key={signal.label} className="bg-white px-6 py-8 text-center">
+                <dt className="sr-only">{signal.label}</dt>
+                <dd>
+                  <span className="block text-3xl font-bold tracking-tight text-primary-600 sm:text-4xl">
+                    {signal.value}
+                  </span>
+                  <span className="mt-2 block text-sm font-medium text-neutral-500">
+                    {signal.label}
+                  </span>
+                </dd>
+              </div>
+            ))}
+          </motion.dl>
+
+          <motion.div className="mt-8 text-center" {...fadeUp}>
+            <Link
+              to="/about"
+              className="group inline-flex items-center gap-1.5 text-sm font-medium text-primary-600 hover:text-primary-700"
+            >
+              Learn more about our story
+              <ArrowRight size={14} className="transition-transform duration-200 group-hover:translate-x-0.5" />
+            </Link>
+          </motion.div>
         </PageContainer>
       </section>
 
-      {/* Services — alternating rows, not a uniform card grid */}
       <section className="bg-neutral-50 py-16 sm:py-20" aria-labelledby="services-heading">
         <PageContainer width="wide">
           <div className="mb-12 max-w-2xl">
@@ -190,7 +218,6 @@ export function HomePage() {
         </PageContainer>
       </section>
 
-      {/* Why Trust Us — stat-free, principle-led */}
       <section className="py-16 sm:py-20" aria-labelledby="trust-heading">
         <PageContainer width="wide">
           <div className="mx-auto max-w-3xl text-center">
