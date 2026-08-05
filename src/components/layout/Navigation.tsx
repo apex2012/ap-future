@@ -19,8 +19,12 @@ export function Navigation() {
   }, [isOpen]);
 
   const linkClass = ({ isActive }: { isActive: boolean }) =>
-    `text-sm font-medium transition-colors duration-200 ${
-      isActive ? 'text-neutral-900' : 'text-neutral-500 hover:text-neutral-900'
+    `relative text-base font-medium transition-colors duration-300 ease-out ${
+      isActive
+        ? 'text-neutral-900'
+        : 'text-neutral-500 hover:text-neutral-900'
+    } after:absolute after:-bottom-1.5 after:left-0 after:h-px after:bg-neutral-900 after:transition-all after:duration-300 after:ease-out ${
+      isActive ? 'after:w-full' : 'after:w-0 hover:after:w-full'
     }`;
 
   return (
@@ -30,18 +34,18 @@ export function Navigation() {
       }`}
     >
       <nav
-        className="container-wide flex h-[68px] items-center justify-between"
+        className="container-wide flex h-[76px] items-center justify-between"
         aria-label="Main navigation"
       >
         <Link
           to="/"
-          className="text-[17px] font-bold tracking-tight text-neutral-900 transition-opacity hover:opacity-80"
+          className="ml-1 text-[28px] font-extrabold tracking-tight text-neutral-900 transition-opacity duration-200 hover:opacity-80"
           onClick={() => setIsOpen(false)}
         >
           {SITE_NAME}
         </Link>
 
-        <ul className="hidden items-center gap-8 lg:flex">
+        <ul className="hidden items-center gap-9 lg:flex">
           {NAV_ITEMS.map((item) => (
             <li key={item.href}>
               <NavLink to={item.href} className={linkClass} end={item.href === '/'}>
@@ -54,7 +58,7 @@ export function Navigation() {
         <div className="hidden lg:block">
           <Link
             to="/book-a-consultation"
-            className="inline-flex items-center rounded-full bg-neutral-900 px-5 py-2.5 text-sm font-semibold text-white transition-colors duration-200 hover:bg-neutral-700 focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-900"
+            className="inline-flex items-center rounded-full bg-neutral-900 px-6 py-3 text-sm font-semibold text-white transition-all duration-200 hover:bg-neutral-700 hover:shadow-lg focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-900"
           >
             Book a Consultation
           </Link>
@@ -73,7 +77,7 @@ export function Navigation() {
       </nav>
 
       {isOpen && (
-        <div id="mobile-menu" className="fixed inset-0 top-[68px] z-30 bg-white lg:hidden">
+        <div id="mobile-menu" className="fixed inset-0 top-[76px] z-30 bg-white lg:hidden">
           <ul className="container-wide flex flex-col gap-1 py-6">
             {NAV_ITEMS.map((item) => (
               <li key={item.href}>
