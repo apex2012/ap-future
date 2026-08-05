@@ -111,7 +111,7 @@ export function HomePage() {
         image={heroImage}
       />
 
-      <section className="bg-[#F7F8FA] py-20 sm:py-24" aria-labelledby="intro-heading">
+      <section className="bg-[#F7F8FA] py-14 sm:py-16" aria-labelledby="intro-heading">
         <PageContainer width="wide">
           <div className="mx-auto max-w-2xl">
             <motion.p
@@ -138,7 +138,7 @@ export function HomePage() {
           </div>
 
           <motion.dl
-            className="mx-auto mt-20 grid max-w-5xl grid-cols-2 gap-y-12 sm:grid-cols-4 sm:gap-y-0"
+            className="mx-auto mt-10 grid max-w-5xl grid-cols-2 gap-y-10 sm:grid-cols-4 sm:gap-y-0"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-80px' }}
@@ -147,16 +147,16 @@ export function HomePage() {
             {trustSignals.map((signal, index) => (
               <div
                 key={signal.label}
-                className={`flex flex-col items-center sm:px-6 ${
-                  index !== 0 ? 'sm:border-l sm:border-neutral-300/70' : ''
+                className={`flex flex-col items-center sm:px-8 ${
+                  index !== 0 ? 'sm:border-l sm:border-neutral-200/60' : ''
                 }`}
               >
                 <dt className="sr-only">{signal.label}</dt>
                 <dd className="text-center">
-                  <span className="block text-[44px] font-bold leading-none tracking-tight text-neutral-900 sm:text-[52px]">
+                  <span className="block text-[48px] font-bold leading-none tracking-tight text-neutral-900 sm:text-[64px]">
                     {signal.value}
                   </span>
-                  <span className="mt-3 block text-[13px] font-medium tracking-wide text-neutral-400">
+                  <span className="mt-4 block text-[14px] font-medium tracking-wide text-neutral-400">
                     {signal.label}
                   </span>
                 </dd>
@@ -164,7 +164,7 @@ export function HomePage() {
             ))}
           </motion.dl>
 
-          <motion.div className="mt-16" {...fadeUp}>
+          <motion.div className="mt-14" {...fadeUp}>
             <Link
               to="/about"
               className="group inline-flex items-center gap-2 text-[15px] font-medium text-neutral-700 transition-colors duration-200 hover:text-neutral-900"
