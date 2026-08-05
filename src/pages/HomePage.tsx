@@ -38,32 +38,28 @@ const services = [
     description:
       'Thirteen college-level courses across Mathematics, Physics, and Social Sciences, with guided pathways for each university major.',
     href: '/ap',
-    icon: <BookOpen size={18} />,
-    index: '01',
+    icon: <BookOpen size={24} />,
   },
   {
     title: 'Digital SAT Preparation',
     description:
       'Structured preparation for the Digital SAT with adaptive practice, proven strategies, and timed mock exams.',
     href: '/sat',
-    icon: <ClipboardList size={18} />,
-    index: '02',
+    icon: <ClipboardList size={24} />,
   },
   {
     title: 'University Planning',
     description:
-      "Strategic planning from school selection through application and essay support, tailored to each student's goals.",
+      'Strategic planning from school selection through application and essay support, tailored to each student’s goals.',
     href: '/university-planning',
-    icon: <GraduationCap size={18} />,
-    index: '03',
+    icon: <GraduationCap size={24} />,
   },
   {
     title: 'Resources',
     description:
       'Guides, templates, and research materials to support every stage of the academic journey.',
     href: '/resources',
-    icon: <Library size={18} />,
-    index: '04',
+    icon: <Library size={24} />,
   },
 ];
 
@@ -72,36 +68,32 @@ const trustPillars = [
     title: 'Expert Instructors',
     description:
       'Experienced educators who understand international curricula and university expectations.',
-    icon: <Users size={20} />,
+    icon: <Users size={26} />,
   },
   {
     title: 'Proven Approach',
     description:
       'Structured programs designed for measurable progress, from AP scores to SAT improvements.',
-    icon: <ShieldCheck size={20} />,
+    icon: <ShieldCheck size={26} />,
   },
   {
     title: 'Global Perspective',
     description:
       'Curriculum and guidance built for students applying to universities worldwide.',
-    icon: <Globe2 size={20} />,
+    icon: <Globe2 size={26} />,
   },
   {
     title: 'Personalized Guidance',
     description:
       'Every student receives a plan tailored to their goals, timeline, and target universities.',
-    icon: <Sparkles size={20} />,
+    icon: <Sparkles size={26} />,
   },
 ];
 
-const stagger = {
-  hidden: {},
-  show: { transition: { staggerChildren: 0.07 } },
-};
-
 const fadeUp = {
-  hidden: { opacity: 0, y: 14 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.4, ease: [0.22, 1, 0.36, 1] as unknown as string } },
+  initial: { opacity: 0, y: 16 },
+  animate: { opacity: 1, y: 0 },
+  transition: { duration: 0.4, ease: 'easeOut' as const },
 };
 
 export function HomePage() {
@@ -119,189 +111,155 @@ export function HomePage() {
         image={heroImage}
       />
 
-      {/* ── Who We Are ─────────────────────────────────────────────────────── */}
-      <section className="border-y border-neutral-100 bg-[#F8F9FB] py-20 sm:py-28" aria-labelledby="intro-heading">
+      <section className="bg-[#F7F8FA] py-12 sm:py-14" aria-labelledby="intro-heading">
         <PageContainer width="wide">
-          <div className="grid grid-cols-1 gap-14 lg:grid-cols-[1fr_1px_1fr] lg:gap-0">
-
-            {/* Left: editorial statement */}
-            <motion.div
-              className="flex flex-col justify-center lg:pr-16"
-              initial="hidden"
-              whileInView="show"
-              viewport={{ once: true, margin: '-80px' }}
-              variants={stagger}
+          <div className="mx-auto max-w-3xl text-center">
+            <motion.p
+              className="mb-4 text-xl font-semibold uppercase tracking-wider text-primary-600"
+              {...fadeUp}
             >
-              <motion.p variants={fadeUp} className="mb-4 text-[11px] font-semibold uppercase tracking-[0.24em] text-primary-600">
-                Who We Are
-              </motion.p>
-              <motion.h2
-                id="intro-heading"
-                variants={fadeUp}
-                className="text-[32px] font-bold leading-[1.12] tracking-tight text-neutral-900 sm:text-[42px]"
-              >
-                An education company built for international university admissions.
-              </motion.h2>
-              <motion.p variants={fadeUp} className="mt-6 text-[17px] leading-[1.8] text-neutral-500">
-                AP Future integrates AP instruction, SAT preparation, university planning, and learning
-                resources into a single, coherent platform — helping students build academic knowledge,
-                learning skills, and the confidence needed for university success.
-              </motion.p>
-            </motion.div>
-
-            {/* Divider */}
-            <div className="hidden w-px bg-neutral-200 lg:block" />
-
-            {/* Right: stats */}
-            <motion.dl
-              className="grid grid-cols-2 gap-x-8 gap-y-10 lg:pl-16"
-              initial="hidden"
-              whileInView="show"
-              viewport={{ once: true, margin: '-80px' }}
-              variants={stagger}
+              Who We Are
+            </motion.p>
+            <motion.h2
+              id="intro-heading"
+              className="text-3xl font-bold leading-tight tracking-tight text-neutral-900 sm:text-4xl"
+              {...fadeUp}
             >
-              {trustSignals.map((signal) => (
-                <motion.div key={signal.label} variants={fadeUp} className="flex flex-col">
-                  <dt className="sr-only">{signal.label}</dt>
-                  <dd>
-                    <span className="block text-[52px] font-bold leading-none tracking-tight text-neutral-900">
-                      {signal.value}
-                    </span>
-                    <span className="mt-3 block text-[13px] font-medium leading-snug text-neutral-400">
-                      {signal.label}
-                    </span>
-                  </dd>
-                </motion.div>
-              ))}
-            </motion.dl>
-
+              An education company built for international university admissions.
+            </motion.h2>
+            <motion.p
+              className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-neutral-500"
+              {...fadeUp}
+            >
+              AP Future integrates AP instruction, SAT preparation, university planning, and learning resources
+              into a single platform. We help students build academic knowledge, learning skills, and the
+              confidence needed for university success and lifelong learning.
+            </motion.p>
           </div>
+
+          <motion.dl
+            className="mx-auto mt-12 grid max-w-4xl grid-cols-1 gap-y-8 sm:grid-cols-4 sm:gap-y-0"
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-80px' }}
+            transition={{ duration: 0.4, ease: 'easeOut' }}
+          >
+            {trustSignals.map((signal, index) => (
+              <div
+                key={signal.label}
+                className={`flex flex-col items-center px-4 sm:px-2 ${
+                  index !== 0 ? 'sm:border-l sm:border-neutral-300' : ''
+                }`}
+              >
+                <dt className="sr-only">{signal.label}</dt>
+                <dd className="text-center">
+                  <span className="block text-3xl font-bold tracking-tight text-neutral-900 sm:text-4xl">
+                    {signal.value}
+                  </span>
+                  <span className="mt-2 block text-sm font-medium text-neutral-400">
+                    {signal.label}
+                  </span>
+                </dd>
+              </div>
+            ))}
+          </motion.dl>
+
+          <motion.div className="mt-8 text-center" {...fadeUp}>
+            <Link
+              to="/about"
+              className="group inline-flex items-center gap-1.5 text-lg font-semibold text-primary-600 hover:text-primary-700"
+            >
+              Learn more about our story
+              <ArrowRight size={18} className="transition-transform duration-200 group-hover:translate-x-0.5" />
+            </Link>
+          </motion.div>
         </PageContainer>
       </section>
 
-      {/* ── What We Do ─────────────────────────────────────────────────────── */}
-      <section className="py-24 sm:py-32" aria-labelledby="services-heading">
+      <section className="py-14 sm:py-16" aria-labelledby="services-heading">
         <PageContainer width="wide">
-
-          {/* Section header */}
-          <div className="mb-16 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
-            <div>
-              <p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.24em] text-primary-600">
-                What We Do
-              </p>
-              <h2
-                id="services-heading"
-                className="max-w-sm text-[30px] font-bold leading-[1.12] tracking-tight text-neutral-900 sm:text-[36px]"
-              >
-                Four programs, one connected path to university
-              </h2>
-            </div>
+          <div className="mb-10 max-w-2xl">
+            <p className="mb-3 text-xl font-semibold uppercase tracking-wider text-primary-600">
+              What We Do
+            </p>
+            <h2 id="services-heading" className="text-3xl font-bold leading-tight tracking-tight text-neutral-900 sm:text-4xl">
+              Four programs, one connected path to university
+            </h2>
           </div>
 
-          {/* Program list */}
-          <motion.div
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true, margin: '-60px' }}
-            variants={stagger}
-          >
-            {services.map((service, i) => (
+          <div className="divide-y divide-neutral-200">
+            {services.map((service) => (
               <motion.div
                 key={service.title}
-                variants={fadeUp}
-                className={`group grid grid-cols-[auto_1fr_auto] items-start gap-8 py-10 sm:items-center sm:py-12 ${
-                  i === 0 ? 'border-t border-neutral-150' : ''
-                } border-b border-neutral-150`}
-                style={{ borderColor: 'rgb(235 235 235)' }}
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: '-80px' }}
+                transition={{ duration: 0.4, ease: 'easeOut' }}
+                className="group flex flex-col gap-6 py-10 sm:flex-row sm:items-center sm:gap-12"
               >
-                {/* Index + icon cluster */}
-                <div className="flex flex-col items-center gap-3 pt-0.5">
-                  <span className="text-[11px] font-semibold tabular-nums tracking-widest text-neutral-300">
-                    {service.index}
-                  </span>
-                  <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-neutral-50 text-neutral-400 transition-colors duration-200 group-hover:bg-primary-50 group-hover:text-primary-500">
+                <div className="flex flex-shrink-0 items-center gap-4 sm:w-64">
+                  <span className="flex h-14 w-14 items-center justify-center rounded-xl bg-neutral-50 text-primary-600 transition-all duration-300 group-hover:bg-primary-50 group-hover:shadow-md">
                     {service.icon}
                   </span>
-                </div>
-
-                {/* Text block */}
-                <div>
-                  <h3 className="text-[18px] font-semibold leading-snug tracking-tight text-neutral-900">
+                  <h3 className="text-xl font-semibold leading-snug text-neutral-900">
                     {service.title}
                   </h3>
-                  <p className="mt-2.5 max-w-[520px] text-[15px] leading-[1.75] text-neutral-500">
+                </div>
+                <div className="flex-1">
+                  <p className="max-w-prose text-lg leading-relaxed text-neutral-500">
                     {service.description}
                   </p>
                 </div>
-
-                {/* Explore link */}
                 <Link
                   to={service.href}
-                  aria-label={`Explore ${service.title}`}
-                  className="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-full border border-neutral-200 text-neutral-400 transition-all duration-200 hover:border-primary-300 hover:bg-primary-50 hover:text-primary-600"
+                  className="inline-flex flex-shrink-0 items-center gap-1.5 self-start rounded-full border border-neutral-200 px-6 py-3 text-lg font-semibold text-neutral-700 transition-all duration-200 hover:border-neutral-300 hover:bg-neutral-50 hover:text-primary-600 sm:self-center sm:mr-2"
                 >
-                  <ArrowRight size={15} className="transition-transform duration-200 group-hover:translate-x-0.5" />
+                  Explore
+                  <ArrowRight size={18} className="transition-transform duration-200 group-hover:translate-x-0.5" />
                 </Link>
               </motion.div>
             ))}
-          </motion.div>
-
+          </div>
         </PageContainer>
       </section>
 
-      {/* ── Why Families Trust AP Future ───────────────────────────────────── */}
-      <section className="border-y border-neutral-100 bg-neutral-950 py-24 sm:py-32" aria-labelledby="trust-heading">
+      <section className="bg-[#EEF4FF] py-14 sm:py-16" aria-labelledby="trust-heading">
         <PageContainer width="wide">
-
-          <motion.div
-            className="mb-16"
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true, margin: '-80px' }}
-            variants={stagger}
-          >
-            <motion.p variants={fadeUp} className="mb-3 text-[11px] font-semibold uppercase tracking-[0.24em] text-primary-400">
+          <div className="mx-auto max-w-3xl text-center">
+            <p className="mb-3 text-xl font-semibold uppercase tracking-wider text-primary-600">
               Why Families Trust AP Future
-            </motion.p>
-            <motion.h2
-              id="trust-heading"
-              variants={fadeUp}
-              className="max-w-md text-[30px] font-bold leading-[1.12] tracking-tight text-white sm:text-[36px]"
-            >
-              Education first, trust first.
-            </motion.h2>
-            <motion.p variants={fadeUp} className="mt-5 max-w-lg text-[16px] leading-[1.8] text-neutral-400">
-              We are not a traditional tutoring site or a sales-driven admissions agency. Every decision
-              we make starts with what genuinely helps students learn, grow, and choose wisely.
-            </motion.p>
-          </motion.div>
+            </p>
+            <h2 id="trust-heading" className="text-3xl font-bold leading-tight tracking-tight text-neutral-900 sm:text-4xl">
+              Education first, trust first
+            </h2>
+            <p className="mx-auto mt-4 max-w-2xl text-lg leading-relaxed text-neutral-500">
+              We are not a traditional tutoring site or a sales-driven admissions agency. Every decision we make
+              starts with what helps students learn, grow, and make better educational choices.
+            </p>
+          </div>
 
-          <motion.div
-            className="grid grid-cols-1 gap-px bg-neutral-800 sm:grid-cols-2 lg:grid-cols-4"
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true, margin: '-80px' }}
-            variants={stagger}
-          >
-            {trustPillars.map((pillar) => (
+          <div className="mt-12 grid grid-cols-1 gap-12 sm:grid-cols-2 lg:grid-cols-4 lg:gap-10">
+            {trustPillars.map((pillar, index) => (
               <motion.div
                 key={pillar.title}
-                variants={fadeUp}
-                className="flex flex-col bg-neutral-950 px-8 py-10"
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: '-80px' }}
+                transition={{ duration: 0.4, ease: 'easeOut', delay: index * 0.08 }}
+                className="flex flex-col"
               >
-                <span className="mb-6 flex h-10 w-10 items-center justify-center rounded-xl bg-neutral-800 text-primary-400">
+                <span className="mb-5 flex h-12 w-12 items-center justify-center rounded-xl bg-white text-primary-600 shadow-sm">
                   {pillar.icon}
                 </span>
-                <h3 className="text-[15px] font-semibold leading-snug text-white">
+                <h3 className="text-lg font-semibold leading-snug text-neutral-900">
                   {pillar.title}
                 </h3>
-                <p className="mt-2.5 text-[14px] leading-[1.7] text-neutral-400">
+                <p className="mt-2 max-w-xs text-sm leading-relaxed text-neutral-500">
                   {pillar.description}
                 </p>
               </motion.div>
             ))}
-          </motion.div>
-
+          </div>
         </PageContainer>
       </section>
 
