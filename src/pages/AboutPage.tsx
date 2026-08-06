@@ -189,7 +189,7 @@ export function AboutPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: '-80px' }}
                 transition={{ duration: 0.35, ease: 'easeOut', delay: index * 0.05 }}
-                className="group flex flex-col gap-4 rounded-2xl border border-neutral-150 bg-white p-7 transition-all duration-300 hover:border-primary-200 hover:shadow-sm sm:flex-row sm:gap-8 sm:p-9"
+                className="group flex flex-col gap-4 rounded-2xl border border-neutral-100 bg-white p-7 transition-all duration-300 hover:border-primary-200 hover:shadow-sm sm:flex-row sm:gap-8 sm:p-9"
               >
                 <div className="flex flex-shrink-0 items-center gap-4 sm:w-64">
                   <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-primary-50 text-primary-600 transition-colors duration-300 group-hover:bg-primary-100">
