@@ -12,6 +12,7 @@ import {
   Cpu,
   LayoutTemplate,
   Microscope,
+  Sparkles,
 } from 'lucide-react';
 import { type ReactNode } from 'react';
 import { Hero } from '@/components/ui/Hero';
@@ -34,17 +35,21 @@ interface ResourceEntry {
 interface ResourceCategory {
   id: string;
   label: string;
+  shortLabel: string;
   description: string;
   icon: ReactNode;
   resources: ResourceEntry[];
 }
 
+const PREVIEW_COUNT = 3;
+
 const categories: ResourceCategory[] = [
   {
     id: 'academic',
     label: 'Academic Resources',
+    shortLabel: 'Academic',
     description: 'Subject guides, study strategies, and course planning materials for AP coursework.',
-    icon: <GraduationCap size={20} />,
+    icon: <GraduationCap size={18} />,
     resources: [
       {
         title: 'How to Plan a Multi-Year AP Sequence',
@@ -81,8 +86,9 @@ const categories: ResourceCategory[] = [
   {
     id: 'admissions',
     label: 'University Admissions',
+    shortLabel: 'Admissions',
     description: 'Timelines, application guides, and decision frameworks for the university admission journey.',
-    icon: <Building2 size={20} />,
+    icon: <Building2 size={18} />,
     resources: [
       {
         title: 'The Complete University Application Timeline',
@@ -128,8 +134,9 @@ const categories: ResourceCategory[] = [
   {
     id: 'ai-learning',
     label: 'AI Learning',
+    shortLabel: 'AI Learning',
     description: 'Guides on using AI tools responsibly to support studying, research, and writing — without replacing the learning.',
-    icon: <Cpu size={20} />,
+    icon: <Cpu size={18} />,
     resources: [
       {
         title: 'How to Use AI as a Study Companion',
@@ -160,8 +167,9 @@ const categories: ResourceCategory[] = [
   {
     id: 'guides-templates',
     label: 'Study Guides & Templates',
+    shortLabel: 'Templates',
     description: 'Downloadable tools, planners, and frameworks to organize studying, writing, and application work.',
-    icon: <LayoutTemplate size={20} />,
+    icon: <LayoutTemplate size={18} />,
     resources: [
       {
         title: 'Weekly Study Planner',
@@ -197,8 +205,9 @@ const categories: ResourceCategory[] = [
   {
     id: 'research-insights',
     label: 'Research & Insights',
+    shortLabel: 'Insights',
     description: 'Original analysis on education trends, admissions data, and learning science — for families who want depth.',
-    icon: <Microscope size={20} />,
+    icon: <Microscope size={18} />,
     resources: [
       {
         title: 'AP Score Trends: What the Latest Data Tells Us',
@@ -228,11 +237,21 @@ const categories: ResourceCategory[] = [
   },
 ];
 
+const featuredResource: ResourceEntry = {
+  title: 'The Complete University Application Timeline',
+  summary:
+    'The single most important document for any family starting the university admission journey. A grade-by-grade timeline from Grade 8 through Grade 12, showing exactly what to focus on each year, when key milestones occur, and how AP courses, SAT preparation, and extracurricular planning connect together.',
+  href: '/resources',
+  type: 'guide',
+  readingTime: '15 min',
+  updatedAt: 'Jul 2026',
+};
+
 const typeIcon: Record<ResourceType, ReactNode> = {
-  guide: <FileText size={14} />,
-  template: <Download size={14} />,
-  article: <BookOpen size={14} />,
-  research: <FlaskConical size={14} />,
+  guide: <FileText size={15} />,
+  template: <Download size={15} />,
+  article: <BookOpen size={15} />,
+  research: <FlaskConical size={15} />,
 };
 
 const typeLabel: Record<ResourceType, string> = {
@@ -299,22 +318,22 @@ function ResourceRow({ resource }: { resource: ResourceEntry }) {
       href={resource.href}
       className="group flex items-start gap-4 border-b border-neutral-100 py-4 transition-colors last:border-b-0 hover:bg-neutral-50/60 -mx-3 px-3 rounded-lg"
     >
-      <span className="mt-0.5 flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-md bg-neutral-100 text-neutral-500 group-hover:bg-primary-50 group-hover:text-primary-600 transition-colors">
+      <span className="mt-1 flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-lg bg-neutral-100 text-neutral-500 group-hover:bg-primary-50 group-hover:text-primary-600 transition-colors">
         {typeIcon[resource.type]}
       </span>
       <div className="min-w-0 flex-1">
-        <div className="flex items-baseline gap-2">
-          <h3 className="text-[15px] font-semibold leading-snug text-neutral-900 group-hover:text-primary-700 transition-colors">
+        <div className="flex items-baseline gap-2.5">
+          <h3 className="text-base font-semibold leading-snug text-neutral-900 group-hover:text-primary-700 transition-colors">
             {resource.title}
           </h3>
-          <span className="hidden text-xs font-medium uppercase tracking-wider text-neutral-400 sm:inline">
+          <span className="hidden text-[11px] font-semibold uppercase tracking-widest text-neutral-400 sm:inline">
             {typeLabel[resource.type]}
           </span>
         </div>
-        <p className="mt-1 text-sm leading-relaxed text-neutral-500">
+        <p className="mt-1.5 text-sm leading-relaxed text-neutral-500">
           {resource.summary}
         </p>
-        <div className="mt-1.5 flex items-center gap-3 text-xs text-neutral-400">
+        <div className="mt-2 flex items-center gap-3 text-xs text-neutral-400">
           {resource.readingTime && (
             <span className="inline-flex items-center gap-1">
               <Clock size={12} />
@@ -326,43 +345,124 @@ function ResourceRow({ resource }: { resource: ResourceEntry }) {
       </div>
       <ArrowRight
         size={16}
-        className="mt-1 flex-shrink-0 text-neutral-300 transition-all duration-200 group-hover:translate-x-0.5 group-hover:text-primary-500"
+        className="mt-1.5 flex-shrink-0 text-neutral-300 transition-all duration-200 group-hover:translate-x-0.5 group-hover:text-primary-500"
       />
     </a>
   );
 }
 
-function CategorySection({ category }: { category: ResourceCategory }) {
+function CategorySection({
+  category,
+  expanded,
+  onToggle,
+}: {
+  category: ResourceCategory;
+  expanded: boolean;
+  onToggle: () => void;
+}) {
+  const preview = category.resources.slice(0, PREVIEW_COUNT);
+  const hasMore = category.resources.length > PREVIEW_COUNT;
+  const shown = expanded ? category.resources : preview;
+
   return (
-    <section id={category.id} className="scroll-mt-20">
-      <div className="mb-1 flex items-center gap-3">
-        <span className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-lg bg-primary-50 text-primary-600">
+    <section id={category.id} className="scroll-mt-24">
+      <div className="mb-2 flex items-center gap-3">
+        <span className="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-lg bg-primary-50 text-primary-600">
           {category.icon}
         </span>
-        <h2 className="text-xl font-bold tracking-tight text-neutral-900 sm:text-2xl">
+        <h2 className="text-lg font-bold tracking-tight text-neutral-900 sm:text-xl">
           {category.label}
         </h2>
+        <span className="text-sm text-neutral-400">{category.resources.length}</span>
       </div>
-      <p className="mb-5 pl-[52px] text-sm leading-relaxed text-neutral-500">
+      <p className="mb-4 pl-12 text-sm leading-relaxed text-neutral-500">
         {category.description}
       </p>
       <div>
-        {category.resources.map((resource) => (
+        {shown.map((resource) => (
           <ResourceRow key={resource.title} resource={resource} />
         ))}
       </div>
+      {hasMore && (
+        <button
+          type="button"
+          onClick={onToggle}
+          className="mt-3 inline-flex items-center gap-1.5 text-sm font-semibold text-primary-600 transition-colors hover:text-primary-700"
+        >
+          {expanded ? 'Show less' : `View all ${category.resources.length}`}
+          <ArrowRight
+            size={15}
+            className={`transition-transform duration-200 ${expanded ? 'rotate-90' : ''}`}
+          />
+        </button>
+      )}
     </section>
+  );
+}
+
+function FeaturedResource({ resource }: { resource: ResourceEntry }) {
+  return (
+    <a
+      href={resource.href}
+      className="group relative block overflow-hidden rounded-2xl border border-neutral-200 bg-gradient-to-br from-neutral-50 to-white p-7 transition-all duration-300 hover:border-primary-200 hover:shadow-md sm:p-9"
+    >
+      <div className="flex flex-col gap-5 sm:flex-row sm:items-start sm:gap-8">
+        <div className="flex-1">
+          <div className="mb-4 flex items-center gap-2">
+            <span className="inline-flex items-center gap-1.5 rounded-full bg-primary-50 px-3 py-1 text-xs font-semibold uppercase tracking-widest text-primary-600">
+              <Sparkles size={13} />
+              Featured
+            </span>
+            <span className="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-widest text-neutral-400">
+              {typeIcon[resource.type]}
+              {typeLabel[resource.type]}
+            </span>
+          </div>
+          <h2 className="max-w-2xl text-2xl font-bold leading-tight tracking-tight text-neutral-900 sm:text-3xl">
+            {resource.title}
+          </h2>
+          <p className="mt-3 max-w-2xl text-base leading-relaxed text-neutral-500">
+            {resource.summary}
+          </p>
+          <div className="mt-5 flex items-center gap-4 text-sm">
+            <span className="inline-flex items-center gap-1.5 font-semibold text-primary-600 transition-colors group-hover:text-primary-700">
+              Read the guide
+              <ArrowRight size={16} className="transition-transform duration-200 group-hover:translate-x-0.5" />
+            </span>
+            <div className="flex items-center gap-3 text-xs text-neutral-400">
+              {resource.readingTime && (
+                <span className="inline-flex items-center gap-1">
+                  <Clock size={12} />
+                  {resource.readingTime}
+                </span>
+              )}
+              {resource.updatedAt && <span>Updated {resource.updatedAt}</span>}
+            </div>
+          </div>
+        </div>
+      </div>
+    </a>
   );
 }
 
 export function ResourcesPage() {
   const [activeCategory, setActiveCategory] = useState<string>('all');
+  const [expandedCategories, setExpandedCategories] = useState<Set<string>>(new Set());
 
   const visibleCategories = activeCategory === 'all'
     ? categories
     : categories.filter((c) => c.id === activeCategory);
 
   const totalResources = categories.reduce((sum, c) => sum + c.resources.length, 0);
+
+  const toggleCategory = (id: string) => {
+    setExpandedCategories((prev) => {
+      const next = new Set(prev);
+      if (next.has(id)) next.delete(id);
+      else next.add(id);
+      return next;
+    });
+  };
 
   return (
     <>
@@ -373,62 +473,79 @@ export function ResourcesPage() {
         description="Guides, templates, and research materials organized by purpose — not by date. Find the right tool for the question in front of you."
       />
 
-      <section className="border-b border-neutral-100 bg-white py-10" aria-label="Category navigation">
+      <section className="bg-white pb-4 pt-2" aria-label="Category navigation">
         <PageContainer>
-          <div className="flex flex-wrap items-center gap-2">
+          <div className="inline-flex flex-wrap items-center gap-1 rounded-xl bg-neutral-100 p-1">
             <button
               type="button"
               onClick={() => setActiveCategory('all')}
-              className={`rounded-full px-4 py-2 text-sm font-medium transition-colors ${
+              className={`rounded-lg px-3.5 py-2 text-sm font-medium transition-all duration-200 ${
                 activeCategory === 'all'
-                  ? 'bg-neutral-900 text-white'
-                  : 'bg-neutral-100 text-neutral-600 hover:bg-neutral-200'
+                  ? 'bg-white text-neutral-900 shadow-sm'
+                  : 'text-neutral-500 hover:text-neutral-800'
               }`}
             >
               All
-              <span className="ml-1.5 text-xs opacity-60">{totalResources}</span>
+              <span className="ml-1.5 text-xs opacity-50">{totalResources}</span>
             </button>
             {categories.map((cat) => (
               <button
                 key={cat.id}
                 type="button"
                 onClick={() => setActiveCategory(cat.id)}
-                className={`rounded-full px-4 py-2 text-sm font-medium transition-colors ${
+                className={`rounded-lg px-3.5 py-2 text-sm font-medium transition-all duration-200 ${
                   activeCategory === cat.id
-                    ? 'bg-neutral-900 text-white'
-                    : 'bg-neutral-100 text-neutral-600 hover:bg-neutral-200'
+                    ? 'bg-white text-neutral-900 shadow-sm'
+                    : 'text-neutral-500 hover:text-neutral-800'
                 }`}
               >
-                {cat.label}
-                <span className="ml-1.5 text-xs opacity-60">{cat.resources.length}</span>
+                {cat.shortLabel}
+                <span className="ml-1.5 text-xs opacity-50">{cat.resources.length}</span>
               </button>
             ))}
           </div>
         </PageContainer>
       </section>
 
-      <section className="bg-white py-12 sm:py-16">
+      {activeCategory === 'all' && (
+        <section className="bg-white py-6" aria-label="Featured resource">
+          <PageContainer>
+            <FeaturedResource resource={featuredResource} />
+          </PageContainer>
+        </section>
+      )}
+
+      <section className="bg-white pb-14 pt-4 sm:pb-16">
         <PageContainer>
           <Breadcrumb items={[{ label: 'Home', href: '/' }, { label: 'Resources' }]} />
 
           {activeCategory === 'all' ? (
-            <div className="space-y-14">
+            <div className="space-y-12">
               {visibleCategories.map((category, index) => (
                 <motion.div
                   key={category.id}
-                  initial={{ opacity: 0, y: 16 }}
+                  initial={{ opacity: 0, y: 12 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: '-80px' }}
-                  transition={{ duration: 0.35, ease: 'easeOut', delay: index * 0.04 }}
+                  transition={{ duration: 0.3, ease: 'easeOut', delay: index * 0.03 }}
                 >
-                  <CategorySection category={category} />
+                  <CategorySection
+                    category={category}
+                    expanded={expandedCategories.has(category.id)}
+                    onToggle={() => toggleCategory(category.id)}
+                  />
                 </motion.div>
               ))}
             </div>
           ) : (
             <div>
               {visibleCategories.map((category) => (
-                <CategorySection key={category.id} category={category} />
+                <CategorySection
+                  key={category.id}
+                  category={category}
+                  expanded={expandedCategories.has(category.id)}
+                  onToggle={() => toggleCategory(category.id)}
+                />
               ))}
             </div>
           )}
