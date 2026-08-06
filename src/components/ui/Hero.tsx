@@ -25,6 +25,7 @@ export interface HeroProps {
   description?: string;
   actions?: HeroAction[];
   image?: HeroImage;
+  heroClassName?: string;
 }
 
 const actionClass = (v: 'primary' | 'secondary'): string =>
@@ -79,10 +80,11 @@ export function Hero({
   description,
   actions,
   image,
+  heroClassName,
 }: HeroProps) {
   if (variant === 'centered') {
     return (
-      <section className="relative overflow-hidden bg-white py-16 sm:py-20">
+      <section className={`relative overflow-hidden bg-white py-16 sm:py-20 ${heroClassName ?? ''}`}>
         <div className="container-wide">
           <motion.div
             className="mx-auto max-w-3xl text-center"
@@ -100,7 +102,7 @@ export function Hero({
               </motion.p>
             )}
             <motion.h1
-              className="text-5xl font-bold leading-[1.1] tracking-tight text-neutral-900 sm:text-6xl"
+              className="text-5xl font-bold leading-[1.08] tracking-tight text-neutral-900 sm:text-[68px]"
               variants={fadeUp}
             >
               {title}

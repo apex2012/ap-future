@@ -110,6 +110,7 @@ export function AboutPage() {
         eyebrow="About AP Future"
         title="Education is the point. Admission is the evidence."
         description="AP Future exists to help families navigate the university admission journey without losing sight of why education matters in the first place."
+        heroClassName="py-20 sm:py-28"
       />
 
       {/* Mission */}
@@ -136,19 +137,17 @@ export function AboutPage() {
             >
               <p>
                 For many families, the journey to university has become a source of anxiety rather than
-                growth. Students are pushed toward scores, rankings, and outcomes before they have had
-                the chance to develop the skills and curiosity that make those outcomes meaningful.
+                growth. Students are pushed toward scores and rankings before they have had the chance
+                to develop the skills and curiosity that make those outcomes meaningful.
               </p>
               <p>
                 AP Future was founded on a different premise: that a strong university application is
-                the natural result of a strong education. When students learn deeply, think clearly,
-                and receive honest guidance, the scores, essays, and offers that follow are not
-                manufactured — they are earned.
+                the natural result of a strong education. When students learn deeply and receive honest
+                guidance, the scores, essays, and offers that follow are earned, not manufactured.
               </p>
               <p>
                 Our role is not to guarantee admission to a particular university. It is to help each
-                student become the kind of learner that competitive universities want to admit — and
-                that the world needs.
+                student become the kind of learner that competitive universities want to admit.
               </p>
             </motion.div>
           </div>
@@ -182,7 +181,7 @@ export function AboutPage() {
             </motion.p>
           </div>
 
-          <div className="mt-12 space-y-px overflow-hidden rounded-2xl border border-neutral-200 bg-neutral-200">
+          <div className="mt-12 space-y-3">
             {principles.map((principle, index) => (
               <motion.div
                 key={principle.number}
@@ -190,13 +189,13 @@ export function AboutPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: '-80px' }}
                 transition={{ duration: 0.35, ease: 'easeOut', delay: index * 0.05 }}
-                className="flex flex-col gap-4 bg-white p-7 sm:flex-row sm:gap-8 sm:p-9"
+                className="group flex flex-col gap-4 rounded-2xl border border-neutral-150 bg-white p-7 transition-all duration-300 hover:border-primary-200 hover:shadow-sm sm:flex-row sm:gap-8 sm:p-9"
               >
                 <div className="flex flex-shrink-0 items-center gap-4 sm:w-64">
-                  <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-primary-50 text-primary-600">
+                  <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-primary-50 text-primary-600 transition-colors duration-300 group-hover:bg-primary-100">
                     {principle.icon}
                   </span>
-                  <span className="text-sm font-semibold text-neutral-300">
+                  <span className="text-sm font-semibold text-neutral-300 transition-colors duration-300 group-hover:text-neutral-400">
                     {principle.number}
                   </span>
                 </div>
@@ -293,27 +292,34 @@ export function AboutPage() {
             </motion.p>
           </div>
 
-          <div className="mt-12 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
-            {journey.map((stage, index) => (
-              <motion.div
-                key={stage.step}
-                initial={{ opacity: 0, y: 16 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: '-80px' }}
-                transition={{ duration: 0.4, ease: 'easeOut', delay: index * 0.08 }}
-                className="relative"
-              >
-                <span className="block text-sm font-bold text-primary-500">
-                  {stage.step}
-                </span>
-                <h3 className="mt-2 text-lg font-semibold leading-snug text-neutral-900">
-                  {stage.title}
-                </h3>
-                <p className="mt-2 text-sm leading-relaxed text-neutral-500">
-                  {stage.body}
-                </p>
-              </motion.div>
-            ))}
+          <div className="mt-12 relative">
+            {/* Connector line */}
+            <div className="hidden lg:block absolute top-[7px] left-0 right-0 h-px bg-gradient-to-r from-primary-200 via-primary-300 to-primary-200" aria-hidden="true" />
+            <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
+              {journey.map((stage, index) => (
+                <motion.div
+                  key={stage.step}
+                  initial={{ opacity: 0, y: 16 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: '-80px' }}
+                  transition={{ duration: 0.4, ease: 'easeOut', delay: index * 0.08 }}
+                  className="relative"
+                >
+                  <span className="relative z-10 flex h-3.5 w-3.5 items-center justify-center rounded-full bg-white ring-4 ring-[#FAFAF9]">
+                    <span className="h-1.5 w-1.5 rounded-full bg-primary-500" />
+                  </span>
+                  <span className="mt-4 block text-sm font-bold text-primary-500">
+                    {stage.step}
+                  </span>
+                  <h3 className="mt-2 text-lg font-semibold leading-snug text-neutral-900">
+                    {stage.title}
+                  </h3>
+                  <p className="mt-2 text-sm leading-relaxed text-neutral-500">
+                    {stage.body}
+                  </p>
+                </motion.div>
+              ))}
+            </div>
           </div>
 
           <motion.div
@@ -340,7 +346,7 @@ export function AboutPage() {
       </section>
 
       <CTA
-        title="Let's Build Your Academic Plan Together."
+        title="The right education leads to the right university."
         description="Book a consultation to discuss your goals, timeline, and how AP Future can support your university journey."
         primaryAction={{ label: 'Book a Consultation', href: '/book-a-consultation' }}
         secondaryAction={{ label: 'Explore Programs', href: '/ap' }}
