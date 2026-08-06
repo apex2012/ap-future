@@ -7,6 +7,7 @@ import { UniversityPlanningPage } from '@/pages/UniversityPlanningPage';
 import { ResourcesPage } from '@/pages/ResourcesPage';
 import { AboutPage } from '@/pages/AboutPage';
 import { BookConsultationPage } from '@/pages/BookConsultationPage';
+import { ThankYouPage } from '@/pages/ThankYouPage';
 import { NotFoundPage } from '@/pages/NotFoundPage';
 
 export const router = createBrowserRouter([
@@ -21,6 +22,7 @@ export const router = createBrowserRouter([
       { path: 'resources', element: <ResourcesPage /> },
       { path: 'about', element: <AboutPage /> },
       { path: 'book-a-consultation', element: <BookConsultationPage /> },
+      { path: 'thank-you', element: <ThankYouPage /> },
       { path: '*', element: <NotFoundPage /> },
     ],
   },
