@@ -177,12 +177,13 @@ export function BookConsultationPage() {
       />
 
       {/* What Happens — reducing uncertainty first */}
-      <section className="bg-white py-14 sm:py-20" aria-labelledby="process-heading">
+      <section className="relative overflow-hidden bg-white py-14 sm:py-20" aria-labelledby="process-heading">
+        <div className="decorative-blob top-[-60px] left-[-60px] h-[250px] w-[250px] bg-primary-100" aria-hidden="true" />
         <PageContainer>
           <Breadcrumb items={[{ label: 'Home', href: '/' }, { label: 'Book a Consultation' }]} />
           <div className="mx-auto max-w-3xl">
             <motion.p
-              className="mb-5 text-lg font-semibold uppercase tracking-wider text-primary-600"
+              className="mb-5 inline-flex items-center gap-2 rounded-full bg-primary-50 px-4 py-1.5 text-sm font-semibold uppercase tracking-wider text-primary-700"
               {...fadeUp}
             >
               What Happens
@@ -218,7 +219,7 @@ export function BookConsultationPage() {
                   transition={{ duration: 0.4, ease: 'easeOut', delay: index * 0.08 }}
                   className="relative"
                 >
-                  <span className="relative z-10 flex h-3.5 w-3.5 items-center justify-center rounded-full bg-white ring-4 ring-white">
+                  <span className="relative z-10 flex h-3.5 w-3.5 items-center justify-center rounded-full bg-white ring-4 ring-primary-200">
                     <span className="h-1.5 w-1.5 rounded-full bg-primary-500" />
                   </span>
                   <span className="mt-4 block text-sm font-bold text-primary-500">
@@ -238,11 +239,12 @@ export function BookConsultationPage() {
       </section>
 
       {/* Discussion Topics — a checklist, not feature cards */}
-      <section className="bg-[#FAFAF9] py-14 sm:py-20" aria-labelledby="topics-heading">
+      <section className="relative overflow-hidden bg-gradient-to-b from-primary-50/30 to-white py-14 sm:py-20" aria-labelledby="topics-heading">
+        <div className="decorative-blob bottom-[-60px] right-[-60px] h-[250px] w-[250px] bg-primary-100" aria-hidden="true" />
         <PageContainer>
           <div className="mx-auto max-w-3xl">
             <motion.p
-              className="mb-5 text-lg font-semibold uppercase tracking-wider text-primary-600"
+              className="mb-5 inline-flex items-center gap-2 rounded-full bg-primary-50 px-4 py-1.5 text-sm font-semibold uppercase tracking-wider text-primary-700"
               {...fadeUp}
             >
               What We Can Talk About
@@ -277,7 +279,7 @@ export function BookConsultationPage() {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true, margin: '-80px' }}
                 transition={{ duration: 0.3, ease: 'easeOut', delay: index * 0.04 }}
-                className="flex items-start gap-3 rounded-xl border border-neutral-100 bg-white px-5 py-4 transition-colors duration-200 hover:border-primary-200"
+                className="flex items-start gap-3 rounded-xl border border-neutral-100 bg-white px-5 py-4 transition-all duration-200 hover:border-primary-200 hover:shadow-sm"
               >
                 <span className="mt-0.5 flex-shrink-0 text-primary-500">
                   <CheckCircle2 size={18} />
@@ -296,7 +298,7 @@ export function BookConsultationPage() {
             {/* Form */}
             <div>
               <motion.p
-                className="mb-5 text-lg font-semibold uppercase tracking-wider text-primary-600"
+                className="mb-5 inline-flex items-center gap-2 rounded-full bg-primary-50 px-4 py-1.5 text-sm font-semibold uppercase tracking-wider text-primary-700"
                 {...fadeUp}
               >
                 Request a Consultation
@@ -505,7 +507,7 @@ export function BookConsultationPage() {
                   <button
                     type="submit"
                     disabled={status === 'submitting'}
-                    className="inline-flex items-center justify-center gap-2 rounded-lg bg-primary-600 px-8 py-3.5 text-lg font-semibold text-white transition-all duration-200 hover:bg-primary-700 focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-600 disabled:cursor-not-allowed disabled:opacity-60"
+                    className="inline-flex items-center justify-center gap-2 rounded-lg bg-gradient-to-r from-primary-600 to-primary-700 px-8 py-3.5 text-lg font-semibold text-white transition-all duration-200 hover:shadow-glow focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-600 disabled:cursor-not-allowed disabled:opacity-60"
                   >
                     {status === 'submitting' ? (
                       <>
@@ -528,7 +530,7 @@ export function BookConsultationPage() {
 
             {/* Reassurance Panel */}
             <aside className="lg:sticky lg:top-8 lg:self-start">
-              <div className="rounded-2xl border border-neutral-100 bg-[#FAFAF9] p-7">
+              <div className="rounded-2xl border border-primary-100 bg-gradient-to-b from-primary-50/40 to-white p-7">
                 <h3 className="text-sm font-semibold uppercase tracking-wider text-primary-600">
                   Before You Book
                 </h3>
@@ -538,7 +540,7 @@ export function BookConsultationPage() {
                 <dl className="mt-6 space-y-6">
                   <div className="flex gap-4">
                     <dt className="flex-shrink-0">
-                      <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-white text-primary-600 shadow-sm">
+                      <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-primary-500 to-primary-700 text-white shadow-sm">
                         <Clock size={20} />
                       </span>
                     </dt>
@@ -551,7 +553,7 @@ export function BookConsultationPage() {
                   </div>
                   <div className="flex gap-4">
                     <dt className="flex-shrink-0">
-                      <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-white text-primary-600 shadow-sm">
+                      <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-primary-500 to-primary-700 text-white shadow-sm">
                         <CalendarClock size={20} />
                       </span>
                     </dt>
@@ -564,7 +566,7 @@ export function BookConsultationPage() {
                   </div>
                   <div className="flex gap-4">
                     <dt className="flex-shrink-0">
-                      <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-white text-primary-600 shadow-sm">
+                      <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-primary-500 to-primary-700 text-white shadow-sm">
                         <Video size={20} />
                       </span>
                     </dt>
@@ -577,7 +579,7 @@ export function BookConsultationPage() {
                   </div>
                   <div className="flex gap-4">
                     <dt className="flex-shrink-0">
-                      <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-white text-primary-600 shadow-sm">
+                      <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-primary-500 to-primary-700 text-white shadow-sm">
                         <Languages size={20} />
                       </span>
                     </dt>
@@ -590,7 +592,7 @@ export function BookConsultationPage() {
                   </div>
                   <div className="flex gap-4">
                     <dt className="flex-shrink-0">
-                      <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-white text-primary-600 shadow-sm">
+                      <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-primary-500 to-primary-700 text-white shadow-sm">
                         <Sparkles size={20} />
                       </span>
                     </dt>
@@ -610,11 +612,12 @@ export function BookConsultationPage() {
       </section>
 
       {/* Alternative Contacts */}
-      <section className="bg-[#FAFAF9] py-14 sm:py-20" aria-labelledby="alt-heading">
+      <section className="relative overflow-hidden bg-gradient-to-b from-primary-50/30 to-white py-14 sm:py-20" aria-labelledby="alt-heading">
+        <div className="decorative-blob top-[-60px] right-[-60px] h-[250px] w-[250px] bg-primary-100" aria-hidden="true" />
         <PageContainer>
           <div className="mx-auto max-w-3xl">
             <motion.p
-              className="mb-5 text-lg font-semibold uppercase tracking-wider text-primary-600"
+              className="mb-5 inline-flex items-center gap-2 rounded-full bg-primary-50 px-4 py-1.5 text-sm font-semibold uppercase tracking-wider text-primary-700"
               {...fadeUp}
             >
               Prefer to Reach Out Directly?
@@ -641,9 +644,9 @@ export function BookConsultationPage() {
           >
             <a
               href="mailto:hello@apfuture.com"
-              className="group flex items-center gap-4 rounded-2xl border border-neutral-100 bg-white p-6 transition-all duration-200 hover:border-primary-200 hover:shadow-sm"
+              className="group flex items-center gap-4 rounded-2xl border border-neutral-100 bg-white p-6 transition-all duration-200 hover:-translate-y-0.5 hover:border-primary-200 hover:shadow-sm"
             >
-              <span className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-xl bg-primary-50 text-primary-600">
+              <span className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-primary-500 to-primary-700 text-white shadow-sm">
                 <Mail size={24} />
               </span>
               <div>
@@ -657,9 +660,9 @@ export function BookConsultationPage() {
             </a>
             <a
               href="#"
-              className="group flex items-center gap-4 rounded-2xl border border-neutral-100 bg-white p-6 transition-all duration-200 hover:border-primary-200 hover:shadow-sm"
+              className="group flex items-center gap-4 rounded-2xl border border-neutral-100 bg-white p-6 transition-all duration-200 hover:-translate-y-0.5 hover:border-primary-200 hover:shadow-sm"
             >
-              <span className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-xl bg-primary-50 text-primary-600">
+              <span className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-primary-500 to-primary-700 text-white shadow-sm">
                 <MessageCircle size={24} />
               </span>
               <div>
@@ -680,7 +683,7 @@ export function BookConsultationPage() {
         <PageContainer>
           <div className="mx-auto max-w-3xl">
             <motion.p
-              className="mb-5 text-lg font-semibold uppercase tracking-wider text-primary-600"
+              className="mb-5 inline-flex items-center gap-2 rounded-full bg-primary-50 px-4 py-1.5 text-sm font-semibold uppercase tracking-wider text-primary-700"
               {...fadeUp}
             >
               Common Questions

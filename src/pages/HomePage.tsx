@@ -37,6 +37,7 @@ const services = [
       'Thirteen college-level courses across Mathematics, Physics, and Social Sciences, with guided pathways for each university major.',
     href: '/ap',
     icon: <BookOpen size={24} />,
+    gradient: 'from-primary-500 to-primary-700',
   },
   {
     title: 'Digital SAT Preparation',
@@ -44,13 +45,15 @@ const services = [
       'Structured preparation for the Digital SAT with adaptive practice, proven strategies, and timed mock exams.',
     href: '/sat',
     icon: <ClipboardList size={24} />,
+    gradient: 'from-secondary-400 to-secondary-600',
   },
   {
     title: 'University Planning',
     description:
-      'Strategic planning from school selection through application and essay support, tailored to each student’s goals.',
+      'Strategic planning from school selection through application and essay support, tailored to each student\u2019s goals.',
     href: '/university-planning',
     icon: <GraduationCap size={24} />,
+    gradient: 'from-accent-400 to-accent-600',
   },
   {
     title: 'Resources',
@@ -58,6 +61,7 @@ const services = [
       'Guides, templates, and research materials to support every stage of the academic journey.',
     href: '/resources',
     icon: <Library size={24} />,
+    gradient: 'from-primary-400 to-secondary-500',
   },
 ];
 
@@ -109,11 +113,11 @@ export function HomePage() {
         image={heroImage}
       />
 
-      <section className="bg-[#F7F8FA] py-12 sm:py-14" aria-labelledby="intro-heading">
+      <section className="relative overflow-hidden bg-gradient-to-b from-primary-50/40 to-white py-12 sm:py-14" aria-labelledby="intro-heading">
         <PageContainer width="wide">
           <div className="mx-auto max-w-3xl text-center">
             <motion.p
-              className="mb-4 text-xl font-semibold uppercase tracking-wider text-primary-600"
+              className="mb-4 inline-flex items-center gap-2 rounded-full bg-primary-50 px-4 py-1.5 text-sm font-semibold uppercase tracking-wider text-primary-700"
               {...fadeUp}
             >
               Who We Are
@@ -136,7 +140,7 @@ export function HomePage() {
           </div>
 
           <motion.dl
-            className="mx-auto mt-12 grid max-w-4xl grid-cols-1 gap-y-8 sm:grid-cols-4 sm:gap-y-0"
+            className="mx-auto mt-12 grid max-w-4xl grid-cols-2 gap-6 sm:grid-cols-4 sm:gap-0"
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-80px' }}
@@ -146,12 +150,12 @@ export function HomePage() {
               <div
                 key={signal.label}
                 className={`flex flex-col items-center px-4 sm:px-2 ${
-                  index !== 0 ? 'sm:border-l sm:border-neutral-300' : ''
+                  index !== 0 ? 'sm:border-l sm:border-primary-100' : ''
                 }`}
               >
                 <dt className="sr-only">{signal.label}</dt>
                 <dd className="text-center">
-                  <span className="block text-3xl font-bold tracking-tight text-neutral-900 sm:text-4xl">
+                  <span className="block text-3xl font-bold tracking-tight text-gradient-primary sm:text-4xl">
                     {signal.value}
                   </span>
                   <span className="mt-2 block text-sm font-medium text-neutral-400">
@@ -174,10 +178,11 @@ export function HomePage() {
         </PageContainer>
       </section>
 
-      <section className="py-14 sm:py-16" aria-labelledby="services-heading">
-        <PageContainer width="wide">
+      <section className="relative overflow-hidden py-14 sm:py-16" aria-labelledby="services-heading">
+        <div className="bg-dot-pattern absolute inset-0 opacity-60" aria-hidden="true" />
+        <PageContainer width="wide" className="relative">
           <div className="mb-10 max-w-2xl">
-            <p className="mb-3 text-xl font-semibold uppercase tracking-wider text-primary-600">
+            <p className="mb-3 inline-flex items-center gap-2 rounded-full bg-primary-50 px-4 py-1.5 text-sm font-semibold uppercase tracking-wider text-primary-700">
               What We Do
             </p>
             <h2 id="services-heading" className="text-3xl font-bold leading-tight tracking-tight text-neutral-900 sm:text-4xl">
@@ -185,35 +190,33 @@ export function HomePage() {
             </h2>
           </div>
 
-          <div className="divide-y divide-neutral-200">
-            {services.map((service) => (
+          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
+            {services.map((service, index) => (
               <motion.div
                 key={service.title}
                 initial={{ opacity: 0, y: 16 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: '-80px' }}
-                transition={{ duration: 0.4, ease: 'easeOut' }}
-                className="group flex flex-col gap-6 py-10 sm:flex-row sm:items-center sm:gap-12"
+                transition={{ duration: 0.4, ease: 'easeOut', delay: index * 0.08 }}
               >
-                <div className="flex flex-shrink-0 items-center gap-4 sm:w-64">
-                  <span className="flex h-14 w-14 items-center justify-center rounded-xl bg-neutral-50 text-primary-600 transition-all duration-300 group-hover:bg-primary-50 group-hover:shadow-md">
-                    {service.icon}
-                  </span>
-                  <h3 className="text-xl font-semibold leading-snug text-neutral-900">
-                    {service.title}
-                  </h3>
-                </div>
-                <div className="flex-1">
-                  <p className="max-w-prose text-lg leading-relaxed text-neutral-500">
-                    {service.description}
-                  </p>
-                </div>
                 <Link
                   to={service.href}
-                  className="inline-flex flex-shrink-0 items-center gap-1.5 self-start rounded-full border border-neutral-200 px-6 py-3 text-lg font-semibold text-neutral-700 transition-all duration-200 hover:border-neutral-300 hover:bg-neutral-50 hover:text-primary-600 sm:self-center sm:mr-2"
+                  className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-neutral-100 bg-white p-8 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
                 >
-                  Explore
-                  <ArrowRight size={18} className="transition-transform duration-200 group-hover:translate-x-0.5" />
+                  <div className={`absolute top-0 left-0 h-1 w-full bg-gradient-to-r ${service.gradient}`} />
+                  <span className={`mb-5 flex h-14 w-14 items-center justify-center rounded-xl bg-gradient-to-br ${service.gradient} text-white shadow-md`}>
+                    {service.icon}
+                  </span>
+                  <h3 className="text-xl font-semibold leading-snug text-neutral-900 transition-colors group-hover:text-primary-600">
+                    {service.title}
+                  </h3>
+                  <p className="mt-3 flex-1 text-base leading-relaxed text-neutral-500">
+                    {service.description}
+                  </p>
+                  <span className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-primary-600">
+                    Explore
+                    <ArrowRight size={16} className="transition-transform duration-200 group-hover:translate-x-1" />
+                  </span>
                 </Link>
               </motion.div>
             ))}
@@ -221,10 +224,11 @@ export function HomePage() {
         </PageContainer>
       </section>
 
-      <section className="bg-[#EEF4FF] py-14 sm:py-16" aria-labelledby="trust-heading">
-        <PageContainer width="wide">
+      <section className="relative overflow-hidden bg-gradient-to-br from-primary-50 via-white to-accent-50/30 py-14 sm:py-16" aria-labelledby="trust-heading">
+        <div className="decorative-blob top-[-60px] left-[-60px] h-[250px] w-[250px] bg-primary-100" aria-hidden="true" />
+        <PageContainer width="wide" className="relative">
           <div className="mx-auto max-w-3xl text-center">
-            <p className="mb-3 text-xl font-semibold uppercase tracking-wider text-primary-600">
+            <p className="mb-3 inline-flex items-center gap-2 rounded-full bg-accent-50 px-4 py-1.5 text-sm font-semibold uppercase tracking-wider text-accent-700">
               Why Families Trust AP Future
             </p>
             <h2 id="trust-heading" className="text-3xl font-bold leading-tight tracking-tight text-neutral-900 sm:text-4xl">
@@ -236,7 +240,7 @@ export function HomePage() {
             </p>
           </div>
 
-          <div className="mt-12 grid grid-cols-1 gap-12 sm:grid-cols-2 lg:grid-cols-4 lg:gap-10">
+          <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4 lg:gap-8">
             {trustPillars.map((pillar, index) => (
               <motion.div
                 key={pillar.title}
@@ -244,9 +248,9 @@ export function HomePage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: '-80px' }}
                 transition={{ duration: 0.4, ease: 'easeOut', delay: index * 0.08 }}
-                className="flex flex-col"
+                className="flex flex-col rounded-2xl border border-white/60 bg-white/80 p-7 shadow-sm backdrop-blur transition-all duration-300 hover:shadow-md"
               >
-                <span className="mb-5 flex h-12 w-12 items-center justify-center rounded-xl bg-white text-primary-600 shadow-sm">
+                <span className="mb-5 flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-primary-500 to-primary-700 text-white shadow-sm">
                   {pillar.icon}
                 </span>
                 <h3 className="text-lg font-semibold leading-snug text-neutral-900">

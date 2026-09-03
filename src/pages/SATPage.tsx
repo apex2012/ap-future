@@ -27,7 +27,7 @@ const whySAT = [
     icon: <BookOpen size={22} />,
     title: 'Concept-first, not memorization',
     description:
-      'We teach the underlying skills the SAT measures — reading comprehension, grammar, algebra, and data analysis — so students can solve unfamiliar questions with confidence.',
+      'We teach the underlying skills the SAT measures \u2014 reading comprehension, grammar, algebra, and data analysis \u2014 so students can solve unfamiliar questions with confidence.',
   },
   {
     icon: <LineChart size={22} />,
@@ -39,7 +39,7 @@ const whySAT = [
     icon: <Compass size={22} />,
     title: 'A plan that fits each student',
     description:
-      'We build a personalized study plan around each student’s timeline, target score, and school workload — so preparation stays balanced and sustainable.',
+      'We build a personalized study plan around each student\u2019s timeline, target score, and school workload \u2014 so preparation stays balanced and sustainable.',
   },
 ];
 
@@ -96,7 +96,7 @@ const approach = [
     icon: <Sparkles size={22} />,
     title: 'Responsible AI support',
     description:
-      'Students may use AI tools to explain concepts and generate practice questions — always with instructor guidance and human review.',
+      'Students may use AI tools to explain concepts and generate practice questions \u2014 always with instructor guidance and human review.',
   },
 ];
 
@@ -104,7 +104,7 @@ const faqItems = [
   {
     question: 'What is the Digital SAT and how is it different from the old SAT?',
     answer:
-      'The Digital SAT is shorter (about two hours), taken on a laptop or tablet, and section-adaptive — meaning the difficulty of later questions adjusts to the student’s earlier answers. It replaces long reading passages with shorter ones and allows a calculator throughout the Math section.',
+      'The Digital SAT is shorter (about two hours), taken on a laptop or tablet, and section-adaptive \u2014 meaning the difficulty of later questions adjusts to the student\u2019s earlier answers. It replaces long reading passages with shorter ones and allows a calculator throughout the Math section.',
   },
   {
     question: 'When should my child start preparing for the SAT?',
@@ -114,7 +114,7 @@ const faqItems = [
   {
     question: 'How long does SAT preparation usually take?',
     answer:
-      'A typical plan runs 8–12 weeks of focused study, with two to four hours of practice per week. Students aiming for a significant score increase or starting further from their target may benefit from a longer timeline.',
+      'A typical plan runs 8\u201312 weeks of focused study, with two to four hours of practice per week. Students aiming for a significant score increase or starting further from their target may benefit from a longer timeline.',
   },
   {
     question: 'Do you provide official SAT practice materials?',
@@ -124,12 +124,12 @@ const faqItems = [
   {
     question: 'How is the SAT used in university admissions?',
     answer:
-      'SAT scores are one part of a holistic application. Many universities in the US, Canada, and other countries accept or require them, and a strong score can strengthen an application — but it does not replace grades, rigor, and the personal statement.',
+      'SAT scores are one part of a holistic application. Many universities in the US, Canada, and other countries accept or require them, and a strong score can strengthen an application \u2014 but it does not replace grades, rigor, and the personal statement.',
   },
   {
     question: 'Do you offer SAT score guarantees?',
     answer:
-      'No. We do not believe in score guarantees. Honest preparation focuses on real skill growth, consistent practice, and a plan built around each student’s starting point and goals.',
+      'No. We do not believe in score guarantees. Honest preparation focuses on real skill growth, consistent practice, and a plan built around each student\u2019s starting point and goals.',
   },
 ];
 
@@ -140,7 +140,7 @@ export function SATPage() {
         variant="split"
         eyebrow="Digital SAT"
         title="Prepare for the Digital SAT with Confidence."
-        description="Structured preparation across Reading & Writing, Mathematics, and Study Planning — built around the digital format, grounded in real skills, and guided by experienced educators."
+        description="Structured preparation across Reading & Writing, Mathematics, and Study Planning \u2014 built around the digital format, grounded in real skills, and guided by experienced educators."
         actions={[
           { label: 'Book a Consultation', href: '/book-a-consultation', variant: 'primary' },
           { label: 'Explore the Approach', href: '#approach', variant: 'secondary' },
@@ -148,12 +148,12 @@ export function SATPage() {
         image={heroImage}
       />
 
-      <section className="bg-[#F7F8FA] py-14 sm:py-16" aria-labelledby="why-sat-heading">
+      <section className="relative overflow-hidden bg-gradient-to-b from-secondary-50/40 to-white py-14 sm:py-16" aria-labelledby="why-sat-heading">
         <PageContainer width="wide">
           <Breadcrumb items={[{ label: 'Home', href: '/' }, { label: 'SAT' }]} />
 
           <div className="mx-auto max-w-3xl text-center">
-            <p className="mb-3 text-xl font-semibold uppercase tracking-wider text-primary-600">
+            <p className="mb-3 inline-flex items-center gap-2 rounded-full bg-secondary-50 px-4 py-1.5 text-sm font-semibold uppercase tracking-wider text-secondary-700">
               Why AP Future
             </p>
             <h2 id="why-sat-heading" className="text-3xl font-bold leading-tight tracking-tight text-neutral-900 sm:text-4xl">
@@ -161,8 +161,8 @@ export function SATPage() {
             </h2>
             <p className="mx-auto mt-4 max-w-2xl text-lg leading-relaxed text-neutral-500">
               Generic test prep ignores how the Digital SAT actually works. We prepare students for the
-              real test — its adaptive structure, its shorter passages, and its calculator-active math
-              section — while building skills that last beyond exam day.
+              real test \u2014 its adaptive structure, its shorter passages, and its calculator-active math
+              section \u2014 while building skills that last beyond exam day.
             </p>
           </div>
 
@@ -174,9 +174,9 @@ export function SATPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: '-80px' }}
                 transition={{ duration: 0.4, ease: 'easeOut', delay: index * 0.08 }}
-                className="flex gap-5 rounded-2xl border border-neutral-100 bg-white p-7 shadow-sm transition-shadow duration-300 hover:shadow-md"
+                className="flex gap-5 rounded-2xl border border-neutral-100 bg-white p-7 shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md"
               >
-                <span className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-xl bg-primary-50 text-primary-600">
+                <span className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-secondary-400 to-secondary-600 text-white shadow-sm">
                   {item.icon}
                 </span>
                 <div>
@@ -193,10 +193,11 @@ export function SATPage() {
         </PageContainer>
       </section>
 
-      <section id="learning-areas" className="py-14 sm:py-16" aria-labelledby="learning-areas-heading">
-        <PageContainer width="wide">
+      <section id="learning-areas" className="relative overflow-hidden py-14 sm:py-16" aria-labelledby="learning-areas-heading">
+        <div className="bg-dot-pattern absolute inset-0 opacity-50" aria-hidden="true" />
+        <PageContainer width="wide" className="relative">
           <div className="mx-auto max-w-3xl text-center">
-            <p className="mb-3 text-xl font-semibold uppercase tracking-wider text-primary-600">
+            <p className="mb-3 inline-flex items-center gap-2 rounded-full bg-secondary-50 px-4 py-1.5 text-sm font-semibold uppercase tracking-wider text-secondary-700">
               Learning Areas
             </p>
             <h2 id="learning-areas-heading" className="text-3xl font-bold leading-tight tracking-tight text-neutral-900 sm:text-4xl">
@@ -216,13 +217,13 @@ export function SATPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: '-80px' }}
                 transition={{ duration: 0.4, ease: 'easeOut', delay: index * 0.08 }}
-                className="grid grid-cols-1 gap-6 rounded-2xl border border-neutral-100 bg-white p-7 shadow-sm transition-shadow duration-300 hover:shadow-md sm:grid-cols-[auto_1fr] sm:items-center lg:p-8"
+                className="grid grid-cols-1 gap-6 rounded-2xl border border-neutral-100 bg-white p-7 shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md sm:grid-cols-[auto_1fr] sm:items-center lg:p-8"
               >
                 <div className="flex items-center gap-4">
-                  <span className="text-3xl font-bold tracking-tight text-primary-200">
+                  <span className="text-3xl font-bold tracking-tight text-secondary-200">
                     {area.number}
                   </span>
-                  <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary-50 text-primary-600">
+                  <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-secondary-400 to-secondary-600 text-white shadow-sm">
                     {area.icon}
                   </span>
                 </div>
@@ -239,7 +240,7 @@ export function SATPage() {
                     {area.skills.map((skill) => (
                       <span
                         key={skill}
-                        className="inline-flex items-center rounded-full bg-primary-50 px-3 py-1 text-xs font-semibold text-primary-700"
+                        className="inline-flex items-center rounded-full bg-secondary-50 px-3 py-1 text-xs font-semibold text-secondary-700"
                       >
                         {skill}
                       </span>
@@ -252,10 +253,10 @@ export function SATPage() {
         </PageContainer>
       </section>
 
-      <section id="approach" className="bg-[#EEF4FF] py-14 sm:py-16" aria-labelledby="approach-heading">
-        <PageContainer width="wide">
+      <section id="approach" className="relative overflow-hidden bg-gradient-to-br from-secondary-50 via-white to-primary-50/30 py-14 sm:py-16" aria-labelledby="approach-heading">
+        <PageContainer width="wide" className="relative">
           <div className="mb-10 max-w-2xl">
-            <p className="mb-3 text-xl font-semibold uppercase tracking-wider text-primary-600">
+            <p className="mb-3 inline-flex items-center gap-2 rounded-full bg-secondary-50 px-4 py-1.5 text-sm font-semibold uppercase tracking-wider text-secondary-700">
               Our Approach
             </p>
             <h2 id="approach-heading" className="text-3xl font-bold leading-tight tracking-tight text-neutral-900 sm:text-4xl">
@@ -275,9 +276,9 @@ export function SATPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: '-80px' }}
                 transition={{ duration: 0.4, ease: 'easeOut', delay: index * 0.08 }}
-                className="flex h-full flex-col rounded-2xl border border-neutral-100 bg-white p-7 shadow-sm transition-shadow duration-300 hover:shadow-md"
+                className="flex h-full flex-col rounded-2xl border border-neutral-100 bg-white p-7 shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md"
               >
-                <span className="mb-4 flex h-11 w-11 items-center justify-center rounded-lg bg-primary-50 text-primary-600">
+                <span className="mb-4 flex h-11 w-11 items-center justify-center rounded-lg bg-gradient-to-br from-secondary-400 to-secondary-600 text-white shadow-sm">
                   {item.icon}
                 </span>
                 <h3 className="text-base font-semibold leading-snug text-neutral-900">
@@ -295,7 +296,7 @@ export function SATPage() {
       <section className="py-14 sm:py-16" aria-labelledby="faq-heading">
         <PageContainer>
           <div className="mb-8 max-w-2xl">
-            <p className="mb-3 text-xl font-semibold uppercase tracking-wider text-primary-600">
+            <p className="mb-3 inline-flex items-center gap-2 rounded-full bg-secondary-50 px-4 py-1.5 text-sm font-semibold uppercase tracking-wider text-secondary-700">
               FAQ
             </p>
             <h2 id="faq-heading" className="text-3xl font-bold leading-tight tracking-tight text-neutral-900 sm:text-4xl">

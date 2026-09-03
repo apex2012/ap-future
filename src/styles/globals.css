@@ -9,8 +9,8 @@
     --color-text: #1c1917;
     --color-text-muted: #57534e;
     --color-border: #e7e5e4;
-    --color-primary: #2563eb;
-    --color-accent: #d97706;
+    --color-primary: #1d5ce0;
+    --color-accent: #ef7c0a;
   }
 
   html {
@@ -73,5 +73,90 @@
 
   .skip-link {
     @apply sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded-md focus:bg-white focus:px-4 focus:py-2 focus:text-sm focus:font-medium focus:shadow-lg;
+  }
+
+  .hero-gradient-overlay {
+    background: linear-gradient(
+      135deg,
+      rgba(29, 92, 224, 0.85) 0%,
+      rgba(24, 72, 184, 0.75) 50%,
+      rgba(25, 61, 149, 0.65) 100%
+    );
+  }
+
+  .hero-gradient-warm {
+    background: linear-gradient(
+      135deg,
+      rgba(239, 124, 10, 0.85) 0%,
+      rgba(215, 93, 6, 0.75) 50%,
+      rgba(179, 67, 10, 0.65) 100%
+    );
+  }
+
+  .hero-gradient-teal {
+    background: linear-gradient(
+      135deg,
+      rgba(6, 170, 209, 0.85) 0%,
+      rgba(8, 137, 178, 0.75) 50%,
+      rgba(14, 112, 144, 0.65) 100%
+    );
+  }
+
+  .section-gradient-blue {
+    background: linear-gradient(180deg, #f0f5ff 0%, #ffffff 100%);
+  }
+
+  .section-gradient-warm {
+    background: linear-gradient(180deg, #fff8eb 0%, #ffffff 100%);
+  }
+
+  .section-gradient-teal {
+    background: linear-gradient(180deg, #ecfdff 0%, #ffffff 100%);
+  }
+
+  .text-gradient-primary {
+    background: linear-gradient(135deg, #1d5ce0 0%, #3478f6 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .text-gradient-accent {
+    background: linear-gradient(135deg, #ef7c0a 0%, #f99c24 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .card-hover {
+    @apply transition-all duration-300 ease-spring hover:-translate-y-1 hover:shadow-lg;
+  }
+
+  .glass-effect {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+
+  .decorative-blob {
+    position: absolute;
+    border-radius: 9999px;
+    filter: blur(80px);
+    opacity: 0.4;
+    pointer-events: none;
+  }
+}
+
+@layer utilities {
+  .bg-grid-pattern {
+    background-image:
+      linear-gradient(rgba(0, 0, 0, 0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0, 0, 0, 0.03) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+
+  .bg-dot-pattern {
+    background-image: radial-gradient(circle, rgba(0, 0, 0, 0.04) 1px, transparent 1px);
+    background-size: 24px 24px;
   }
 }

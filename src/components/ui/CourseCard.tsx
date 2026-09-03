@@ -26,11 +26,12 @@ export function CourseCard({
   return (
     <Link
       to={href}
-      className="group flex h-full flex-col rounded-2xl border border-neutral-100 bg-white p-7 shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-neutral-200 hover:shadow-md focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-600"
+      className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-neutral-100 bg-white p-7 shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-neutral-200 hover:shadow-md focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-600"
     >
+      <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-primary-500 to-primary-700" aria-hidden="true" />
       <div className="mb-5 flex items-center gap-3">
         {icon && (
-          <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-primary-50 text-primary-600">
+          <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-gradient-to-br from-primary-500 to-primary-700 text-white shadow-sm">
             {icon}
           </span>
         )}

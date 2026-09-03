@@ -316,9 +316,9 @@ function ResourceRow({ resource }: { resource: ResourceEntry }) {
   return (
     <a
       href={resource.href}
-      className="group flex items-start gap-4 border-b border-neutral-100 py-4 transition-colors last:border-b-0 hover:bg-neutral-50/60 -mx-3 px-3 rounded-lg"
+      className="group flex items-start gap-4 border-b border-neutral-100 py-4 transition-colors last:border-b-0 hover:bg-primary-50/60 -mx-3 px-3 rounded-lg"
     >
-      <span className="mt-1 flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-lg bg-neutral-100 text-neutral-500 group-hover:bg-primary-50 group-hover:text-primary-600 transition-colors">
+      <span className="mt-1 flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-lg bg-neutral-100 text-neutral-500 group-hover:bg-primary-100 group-hover:text-primary-600 transition-colors">
         {typeIcon[resource.type]}
       </span>
       <div className="min-w-0 flex-1">
@@ -367,7 +367,7 @@ function CategorySection({
   return (
     <section id={category.id} className="scroll-mt-24">
       <div className="mb-2 flex items-center gap-3">
-        <span className="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-lg bg-primary-50 text-primary-600">
+        <span className="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-lg bg-gradient-to-br from-primary-500 to-primary-700 text-white shadow-sm">
           {category.icon}
         </span>
         <h2 className="text-lg font-bold tracking-tight text-neutral-900 sm:text-xl">
@@ -404,7 +404,7 @@ function FeaturedResource({ resource }: { resource: ResourceEntry }) {
   return (
     <a
       href={resource.href}
-      className="group relative block overflow-hidden rounded-2xl border border-neutral-200 bg-gradient-to-br from-neutral-50 to-white p-7 transition-all duration-300 hover:border-primary-200 hover:shadow-md sm:p-9"
+      className="group relative block overflow-hidden rounded-2xl border border-neutral-200 bg-gradient-to-br from-primary-50 via-white to-secondary-50/30 p-7 transition-all duration-300 hover:-translate-y-0.5 hover:border-primary-200 hover:shadow-md sm:p-9"
     >
       <div className="flex flex-col gap-5 sm:flex-row sm:items-start sm:gap-8">
         <div className="flex-1">
@@ -552,10 +552,11 @@ export function ResourcesPage() {
         </PageContainer>
       </section>
 
-      <section className="bg-[#FAFAF9] py-14 sm:py-16" aria-labelledby="integration-heading">
+      <section className="relative overflow-hidden bg-gradient-to-b from-primary-50/30 to-white py-14 sm:py-16" aria-labelledby="integration-heading">
+        <div className="decorative-blob top-[-60px] right-[-60px] h-[250px] w-[250px] bg-primary-100" aria-hidden="true" />
         <PageContainer>
           <div className="mx-auto max-w-3xl">
-            <p className="mb-3 text-lg font-semibold uppercase tracking-wider text-primary-600">
+            <p className="mb-3 inline-flex items-center gap-2 rounded-full bg-primary-50 px-4 py-1.5 text-sm font-semibold uppercase tracking-wider text-primary-700">
               How Resources Connect
             </p>
             <h2 id="integration-heading" className="text-3xl font-bold leading-tight tracking-tight text-neutral-900 sm:text-4xl">
@@ -571,7 +572,7 @@ export function ResourcesPage() {
             {integration.map((item) => (
               <div
                 key={item.title}
-                className="flex flex-col gap-3 bg-white p-6 sm:flex-row sm:items-center sm:gap-8"
+                className="group flex flex-col gap-3 bg-white p-6 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md sm:flex-row sm:items-center sm:gap-8"
               >
                 <div className="sm:w-52 sm:flex-shrink-0">
                   <h3 className="text-lg font-semibold leading-snug text-neutral-900">
@@ -597,7 +598,7 @@ export function ResourcesPage() {
       <section className="bg-white py-14 sm:py-16" aria-labelledby="faq-heading">
         <PageContainer>
           <div className="mb-8 max-w-2xl">
-            <p className="mb-3 text-lg font-semibold uppercase tracking-wider text-primary-600">
+            <p className="mb-3 inline-flex items-center gap-2 rounded-full bg-primary-50 px-4 py-1.5 text-sm font-semibold uppercase tracking-wider text-primary-700">
               FAQ
             </p>
             <h2 id="faq-heading" className="text-3xl font-bold leading-tight tracking-tight text-neutral-900 sm:text-4xl">

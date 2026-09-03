@@ -26,14 +26,20 @@ export interface HeroProps {
   actions?: HeroAction[];
   image?: HeroImage;
   heroClassName?: string;
+  imagePosition?: 'right' | 'background';
 }
 
 const actionClass = (v: 'primary' | 'secondary'): string =>
   v === 'primary'
-    ? 'bg-neutral-900 text-white hover:bg-neutral-800 shadow-sm'
-    : 'bg-white border border-neutral-200 text-neutral-800 hover:border-neutral-300 hover:bg-neutral-50 shadow-sm';
+    ? 'bg-primary-600 text-white hover:bg-primary-700 shadow-md hover:shadow-glow'
+    : 'bg-white/90 backdrop-blur border border-white/60 text-neutral-800 hover:bg-white shadow-sm';
 
-function HeroActions({ actions }: { actions: HeroAction[] }) {
+const actionClassOnOverlay = (v: 'primary' | 'secondary'): string =>
+  v === 'primary'
+    ? 'bg-white text-primary-700 hover:bg-neutral-100 shadow-md'
+    : 'bg-white/10 backdrop-blur border border-white/40 text-white hover:bg-white/20';
+
+function HeroActions({ actions, onOverlay = false }: { actions: HeroAction[]; onOverlay?: boolean }) {
   if (!actions || actions.length === 0) return null;
   return (
     <div className="flex flex-wrap items-center gap-3">
@@ -41,7 +47,9 @@ function HeroActions({ actions }: { actions: HeroAction[] }) {
         <Link
           key={action.href}
           to={action.href}
-          className={`inline-flex items-center justify-center rounded-full px-7 py-3.5 text-lg font-semibold tracking-tight transition-all duration-200 focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-600 ${actionClass(action.variant)}`}
+          className={`inline-flex items-center justify-center rounded-full px-7 py-3.5 text-lg font-semibold tracking-tight transition-all duration-200 focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-600 ${
+            onOverlay ? actionClassOnOverlay(action.variant) : actionClass(action.variant)
+          }`}
         >
           {action.label}
         </Link>
@@ -61,7 +69,7 @@ function HeroImageBlock({ image }: { image: HeroImage }) {
         loading="eager"
         srcSet={image.srcSet}
         sizes={image.sizes ?? '(min-width: 1024px) 45vw, 100vw'}
-        className="h-full w-full object-cover transition-transform duration-700 hover:scale-[1.02]"
+        className="h-full w-full object-cover transition-transform duration-700 hover:scale-[1.03]"
       />
     </div>
   );
@@ -85,7 +93,9 @@ export function Hero({
   if (variant === 'centered') {
     return (
       <section className={`relative overflow-hidden bg-white py-16 sm:py-20 ${heroClassName ?? ''}`}>
-        <div className="container-wide">
+        <div className="decorative-blob top-[-100px] left-[-100px] h-[300px] w-[300px] bg-primary-200" aria-hidden="true" />
+        <div className="decorative-blob bottom-[-80px] right-[-80px] h-[250px] w-[250px] bg-accent-100" aria-hidden="true" />
+        <div className="container-wide relative">
           <motion.div
             className="mx-auto max-w-3xl text-center"
             initial="initial"
@@ -95,7 +105,7 @@ export function Hero({
           >
             {eyebrow && (
               <motion.p
-                className="mb-5 text-xl font-semibold uppercase tracking-wider text-primary-600"
+                className="mb-5 inline-flex items-center gap-2 rounded-full bg-primary-50 px-4 py-1.5 text-sm font-semibold uppercase tracking-wider text-primary-700"
                 variants={fadeUp}
               >
                 {eyebrow}
@@ -128,7 +138,7 @@ export function Hero({
 
   if (variant === 'content') {
     return (
-      <section className="border-b border-neutral-100 bg-neutral-50 py-14 sm:py-18">
+      <section className="relative overflow-hidden border-b border-neutral-100 bg-gradient-to-b from-primary-50/60 to-white py-14 sm:py-18">
         <div className="container-wide">
           <motion.div
             className="max-w-3xl"
@@ -139,7 +149,7 @@ export function Hero({
           >
             {eyebrow && (
               <motion.p
-                className="mb-4 text-xl font-semibold uppercase tracking-wider text-primary-600"
+                className="mb-4 inline-flex items-center gap-2 rounded-full bg-primary-50 px-4 py-1.5 text-sm font-semibold uppercase tracking-wider text-primary-700"
                 variants={fadeUp}
               >
                 {eyebrow}
@@ -169,7 +179,8 @@ export function Hero({
 
   return (
     <section className={`relative overflow-hidden ${isCourse ? 'bg-neutral-50' : 'bg-white'}`}>
-      <div className="container-wide grid min-h-[440px] grid-cols-1 items-center gap-12 pt-20 pb-16 lg:grid-cols-[55%_45%] lg:min-h-[600px] lg:pt-24 lg:pb-20">
+      <div className="decorative-blob top-[-120px] right-[-60px] h-[320px] w-[320px] bg-primary-100" aria-hidden="true" />
+      <div className="container-wide relative grid min-h-[440px] grid-cols-1 items-center gap-12 pt-20 pb-16 lg:grid-cols-[55%_45%] lg:min-h-[600px] lg:pt-24 lg:pb-20">
         <motion.div
           className="max-w-xl"
           initial="initial"
@@ -179,7 +190,7 @@ export function Hero({
         >
           {eyebrow && (
             <motion.p
-              className="mb-5 text-xl font-semibold uppercase tracking-wider text-primary-600"
+              className="mb-5 inline-flex items-center gap-2 rounded-full bg-primary-50 px-4 py-1.5 text-sm font-semibold uppercase tracking-wider text-primary-700"
               variants={fadeUp}
             >
               {eyebrow}

@@ -88,13 +88,15 @@ export function ThankYouPage() {
     <>
       {/* Confirmation Hero */}
       <section className="relative overflow-hidden bg-white py-20 sm:py-28">
+        <div className="decorative-blob top-[-80px] left-[-80px] h-[300px] w-[300px] bg-primary-100" aria-hidden="true" />
+        <div className="decorative-blob bottom-[-60px] right-[-60px] h-[250px] w-[250px] bg-primary-100" aria-hidden="true" />
         <PageContainer>
           <div className="mx-auto max-w-3xl text-center">
             <motion.div
               initial={{ opacity: 0, scale: 0.85 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5, ease: 'easeOut' }}
-              className="mx-auto mb-7 flex h-16 w-16 items-center justify-center rounded-full bg-primary-50 text-primary-600"
+              className="mx-auto mb-7 flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-br from-primary-500 to-primary-700 text-white shadow-md"
             >
               <CheckCircle2 size={36} />
             </motion.div>
@@ -115,11 +117,12 @@ export function ThankYouPage() {
       </section>
 
       {/* What Happens Next — Timeline */}
-      <section className="bg-[#FAFAF9] py-14 sm:py-20" aria-labelledby="next-heading">
+      <section className="relative overflow-hidden bg-gradient-to-b from-primary-50/30 to-white py-14 sm:py-20" aria-labelledby="next-heading">
+        <div className="decorative-blob bottom-[-60px] left-[-60px] h-[250px] w-[250px] bg-primary-100" aria-hidden="true" />
         <PageContainer>
           <div className="mx-auto max-w-3xl">
             <motion.p
-              className="mb-5 text-lg font-semibold uppercase tracking-wider text-primary-600"
+              className="mb-5 inline-flex items-center gap-2 rounded-full bg-primary-50 px-4 py-1.5 text-sm font-semibold uppercase tracking-wider text-primary-700"
               {...fadeUp}
             >
               What Happens Next
@@ -158,7 +161,7 @@ export function ThankYouPage() {
                 )}
                 {/* Node */}
                 <div className="relative z-10 flex-shrink-0">
-                  <span className="flex h-8 w-8 items-center justify-center rounded-full border-2 border-primary-200 bg-white text-xs font-bold text-primary-600">
+                  <span className="flex h-8 w-8 items-center justify-center rounded-full border-2 border-primary-300 bg-white text-xs font-bold text-primary-700 ring-4 ring-primary-100">
                     {step.step}
                   </span>
                 </div>
@@ -182,7 +185,7 @@ export function ThankYouPage() {
         <PageContainer>
           <div className="mx-auto max-w-3xl">
             <motion.p
-              className="mb-5 text-lg font-semibold uppercase tracking-wider text-primary-600"
+              className="mb-5 inline-flex items-center gap-2 rounded-full bg-primary-50 px-4 py-1.5 text-sm font-semibold uppercase tracking-wider text-primary-700"
               {...fadeUp}
             >
               While You Wait
@@ -214,9 +217,9 @@ export function ThankYouPage() {
               >
                 <Link
                   to={item.href}
-                  className="group flex h-full flex-col rounded-2xl border border-neutral-100 bg-[#FAFAF9] p-7 transition-all duration-300 hover:border-primary-200 hover:shadow-sm"
+                  className="group flex h-full flex-col rounded-2xl border border-neutral-100 bg-gradient-to-b from-primary-50/30 to-white p-7 transition-all duration-300 hover:-translate-y-0.5 hover:border-primary-200 hover:shadow-md"
                 >
-                  <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-primary-50 text-primary-600 transition-colors duration-300 group-hover:bg-primary-100">
+                  <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-gradient-to-br from-primary-500 to-primary-700 text-white shadow-sm transition-colors duration-300 group-hover:from-primary-600 group-hover:to-primary-800">
                     {item.icon}
                   </span>
                   <h3 className="mt-5 text-lg font-semibold leading-snug text-neutral-900">
@@ -240,11 +243,12 @@ export function ThankYouPage() {
       </section>
 
       {/* Update Your Request */}
-      <section className="bg-[#FAFAF9] py-14 sm:py-20" aria-labelledby="update-heading">
+      <section className="relative overflow-hidden bg-gradient-to-b from-primary-50/30 to-white py-14 sm:py-20" aria-labelledby="update-heading">
+        <div className="decorative-blob top-[-60px] right-[-60px] h-[250px] w-[250px] bg-primary-100" aria-hidden="true" />
         <PageContainer>
           <div className="mx-auto max-w-3xl">
             <motion.p
-              className="mb-5 text-lg font-semibold uppercase tracking-wider text-primary-600"
+              className="mb-5 inline-flex items-center gap-2 rounded-full bg-primary-50 px-4 py-1.5 text-sm font-semibold uppercase tracking-wider text-primary-700"
               {...fadeUp}
             >
               Need to Update Your Request?
@@ -270,7 +274,7 @@ export function ThankYouPage() {
             {...fadeUp}
           >
             <div className="flex items-start gap-4 rounded-2xl border border-neutral-100 bg-white p-6">
-              <span className="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-xl bg-primary-50 text-primary-600">
+              <span className="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-primary-500 to-primary-700 text-white shadow-sm">
                 <PencilLine size={22} />
               </span>
               <div>
@@ -290,7 +294,7 @@ export function ThankYouPage() {
               </div>
             </div>
             <div className="flex items-start gap-4 rounded-2xl border border-neutral-100 bg-white p-6">
-              <span className="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-xl bg-primary-50 text-primary-600">
+              <span className="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-primary-500 to-primary-700 text-white shadow-sm">
                 <Inbox size={22} />
               </span>
               <div>
@@ -315,7 +319,7 @@ export function ThankYouPage() {
             className="mx-auto max-w-2xl text-center"
             {...fadeUp}
           >
-            <div className="mx-auto mb-6 flex h-12 w-12 items-center justify-center rounded-full bg-primary-50 text-primary-600">
+            <div className="mx-auto mb-6 flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-br from-primary-500 to-primary-700 text-white shadow-sm">
               <MessageCircle size={24} />
             </div>
             <p className="text-2xl font-medium leading-relaxed tracking-tight text-neutral-900 sm:text-3xl">
@@ -327,7 +331,7 @@ export function ThankYouPage() {
             <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
               <Link
                 to="/"
-                className="inline-flex items-center gap-1.5 rounded-lg bg-primary-600 px-6 py-3 text-lg font-semibold text-white transition-colors duration-200 hover:bg-primary-700"
+                className="inline-flex items-center gap-1.5 rounded-lg bg-gradient-to-r from-primary-600 to-primary-700 px-6 py-3 text-lg font-semibold text-white transition-all duration-200 hover:shadow-glow"
               >
                 Back to Home
               </Link>

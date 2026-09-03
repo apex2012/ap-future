@@ -132,12 +132,13 @@ export function UniversityPlanningPage() {
         ]}
       />
 
-      <section className="py-16 sm:py-20" aria-labelledby="philosophy-heading">
+      <section className="relative overflow-hidden py-16 sm:py-20" aria-labelledby="philosophy-heading">
+        <div className="decorative-blob top-[-60px] right-[-60px] h-[250px] w-[250px] bg-accent-100" aria-hidden="true" />
         <PageContainer>
           <Breadcrumb items={[{ label: 'Home', href: '/' }, { label: 'University Planning' }]} />
 
           <div className="mx-auto max-w-3xl">
-            <p className="mb-4 text-lg font-semibold uppercase tracking-wider text-accent-600">
+            <p className="mb-4 inline-flex items-center gap-2 rounded-full bg-accent-50 px-4 py-1.5 text-sm font-semibold uppercase tracking-wider text-accent-700">
               Our Philosophy
             </p>
             <h2 id="philosophy-heading" className="text-3xl font-bold leading-tight tracking-tight text-neutral-900 sm:text-4xl">
@@ -165,10 +166,11 @@ export function UniversityPlanningPage() {
         </PageContainer>
       </section>
 
-      <section id="timeline" className="bg-[#FAFAF9] py-16 sm:py-20" aria-labelledby="timeline-heading">
+      <section id="timeline" className="relative overflow-hidden bg-gradient-to-b from-accent-50/30 to-white py-16 sm:py-20" aria-labelledby="timeline-heading">
+        <div className="decorative-blob bottom-[-80px] left-[-80px] h-[300px] w-[300px] bg-accent-100" aria-hidden="true" />
         <PageContainer>
           <div className="mx-auto mb-12 max-w-3xl text-center">
-            <p className="mb-3 text-lg font-semibold uppercase tracking-wider text-accent-600">
+            <p className="mb-3 inline-flex items-center gap-2 rounded-full bg-accent-50 px-4 py-1.5 text-sm font-semibold uppercase tracking-wider text-accent-700">
               The Journey
             </p>
             <h2 id="timeline-heading" className="text-3xl font-bold leading-tight tracking-tight text-neutral-900 sm:text-4xl">
@@ -197,7 +199,7 @@ export function UniversityPlanningPage() {
               >
                 <div className="flex gap-5 sm:gap-7">
                   <div className="relative z-10 flex-shrink-0">
-                    <span className="flex h-16 w-16 items-center justify-center rounded-full bg-accent-500 text-lg font-bold text-white shadow-md ring-4 ring-[#FAFAF9] sm:h-20 sm:w-20 sm:text-xl">
+                    <span className="flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-br from-accent-400 to-accent-600 text-lg font-bold text-white shadow-md ring-4 ring-white sm:h-20 sm:w-20 sm:text-xl">
                       {item.grade.replace('Grade ', 'G')}
                     </span>
                   </div>
@@ -232,10 +234,11 @@ export function UniversityPlanningPage() {
         </PageContainer>
       </section>
 
-      <section className="py-16 sm:py-20" aria-labelledby="approach-heading">
+      <section className="relative overflow-hidden py-16 sm:py-20" aria-labelledby="approach-heading">
+        <div className="decorative-blob top-[-60px] left-[-60px] h-[250px] w-[250px] bg-accent-100" aria-hidden="true" />
         <PageContainer>
           <div className="mx-auto max-w-3xl">
-            <p className="mb-4 text-lg font-semibold uppercase tracking-wider text-accent-600">
+            <p className="mb-4 inline-flex items-center gap-2 rounded-full bg-accent-50 px-4 py-1.5 text-sm font-semibold uppercase tracking-wider text-accent-700">
               How It Fits Together
             </p>
             <h2 id="approach-heading" className="text-3xl font-bold leading-tight tracking-tight text-neutral-900 sm:text-4xl">
@@ -252,7 +255,7 @@ export function UniversityPlanningPage() {
             {integration.map((item) => (
               <div
                 key={item.title}
-                className="flex flex-col gap-4 bg-white p-7 sm:flex-row sm:items-center sm:gap-8"
+                className="group flex flex-col gap-4 bg-white p-7 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md sm:flex-row sm:items-center sm:gap-8"
               >
                 <div className="sm:w-56 sm:flex-shrink-0">
                   <h3 className="text-lg font-semibold leading-snug text-neutral-900">
@@ -275,10 +278,11 @@ export function UniversityPlanningPage() {
         </PageContainer>
       </section>
 
-      <section className="bg-[#FAFAF9] py-16 sm:py-20" aria-labelledby="faq-heading">
+      <section className="relative overflow-hidden bg-gradient-to-b from-accent-50/30 to-white py-16 sm:py-20" aria-labelledby="faq-heading">
+        <div className="decorative-blob bottom-[-60px] right-[-60px] h-[250px] w-[250px] bg-accent-100" aria-hidden="true" />
         <PageContainer>
           <div className="mb-8 max-w-2xl">
-            <p className="mb-3 text-lg font-semibold uppercase tracking-wider text-accent-600">
+            <p className="mb-3 inline-flex items-center gap-2 rounded-full bg-accent-50 px-4 py-1.5 text-sm font-semibold uppercase tracking-wider text-accent-700">
               FAQ
             </p>
             <h2 id="faq-heading" className="text-3xl font-bold leading-tight tracking-tight text-neutral-900 sm:text-4xl">

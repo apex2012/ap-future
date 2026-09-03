@@ -4,13 +4,13 @@ import { Mail, Phone, MapPin } from 'lucide-react';
 
 export function Footer() {
   return (
-    <footer className="border-t border-neutral-200 bg-[#F7F8FA]">
-      <div className="container-wide py-16 sm:py-20">
-        {/* Top tier: brand + navigation columns */}
+    <footer className="relative overflow-hidden border-t border-neutral-200 bg-gradient-to-b from-neutral-50 to-neutral-100">
+      <div className="decorative-blob top-[-60px] right-[-40px] h-[200px] w-[200px] bg-primary-100" aria-hidden="true" />
+      <div className="container-wide relative py-16 sm:py-20">
         <div className="grid grid-cols-1 gap-12 sm:grid-cols-2 lg:grid-cols-12">
           <div className="lg:col-span-6">
-            <Link to="/" className="text-[17px] font-bold font-bold tracking-tight text-neutral-900">
-              {SITE_NAME}
+            <Link to="/" className="text-[17px] font-bold tracking-tight text-neutral-900">
+              <span className="text-gradient-primary">{SITE_NAME}</span>
             </Link>
             <p className="mt-5 max-w-sm text-sm leading-relaxed text-neutral-400">
               Prepare for university with confidence through AP Courses, Digital SAT
@@ -20,7 +20,7 @@ export function Footer() {
 
           {FOOTER_NAV_SECTIONS.map((section) => (
             <div key={section.title} className="lg:col-span-3">
-              <h2 className="text-xs font-semibold uppercase tracking-widest text-neutral-400">
+              <h2 className="text-xs font-semibold uppercase tracking-widest text-primary-600">
                 {section.title}
               </h2>
               <ul className="mt-5 space-y-3.5">
@@ -28,7 +28,7 @@ export function Footer() {
                   <li key={link.href}>
                     <Link
                       to={link.href}
-                      className="text-sm text-neutral-600 transition-colors hover:text-neutral-900"
+                      className="text-sm text-neutral-600 transition-colors hover:text-primary-600"
                     >
                       {link.label}
                     </Link>
@@ -39,24 +39,23 @@ export function Footer() {
           ))}
         </div>
 
-        {/* Bottom tier: contact info (left, ~60%) + WeChat QR (right, ~40%) in one unified row */}
         <div className="mt-14 border-t border-neutral-200 pt-10">
           <div className="inline-flex flex-col gap-8 sm:flex-row sm:items-start sm:gap-10">
             <div className="flex-shrink-0">
-              <h2 className="text-xs font-semibold uppercase tracking-widest text-neutral-400">
+              <h2 className="text-xs font-semibold uppercase tracking-widest text-primary-600">
                 Contact
               </h2>
               <ul className="mt-5 space-y-4">
                 <li className="flex items-center gap-3 text-sm text-neutral-600">
-                  <MapPin size={16} className="flex-shrink-0 text-neutral-400" />
+                  <MapPin size={16} className="flex-shrink-0 text-accent-500" />
                   {FOOTER_CONTACT.location}
                 </li>
                 <li className="flex items-center gap-3 text-sm text-neutral-600">
-                  <Mail size={16} className="flex-shrink-0 text-neutral-400" />
+                  <Mail size={16} className="flex-shrink-0 text-accent-500" />
                   {FOOTER_CONTACT.email}
                 </li>
                 <li className="flex items-center gap-3 text-sm text-neutral-600">
-                  <Phone size={16} className="flex-shrink-0 text-neutral-400" />
+                  <Phone size={16} className="flex-shrink-0 text-accent-500" />
                   {FOOTER_CONTACT.phone}
                 </li>
               </ul>

@@ -21,16 +21,18 @@ export function Navigation() {
   const linkClass = ({ isActive }: { isActive: boolean }) =>
     `relative text-lg font-medium transition-colors duration-300 ease-out ${
       isActive
-        ? 'text-neutral-900'
+        ? 'text-primary-700'
         : 'text-neutral-500 hover:text-neutral-900'
-    } after:absolute after:-bottom-1.5 after:left-0 after:h-px after:bg-neutral-900 after:transition-all after:duration-300 after:ease-out ${
+    } after:absolute after:-bottom-1.5 after:left-0 after:h-0.5 after:rounded-full after:bg-primary-500 after:transition-all after:duration-300 after:ease-out ${
       isActive ? 'after:w-full' : 'after:w-0 hover:after:w-full'
     }`;
 
   return (
     <header
-      className={`sticky top-0 z-40 bg-white/95 backdrop-blur-md transition-shadow duration-200 ${
-        scrolled ? 'shadow-sm' : 'border-b border-neutral-100'
+      className={`sticky top-0 z-40 transition-all duration-300 ${
+        scrolled
+          ? 'glass-effect shadow-md'
+          : 'bg-white/95 backdrop-blur-md border-b border-neutral-100'
       }`}
     >
       <nav
@@ -42,7 +44,7 @@ export function Navigation() {
           className="ml-1 text-[28px] font-extrabold tracking-tight text-neutral-900 transition-opacity duration-200 hover:opacity-80"
           onClick={() => setIsOpen(false)}
         >
-          {SITE_NAME}
+          <span className="text-gradient-primary">{SITE_NAME}</span>
         </Link>
 
         <ul className="hidden items-center lg:flex" style={{ gap: '2.25rem' }}>
@@ -58,7 +60,7 @@ export function Navigation() {
         <div className="hidden lg:block">
           <Link
             to="/book-a-consultation"
-            className="inline-flex items-center rounded-full bg-neutral-900 px-6 py-3 text-lg font-semibold text-white transition-all duration-200 hover:bg-neutral-700 hover:shadow-lg focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-900"
+            className="inline-flex items-center rounded-full bg-gradient-to-r from-primary-600 to-primary-700 px-6 py-3 text-lg font-semibold text-white shadow-sm transition-all duration-200 hover:shadow-glow hover:from-primary-700 hover:to-primary-800 focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-600"
           >
             Book a Consultation
           </Link>
@@ -86,7 +88,7 @@ export function Navigation() {
                   className={({ isActive }) =>
                     `block rounded-xl px-4 py-3 text-base font-medium transition-colors ${
                       isActive
-                        ? 'bg-neutral-100 text-neutral-900'
+                        ? 'bg-primary-50 text-primary-700'
                         : 'text-neutral-600 hover:bg-neutral-50 hover:text-neutral-900'
                     }`
                   }
@@ -100,7 +102,7 @@ export function Navigation() {
             <li className="mt-4 px-4">
               <Link
                 to="/book-a-consultation"
-                className="block rounded-full bg-neutral-900 px-5 py-3 text-center text-lg font-semibold text-white transition-colors hover:bg-neutral-700"
+                className="block rounded-full bg-gradient-to-r from-primary-600 to-primary-700 px-5 py-3 text-center text-lg font-semibold text-white shadow-sm transition-all hover:shadow-glow"
                 onClick={() => setIsOpen(false)}
               >
                 Book a Consultation

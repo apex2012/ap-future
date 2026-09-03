@@ -114,12 +114,13 @@ export function AboutPage() {
       />
 
       {/* Mission */}
-      <section className="bg-white py-14 sm:py-20" aria-labelledby="mission-heading">
+      <section className="relative overflow-hidden bg-white py-14 sm:py-20" aria-labelledby="mission-heading">
+        <div className="decorative-blob top-[-60px] left-[-60px] h-[250px] w-[250px] bg-primary-100" aria-hidden="true" />
         <PageContainer>
           <Breadcrumb items={[{ label: 'Home', href: '/' }, { label: 'About' }]} />
           <div className="mx-auto max-w-3xl">
             <motion.p
-              className="mb-5 text-lg font-semibold uppercase tracking-wider text-primary-600"
+              className="mb-5 inline-flex items-center gap-2 rounded-full bg-primary-50 px-4 py-1.5 text-sm font-semibold uppercase tracking-wider text-primary-700"
               {...fadeUp}
             >
               Our Mission
@@ -155,11 +156,12 @@ export function AboutPage() {
       </section>
 
       {/* Education Principles — the intellectual heart */}
-      <section className="bg-[#FAFAF9] py-14 sm:py-20" aria-labelledby="principles-heading">
+      <section className="relative overflow-hidden bg-gradient-to-b from-primary-50/30 to-white py-14 sm:py-20" aria-labelledby="principles-heading">
+        <div className="decorative-blob bottom-[-80px] right-[-80px] h-[300px] w-[300px] bg-primary-100" aria-hidden="true" />
         <PageContainer>
           <div className="mx-auto max-w-3xl">
             <motion.p
-              className="mb-5 text-lg font-semibold uppercase tracking-wider text-primary-600"
+              className="mb-5 inline-flex items-center gap-2 rounded-full bg-primary-50 px-4 py-1.5 text-sm font-semibold uppercase tracking-wider text-primary-700"
               {...fadeUp}
             >
               Education Principles
@@ -189,10 +191,10 @@ export function AboutPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: '-80px' }}
                 transition={{ duration: 0.35, ease: 'easeOut', delay: index * 0.05 }}
-                className="group flex flex-col gap-4 rounded-2xl border border-neutral-100 bg-white p-7 transition-all duration-300 hover:border-primary-200 hover:shadow-sm sm:flex-row sm:gap-8 sm:p-9"
+                className="group flex flex-col gap-4 rounded-2xl border border-neutral-100 bg-white p-7 transition-all duration-300 hover:-translate-y-0.5 hover:border-primary-200 hover:shadow-md sm:flex-row sm:gap-8 sm:p-9"
               >
                 <div className="flex flex-shrink-0 items-center gap-4 sm:w-64">
-                  <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-primary-50 text-primary-600 transition-colors duration-300 group-hover:bg-primary-100">
+                  <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-gradient-to-br from-primary-500 to-primary-700 text-white shadow-sm transition-colors duration-300 group-hover:from-primary-600 group-hover:to-primary-800">
                     {principle.icon}
                   </span>
                   <span className="text-sm font-semibold text-neutral-300 transition-colors duration-300 group-hover:text-neutral-400">
@@ -214,11 +216,12 @@ export function AboutPage() {
       </section>
 
       {/* Learning Approach */}
-      <section className="bg-white py-14 sm:py-20" aria-labelledby="approach-heading">
+      <section className="relative overflow-hidden bg-white py-14 sm:py-20" aria-labelledby="approach-heading">
+        <div className="decorative-blob top-[-60px] right-[-60px] h-[250px] w-[250px] bg-primary-100" aria-hidden="true" />
         <PageContainer>
           <div className="mx-auto max-w-3xl">
             <motion.p
-              className="mb-5 text-lg font-semibold uppercase tracking-wider text-primary-600"
+              className="mb-5 inline-flex items-center gap-2 rounded-full bg-primary-50 px-4 py-1.5 text-sm font-semibold uppercase tracking-wider text-primary-700"
               {...fadeUp}
             >
               How We Work
@@ -249,7 +252,7 @@ export function AboutPage() {
                 transition={{ duration: 0.4, ease: 'easeOut', delay: index * 0.06 }}
                 className="flex gap-5"
               >
-                <span className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-xl bg-neutral-50 text-primary-600">
+                <span className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-primary-500 to-primary-700 text-white shadow-sm">
                   {item.icon}
                 </span>
                 <div>
@@ -267,11 +270,12 @@ export function AboutPage() {
       </section>
 
       {/* Journey */}
-      <section className="bg-[#FAFAF9] py-14 sm:py-20" aria-labelledby="journey-heading">
+      <section className="relative overflow-hidden bg-gradient-to-b from-primary-50/30 to-white py-14 sm:py-20" aria-labelledby="journey-heading">
+        <div className="decorative-blob bottom-[-60px] left-[-60px] h-[250px] w-[250px] bg-primary-100" aria-hidden="true" />
         <PageContainer>
           <div className="mx-auto max-w-3xl">
             <motion.p
-              className="mb-5 text-lg font-semibold uppercase tracking-wider text-primary-600"
+              className="mb-5 inline-flex items-center gap-2 rounded-full bg-primary-50 px-4 py-1.5 text-sm font-semibold uppercase tracking-wider text-primary-700"
               {...fadeUp}
             >
               The Journey
@@ -305,7 +309,7 @@ export function AboutPage() {
                   transition={{ duration: 0.4, ease: 'easeOut', delay: index * 0.08 }}
                   className="relative"
                 >
-                  <span className="relative z-10 flex h-3.5 w-3.5 items-center justify-center rounded-full bg-white ring-4 ring-[#FAFAF9]">
+                  <span className="relative z-10 flex h-3.5 w-3.5 items-center justify-center rounded-full bg-white ring-4 ring-primary-200">
                     <span className="h-1.5 w-1.5 rounded-full bg-primary-500" />
                   </span>
                   <span className="mt-4 block text-sm font-bold text-primary-500">
