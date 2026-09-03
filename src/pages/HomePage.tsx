@@ -16,12 +16,10 @@ import { CTA } from '@/components/ui/CTA';
 import { PageContainer } from '@/components/ui/PageContainer';
 
 const heroImage = {
-  src: 'https://images.pexels.com/photos/37758609/pexels-photo-37758609.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
-  alt: 'Students collaborating in a classroom, engaged in study and discussion',
-  width: 940,
-  height: 650,
-  srcSet:
-    'https://images.pexels.com/photos/37758609/pexels-photo-37758609.jpeg?auto=compress&cs=tinysrgb&h=400&w=600 600w, https://images.pexels.com/photos/37758609/pexels-photo-37758609.jpeg?auto=compress&cs=tinysrgb&h=650&w=940 940w, https://images.pexels.com/photos/37758609/pexels-photo-37758609.jpeg?auto=compress&cs=tinysrgb&h=900&w=1400 1400w',
+  src: '/images/home/home-hero-vancouver.png',
+  alt: 'City skyline and mountains beneath a bright sky',
+  width: 1536,
+  height: 1024,
   sizes: '(min-width: 1024px) 45vw, 100vw',
 };
 
